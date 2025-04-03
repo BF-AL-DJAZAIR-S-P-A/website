@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}BF AL DJAZAIR S.P.A{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}BF AL DJAZAIR S.P.A{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('modules/proxima-templates/favicon/newFavicon-180x180.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('modules/proxima-templates/favicon/newFavicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('modules/proxima-templates/favicon/newFavicon-16x16.png')}}">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-          <script type="application/ld+json">
+    <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "BF AL DJAZAIR S.P.A",
             "url": ""
         }
-    </script> 
-        {% block stylesheets %}
+    </script>
+    {% block stylesheets %}
 
 
 
@@ -28,8 +29,22 @@
     <script src="{{asset('modules/proxima-templates/cdn/utc.js')}}"></script>
     <script src="{{asset('modules/proxima-templates/cdn/timezone.js')}}"></script>
 
-    <script type="application/json" id="jahia-data-ctx">{"contextPath":"","lang":"fr","uilang":"fr","siteUuid":"4b7afda2-e9f6-4e25-8ca7-f323683aa97c","wcag":true,"ckeCfg":""}</script>
-    <script type="application/json" id="jahia-data-ck">{"path":"modules/ckeditor/javascript/","lng":"fr_FR"}</script>
+    <script type="application/json" id="jahia-data-ctx">
+        {
+            "contextPath": "",
+            "lang": "fr",
+            "uilang": "fr",
+            "siteUuid": "4b7afda2-e9f6-4e25-8ca7-f323683aa97c",
+            "wcag": true,
+            "ckeCfg": ""
+        }
+    </script>
+    <script type="application/json" id="jahia-data-ck">
+        {
+            "path": "modules/ckeditor/javascript/",
+            "lng": "fr_FR"
+        }
+    </script>
 
 
     <script type="application/json" id="jahia-data-ctx">
@@ -51,7 +66,7 @@
     <script src="javascript/initJahiaContext.js"></script>
     <link id="staticAssetCSS0" rel="stylesheet" href="{{asset('generated-resources/a028cdde7c62aadd5c846adfbdda3bac.min.css')}}" media="screen" type="text/css" />
     <link id="staticAssetCSS1" rel="stylesheet" href="{{asset('generated-resources/6f82d73ef647dae01a38934223babe5.min.css')}}" media="print" type="text/css" />
-  
+
 
     <script id="staticAssetJavascript0" src="{{asset('js/forms2/js/forms2.min.js')}}"></script>
     <script id="staticAssetJavascript1" src="{{asset('generated-resources/824bbfe43accd57f16a63871fc43c2.min.js')}}"></script>
@@ -112,78 +127,490 @@
 
 
     <script type="text/javascript" src="{{asset('scripts/bizible.js')}}" async=""></script>
-    <script type="text/javascript" src="{{asset('modules/CsrfServlet.js')}}"></script>
+ 
 
     <style>
-
         .header-primary-logo img {
-        
             max-width: 300px;
             max-height: 76px;
         }
 
-
-                .content-block.content-slider.content-color-gradient .slider-wrapper .slider-contents:after, .content-block.content-slider .slider-wrapper .slider-contents:after {
+        .content-block.content-slider.content-color-gradient .slider-wrapper .slider-contents:after,
+        .content-block.content-slider .slider-wrapper .slider-contents:after {
             background: linear-gradient(90deg, #28285f, #1a2955);
         }
+    </style>
+    {% endblock %}
 
-            </style>
-        {% endblock %}
 
- 
-    </head>
-    <body  id="anchor-top" class="scroll-active ">
+</head>
+
+<body id="anchor-top" class="scroll-active ">
+
+    <div class="skip-link js-skip">
+        <a href="#main-content">Aller au contenu</a>
+        <a href="#header-global">Aller au menu</a>
+        <button data-target="header-primary-search">Aller à la recherche</button>
+    </div>
+    <nav id="nav-content" class="page-contact-list" aria-label="Barre d'outils">
+        <!-- We are on a template page type -->
+        <!-- Content sticky - start -->
+        <form action="/global/fr/.goto.do" method="post">
+            <input type="hidden" name="target" value="dab2abf2-61b3-4247-9209-b9c3f72ba9a7">
+            <input type="hidden" name="from" value="cae7f3c7-10aa-42c8-b713-54b6df7fca54">
+            <button class="page-contact">
+                        <svg class="icon icon-image-email">
+                            <use href="#icon-image-email"></use>
+                        </svg>
+                        Contact</button>
+        </form>
+        <!-- Content sticky - end -->
+    </nav>
+    <div id="root" class="BF AL DJAZAIR-root">
+        <header id="header-global" class=" js-witch-important js-header " aria-live="polite">
+            <input type="hidden" id="tab" name="tab" value="">
+            <!-- Header secondary menu -->
+            <nav class="header-secondary-navigation" aria-label="Navigation secondaire">
+                <ul class="header-navigation-list">
+                  
+                    <li class="header-navigation-item">
+                        <button class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="c51a53b0-7dbf-41de-9426-28f27a97563d" aria-controls="c51a53b0-7dbf-41de-9426-28f27a97563d" data-hover="hover-group-2" aria-haspopup="true"
+                            aria-expanded="false">
+                    Carrières<svg class="icon icon-arrow">
+                    <use href="#icon-arrow"></use>
+                </svg>
+            </button>
+                        <div id="c51a53b0-7dbf-41de-9426-28f27a97563d" class="header-megamenu header-secondary-megamenu header-secondary-panel header-level1 header-color-transparent" aria-live="polite">
+                            <aside class="header-megamenu-left">
+                                <button data-target="c51a53b0-7dbf-41de-9426-28f27a97563d" class="button button-back header-secondary-return-link js-header-menu-return js-switch js-megamenu-level-close" data-level="1">
+        <svg class="icon icon-boutons-link-normal">
+            <use href="#icon-boutons-link-normal"></use>
+        </svg>
+        Retour</button>
+                                <p><strong>Carri&egrave;res</strong></p>
+                                <p>
+                                    What are you made of?</p>
+
+                                <a href="/global/fr/careers/" target="_self" class="button button-secondary">Pourquoi nous rejoindre ?</a><a href="https://jobs.BF AL DJAZAIR.com/?locale=fr_FR" target="_blank" class="button button-link">Postuler<svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></aside>
+                            <div class="header-secondary-panel-list header-column header-column-manual">
+                                <div class="wrapper">
+                                    <div class="header-secondary-panel-return">
+                                        <button class="js-switch header-secondary-return-link" data-target="c51a53b0-7dbf-41de-9426-28f27a97563d">
+                <svg class="icon icon-boutons-link-normal">
+                    <use href="#icon-boutons-link-normal"></use>
+                </svg>
+                Retour</button>
+                                        <button class="js-switch button-close header-secondary-return-icon" data-target="c51a53b0-7dbf-41de-9426-28f27a97563d" title="Fermer ce menu">
+                <svg class="icon icon-close">
+                    <use href="#icon-close"></use>
+                </svg>
+            </button>
+                                    </div>
+                                    <nav aria-label="Sous-menu secondaire">
+                                        <ul>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/careers/join-us/">
+                            Nous rejoindre<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/careers/working-at-BF AL DJAZAIR/">
+                            Notre politique RH<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/careers/our-professions/">
+                            Nos métiers<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/careers/future-graduates/">
+                            Jeunes talents<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                   
+                </ul>
+            </nav>
+
+            <a href="#" class="header-secondary-panel-type header-secondary-country header-navigation-item js-hover" data-hover="hover-group-2">
+            Espace Candidat</a>
+            <!-- Header secondary Language selector -->
+            <div class="header-secondary-language" id="header-secondary-language" aria-live="polite">
+                <button class="header-secondary-language-current js-switch js-hover" data-target="header-secondary-language" aria-controls="header-secondary-language" data-hover="hover-group-2">
+                        fr</button>
+                <div class="header-secondary-language-underline"></div>
+                <ul class="header-secondary-language-list">
+                    <li>
+                        <a href='/global/en/'>en</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Header primary Logo -->
+            <div class='header-primary-logo '>
+                <a href="/global/fr/" title="Retour à la page d'accueil">
+            <img src="img/logo4.svg" width="300">
+        </a>
+            </div>
+            <!-- Header primary -->
+            <!-- Header primary Main bar -->
+            <nav class="header-primary-navigation" aria-label="Navigation primaire">
+                <ul class="header-navigation-list">
+
+                 
+            
+                    <li class="header-navigation-item">
+                        <button class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="cdc4d822-a278-4f3d-85d8-6825770d1074" aria-controls="cdc4d822-a278-4f3d-85d8-6825770d1074" data-hover="hover-group-1" aria-haspopup="true"
+                            aria-expanded="false">
+                Groupe<svg class="icon icon-arrow">
+                    <use href="#icon-arrow"></use>
+                </svg>
+            </button>
+                        <div id="cdc4d822-a278-4f3d-85d8-6825770d1074" class="header-megamenu header-main-megamenu header-secondary-panel header-level1 header-color-gradient" aria-live="polite">
+                            <aside class="header-megamenu-left">
+                                <button data-target="cdc4d822-a278-4f3d-85d8-6825770d1074" class="button button-back header-secondary-return-link js-header-menu-return js-switch js-megamenu-level-close" data-level="1">
+        <svg class="icon icon-boutons-link-normal">
+            <use href="#icon-boutons-link-normal"></use>
+        </svg>
+        Retour</button>
+                                <p><strong>Groupe</strong></p>
+                                <p>
+                                    Un acteur mondial des matériaux de spécialités</p>
+
+                                <a href="/global/fr/BF AL DJAZAIR-group/" target="_self" class="button button-secondary">Nous connaître</a><a href="/global/fr/BF AL DJAZAIR-group/our-materials/innovative-magazines/" target="_self" class="button button-link">Télécharger notre rapport annuel<svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></aside>
+                            <div class="header-secondary-panel-list header-column header-column-manual">
+                                <div class="wrapper">
+                                    <div class="header-secondary-panel-return">
+                                        <button class="js-switch header-secondary-return-link" data-target="cdc4d822-a278-4f3d-85d8-6825770d1074">
+                <svg class="icon icon-boutons-link-normal">
+                    <use href="#icon-boutons-link-normal"></use>
+                </svg>
+                Retour</button>
+                                        <button class="js-switch button-close header-secondary-return-icon" data-target="cdc4d822-a278-4f3d-85d8-6825770d1074" title="Fermer ce menu">
+                <svg class="icon icon-close">
+                    <use href="#icon-close"></use>
+                </svg>
+            </button>
+                                    </div>
+                                    <nav aria-label="Sous-menu primaire">
+                                        <ul>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/profile/">
+                            À propos de BF AL DJAZAIR S.P.A<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/vision/">
+                            Notre vision<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/strategy/">
+                            Objectifs 2028<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/innovation/">
+                            Notre innovation<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/our-materials/">
+                            Marque<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/governance/">
+                            Gouvernance<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/ethics-and-compliance/">
+                            Éthique et Conformité<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/procurement/">
+                            Fournisseurs<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/philanthropy/">
+                            Mécénat<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                            <li class="menu-link-attach menu-link-background-white">
+
+                                                <a href="/global/fr/BF AL DJAZAIR-group/sponsoring/">
+                            Sponsoring<svg class="icon icon-boutons-link-normal">
+                                <use href="#icon-boutons-link-normal"></use>
+                            </svg>
+                        </a>
+                                            </li>
+                                        </ul>
+
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                           <li class="header-navigation-item">
+                        <button onclick="window.location.href='aaa.html';" class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
+                            aria-expanded="false">
+                         Actualité<svg class="icon icon-arrow">
+                        <use href="#icon-arrow"></use>
+                            </svg>
+                        </button>
+                        
+                    </li>
+                          <li class="header-navigation-item">
+                        <button onclick="window.location.href='aaa.html';" class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
+                            aria-expanded="false">
+                        Offres d'emplois <svg class="icon icon-arrow">
+                        <use href="#icon-arrow"></use>
+                            </svg>
+                        </button>
+                        
+                    </li>
+                       <li class="header-navigation-item">
+                        <button onclick="window.location.href='aaa.html';" class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
+                            aria-expanded="false">
+                        Appels d'offres <svg class="icon icon-arrow">
+                        <use href="#icon-arrow"></use>
+                            </svg>
+                        </button>
+                        
+                    </li>
+               
+
+                       <li class="header-navigation-item">
+                        <button onclick="window.location.href='aaa.html';" class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
+                            aria-expanded="false">
+                        Contact<svg class="icon icon-arrow">
+                        <use href="#icon-arrow"></use>
+                            </svg>
+                        </button>
+                        
+                    </li>
+                 
+                 
+                   
+                </ul>
+            </nav>
+
+            <!-- Header primary search activation -->
+            <!-- Json categories -->
+            <div id="header-primary-search" aria-live="polite" class="header-primary-search">
+                <form class="form-simple" action="/global/fr/search/" data-search-json='{
+    "documentSearchPath" : "",
+    "isBostik" : false,
+    "countryFilter": [
+    
+    ],
+    "brandFilter": [
+    
+    ],
+    "baseUrl": "/cms/render/live/fr",
+    "dataFilter": {"fieldsets": []},
+    "dateField": "date",
+    "dateFilter": {},
+    "dateRange": false,
+    "documentFilters": [{"field": "jgql:mimeType.keyword", "value": "application/pdf"}],
+    "includePIMPDFsInDocumentSearch": false,
+    "eventListFilters": [],
+    "jwtToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJodHRwOi8vamFoaWEuY29tIiwic3ViIjoiYXBpIHZlcmlmaWNhdGlvbiIsImlzcyI6ImR4Iiwic2NvcGVzIjpbInByb3hpbWEiXSwiaWF0IjoxNTk0MzkxNzE1LCJqdGkiOiIyOTYzMjk1Ni1hYjMyLTRkODItYmNmZC1iYWVhY2ZiMjUyNjUifQ.gdaPaMhwCPFNZr6NtoG_9QgUacLxmuXJ7_fosw-XXbk",
+    "locale": "fr",
+    "liveMode": "true",
+    "isUniqueDomainSite": "null",
+    "productFinderLinkUrl": "",
+    "sortBy": {},
+    "type": "home",
+    "siteFilter": [{"field": "jgql:categories.keyword", "value": "BF AL DJAZAIR_global"}],
+    "structure": {
+        "label_autocomplete_all_result": "Tous les résultats",
+        "label_autocomplete_search_document": "Rechercher un document / fiche technique",
+        "label_tag_casestudy": "Témoignage client",
+        "label_tag_event": "Évènement",
+        "label_tag_news": "Actualité",
+        "label_tag_page": "Page",
+        "label_tag_product": "Produit",
+        "label_tag_webzinepost": "Article",
+        "label_tag_pdf": "PDF",
+        "label_tag_product_range": "Gamme de produits",
+        "label_tag_knowledge": "Knowledge"
+    },
+    "termsFilter": [{"field": "jgql:nodeType", "value": "akm:caseStudy"},
+            
+                {"field": "jgql:nodeType", "value": "akm:event"},
+                {"field": "jgql:nodeType", "value": "akm:news"},
+            
+            {"field": "jgql:nodeType", "value": "akm:product"},
+            {"field": "jgql:nodeType", "value": "akm:productBostik"},
+            {"field": "jgql:nodeType", "value": "akm:productRange"},
+            {"field": "jgql:nodeType", "value": "akm:knowledge"},
+            {"field": "jgql:nodeType", "value": "pimnt:product"},
+            {"field": "jgql:nodeType", "value": "akm:webzinePost"},
+            {"field": "jgql:nodeType", "value": "jnt:page"}],
+    "urls": {
+        "caseStudies" : { "path": "", "type": "" },
+        "events" : { "path": "/sites/BF AL DJAZAIR_global/home/media/shows/event", "type": "event" },
+        "news" :  { "path": "/sites/BF AL DJAZAIR_global/home/media/newslist/news", "type": "news" },
+        "products" :  { "path": "/sites/BF AL DJAZAIR_global/home/products/product-finder/product", "type": "product" },
+        "productRanges" :  { "path": "/sites/BF AL DJAZAIR_global/home/products/product-finder/product-range", "type": "productrange" },
+        "knowledges" : { "path": "", "type": "" },
+        
+        "webzinePosts" : { "path": "/sites/BF AL DJAZAIR_global/home/resources/post", "type": "webzinepost" }
+    }
+    
+}'>
+                    <div class="autocomplete-container js-autocomplete-container">
+                        <div class="autocomplete-field" id="search-result-v2-input">
+                            <div class="autocomplete-query">
+                                <input class="js-autocomplete" name="q" type="text" tabindex="-1" placeholder="Entrer un mot-clé" autocomplete="off" aria-label="Enter one or more keywords. On input validation, you will be redirected to search page result." />
+                                <input name="qc" type="hidden" value="search" />
+                            </div>
+                            <div class="autocomplete-button">
+                                <button type="submit" tabindex="-1" title="Rechercher">
+                            <svg class="icon icon-image-search">
+                                <use href="#icon-image-search"></use>
+                            </svg>
+                        </button>
+                            </div>
+                        </div>
+                        <div class="autocomplete-result">
+                            <div class="autocomplete-list js-search-results"></div>
+                        </div>
+                    </div>
+                </form>
+                <button id="header-search-button" class="js-switch js-switch-mobile-only header-primary-icon js-hover js-switch-tabindex js-search-open" data-target="header-primary-search" aria-controls="header-primary-search" data-hover="hover-group-3" tabindex="0"
+                    title="Chercher">
+            <svg class="icon icon-image-search">
+                <use href="#icon-image-search"></use>
+            </svg>
+            <svg class="icon icon-close">
+                <use href="#icon-close"></use>
+            </svg>
+            <span>Chercher</span>
+        </button>
+                <a id="header-search-link" class="header-primary-icon js-hover" data-target="header-primary-search" data-hover="hover-group-3" href="/global/fr/search/" tabindex="0" title="Chercher">
+            <svg class="icon icon-image-search">
+                <use href="#icon-image-search"></use>
+            </svg>
+            <span>Chercher</span>
+        </a>
+            </div>
+            <!-- loggin template -->
+
+
+            <script>
+                document.cookie = "logged=; path=/";
+            </script>
+            <!-- Header Burger -->
+            <button class="header-global-burger js-switch js-switch-important" data-target="header-global" title="Ouvrer la navigation principale" aria-controls="header-global">
+    <svg class="icon icon-burger">
+        <use href="#icon-burger"></use>
+    </svg>
+    <svg class="icon icon-close">
+        <use href="#icon-close"></use>
+    </svg>
+</button></header>
         {% block body %}{% endblock %}
 
 
 
-            <script>
-        let globalScrollState = {
-            body: true,
-            header: false,
-            modal: false,
-            popin: true,
-            headerMainMegamenu: false,
-            appSidebar: false,
-            sidebar: false,
-            bannerSearchContent: false,
-            saveScrollState: false
-        };
-    </script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        var pageData = JSON.parse(document.querySelector('.js-datalayer').getAttribute('data-layer'));
-        var cleanValues = {};
+        <script>
+            let globalScrollState = {
+                body: true,
+                header: false,
+                modal: false,
+                popin: true,
+                headerMainMegamenu: false,
+                appSidebar: false,
+                sidebar: false,
+                bannerSearchContent: false,
+                saveScrollState: false
+            };
+        </script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            var pageData = JSON.parse(document.querySelector('.js-datalayer').getAttribute('data-layer'));
+            var cleanValues = {};
 
-        if (pageData !== null) {
-            Object.keys(pageData).forEach((prop) => {
-                if (pageData[prop] && pageData[prop].length !== 0) {
-                    cleanValues[prop.trim()] = pageData[prop];
-                }
-            });
-        }
+            if (pageData !== null) {
+                Object.keys(pageData).forEach((prop) => {
+                    if (pageData[prop] && pageData[prop].length !== 0) {
+                        cleanValues[prop.trim()] = pageData[prop];
+                    }
+                });
+            }
 
-        window.dataLayer.push(cleanValues);
+            window.dataLayer.push(cleanValues);
 
-        var siteLang = "fr"
-    </script>
-    <script>
-        console.log('Started bundle : proxima-templates in version 6.84.0');
-        console.log('Started bundle : proxima-bostik-templates in version 6.84.0');
-        console.log('Started bundle : proxima-main in version 6.84.2');
-    </script>
-    <script src="{{asset('javascript/initJahiaContext.js')}}"></script>
-    <script id="staticAssetJavascriptBODY0" src="{{asset('generated-resources/2435135b50776572a9fa74e556aaf.min.js')}}"></script>
-    <script type="application/json" id="jahia-data-aggregatedjsBODY">
-        {
-            "scripts": ["modules/proxima-main/javascript/bfaldjazairbundle.js"]
-        }
-    </script>
+            var siteLang = "fr"
+        </script>
+        <script>
+            console.log('Started bundle : proxima-templates in version 6.84.0');
+            console.log('Started bundle : proxima-bostik-templates in version 6.84.0');
+            console.log('Started bundle : proxima-main in version 6.84.2');
+        </script>
+        <script src="{{asset('javascript/initJahiaContext.js')}}"></script>
+        <script id="staticAssetJavascriptBODY0" src="{{asset('generated-resources/2435135b50776572a9fa74e556aaf.min.js')}}"></script>
+        <script type="application/json" id="jahia-data-aggregatedjsBODY">
+            {
+                "scripts": ["modules/proxima-main/javascript/bfaldjazairbundle.js"]
+            }
+        </script>
 
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"916dfa4aef55ba98","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.1.0","token":"6c32d396f7b247d1968f4ecd82bbb271"}'
-        crossorigin="anonymous"></script>
-    </body>
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"916dfa4aef55ba98","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.1.0","token":"6c32d396f7b247d1968f4ecd82bbb271"}'
+            crossorigin="anonymous"></script>
+</body>
 
 
- 
+
 </html>
