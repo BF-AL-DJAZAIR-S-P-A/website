@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirige toutes les requêtes vers le dossier public
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /public/$1 [L]
+
+    # Redirige automatiquement bfaldjazair.com/public vers bfaldjazair.com
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /public/
+    RewriteRule ^public/(.*)$ /$1 [R=301,L]
+</IfModule>
