@@ -1,0 +1,10 @@
+#dzmap.dzmap{
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 80%;
+}
+.content-block.content-slider.content-color-gradient .slider-wrapper .slider-contents:after, .content-block.content-slider .slider-wrapper .slider-contents:after {
+    background: linear-gradient(90deg,#00000000 , #1a2955) !important;
+}
+

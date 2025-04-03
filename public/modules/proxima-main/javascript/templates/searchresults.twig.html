@@ -1,0 +1,28 @@
+{% for item in data.hits %} {% if item.node is not null %} {% if item.nodeType == 'akm:productBostik' or item.nodeType == 'akm:product' or item.nodeType == 'pimnt:product' %}
+ {{ item.node.title }}
+{{ structure.label_tag_product }}
+{% if item.node.path is not empty %} {% endif %}
+{% elseif item.nodeType == 'akm:productRange' %}
+ {{ item.node.title }}
+{{ structure.label_tag_product_range }}
+{% if item.node.path is not empty %} {% endif %}
+{% elseif item.nodeType == 'akm:knowledge' %}
+ {{ item.node.title }}
+{{ structure.label_tag_knowledge }}
+{% if item.node.path is not empty %} {% endif %}
+{% elseif item.nodeType == 'akm:news' or item.nodeType == 'akm:event' or item.nodeType == 'akm:webzinePost' %}
+ {{ item.node.title }}
+{% if item.nodeType == 'akm:news' %} {{ structure.label_tag_news }} {% elseif item.nodeType == 'akm:webzinePost' %} {{ structure.label_tag_webzinepost }} {% elseif item.nodeType == 'akm:event' %} {{ structure.label_tag_event }} {% endif %}
+{% if item.node.path is not empty %} {% endif %}
+{% elseif item.nodeType == 'jnt:file' %}
+ {{ item.node.displayName }}
+{{ structure.label_tag_pdf }}
+{% if item.node.path is not empty %} {% endif %}
+{% elseif item.nodeType == 'jnt:page' %}
+ {{ item.node.displayName }}
+{% if item.node.template is not empty %} {% if item.node.template == 'applications1' %} {{ structure.label_tag_application1 }} {% elseif item.node.template == 'applications2'%} {{ structure.label_tag_application2 }} {% elseif item.node.template == 'applications3'%} {{ structure.label_tag_application3 }} {% elseif item.node.template == 'markets'%} {{ structure.label_tag_market }} {% else %} {{ structure.label_tag_page }} {% endif %} {% else %} {{structure.label_tag_page }} {% endif %}
+{% if item.node.path is not empty %} {% endif %}
+{% endif %} {% endif %} {% endfor %}
+{% if item.node.nodeTypeFinderUrl is not empty %}
+{% if item.node.nodeTypeFinderUrl is not empty %} {{ structure.label_autocomplete_all_result }} {% endif %} {{ structure.label_autocomplete_search_document }}
+{% endif %}
