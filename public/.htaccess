@@ -92,7 +92,13 @@ DirectoryIndex index.php
 
   
 </IfModule>  
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
 RewriteCond %{HTTP_REFERER} !^http://website.bfaldjazair.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://website.bfaldjazair.com$      [NC]
 RewriteCond %{HTTP_REFERER} !^http://www.website.bfaldjazair.com/.*$      [NC]
