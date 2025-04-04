@@ -48,8 +48,8 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $telephone = null;
 
-    #[ORM\Column]
-    private ?bool $isVerified = null;
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $isVerified = false;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
