@@ -40,6 +40,7 @@ class RegistrationController extends AbstractController
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
             $entityManager->persist($user);
+            $user->setRoles(['ROLE_CANDIDAT']);
             $entityManager->flush();
 
             // generate a signed url and email it to the user
