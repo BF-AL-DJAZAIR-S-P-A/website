@@ -355,12 +355,21 @@ const editorField = document.querySelector('#appels_texte');
 
 ClassicEditor.create(editorField, editorConfig)
 .then(newEditor => {
-	newEditor.model.document.on("change", function(){
+	// Récupérer la valeur du champ textarea pour l'initialiser dans CKEditor
+	const initialValue = editorField.value; // Récupère la valeur initiale
+
+	// Mettre la valeur initiale dans CKEditor
+	newEditor.setData(initialValue); // Utilise setData pour définir le contenu
+
+	// Écouter les changements dans l'éditeur
+	newEditor.model.document.on('change', () => {
+		// Récupérer les données de l'éditeur
 		const editorData = newEditor.getData();
-		editorField.value = editorData
-	})
+		// Mettre à jour la valeur du champ texte avec les données de l'éditeur
+		editorField.value = editorData;
+	});
 })
 .catch(err => {
-	console.error(err.stack)
+	console.error(err.stack);
 });
 
