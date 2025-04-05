@@ -1,0 +1,342 @@
+{% block modal2 %}
+
+	<style>
+		.btn-group,
+		.btn-group-vertical {
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.badge,
+		.badge2,
+		.progress-bar {
+			cursor: pointer;
+		}
+		.badge {
+			display: inline-block;
+			min-width: 10px;
+			padding: 5px 28px;
+			font-size: 10px;
+			text-transform: none;
+			font-weight: lighter;
+			line-height: 1;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			color: #000;
+			background: #fff;
+			background: -moz-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+			background: -webkit-gradient(left top, left bottom, color-stop(0%, #fff), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+			background: -webkit-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+			background: -o-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+			background: -ms-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+			background: linear-gradient(to bottom, #fff 0%, #f6f6f6 47%, #ededed 100%);
+			border-radius: 10px;
+			-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+			-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+			box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+		}
+		.dropdown-menu > li > a:hover,
+		.dropdown-menu > li > a:focus {
+			cursor: pointer;
+		}
+		.dropdown-menu > li > a:hover,
+		.dropdown-menu > li > a:focus {
+			color: #ffffff;
+			text-decoration: none;
+			background: #3c5b79 !important;
+		}
+		.dropdown-menu > li > a {
+			font-size: 13px;
+		}
+		.dropdown-menu > li > a {
+			display: block;
+			padding: 3px 20px;
+			clear: both;
+			font-weight: normal;
+			line-height: 1.42857143;
+			color: #333;
+			white-space: nowrap;
+		}
+		.dropdown-menu {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 1000;
+			display: none;
+			float: left;
+			min-width: 160px;
+			padding: 5px 0;
+			margin: 2px 0 0;
+			list-style: none;
+			font-size: 14px;
+			background-color: #ffffff;
+			border: 1px solid #cccccc;
+			border: 1px solid rgba(0, 0, 0, 0.15);
+			border-radius: 4px;
+			-webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+			box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+			background-clip: padding-box;
+		}
+		.badge2 {
+			width: 98px;
+			display: inline-block;
+			min-width: 10px;
+			padding: 6px 28px;
+			font-size: 10px;
+			text-transform: none;
+			font-weight: lighter;
+			line-height: 1;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			color: #ffffff;
+
+			background: linear-gradient(to bottom, #82bc40 0%, #47761d 100%);
+			border-radius: 10px;
+			-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+			-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+			box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+		}
+		.badge3 {
+			width: 98px;
+			display: inline-block;
+			min-width: 10px;
+			padding: 6px 28px;
+			font-size: 10px;
+			text-transform: none;
+			font-weight: lighter;
+			line-height: 1;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			color: #ffffff;
+
+			background: linear-gradient(to bottom, #ff5200 0%, #ff5200 100%);
+			border-radius: 10px;
+			-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+			-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+			box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+		}
+		.badge4 {
+			width: 98px;
+			display: inline-block;
+			min-width: 10px;
+			padding: 6px 28px;
+			font-size: 10px;
+			text-transform: none;
+			font-weight: lighter;
+			line-height: 1;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			color: #ffffff;
+
+			background: linear-gradient(to bottom, #f31f15 0%, #f31f15 100%);
+			border-radius: 10px;
+			-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+			-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+			box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+		}
+		* {
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.enretard {
+			max-width: 100px;
+			height: 20px;
+			font-size: 10px;
+			text-transform: none;
+			font-weight: lighter;
+			line-height: 1;
+			text-align: center;
+			white-space: nowrap;
+			padding: 2px 8px;
+			margin-top: 0;
+			border: none;
+			box-shadow: none;
+			color: white;
+			background: linear-gradient(to bottom, #f96e0c 0%, #f96e0c 0%, #f96e0c 51%, #f96e0c 71%, #f96e0c 100%);
+		}
+		.absent {
+			max-width: 100px;
+			height: 20px;
+			background: linear-gradient(to bottom, #f85032 0%, #f16f5c 0%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+		}
+		.dr .dropdown-menu > li > a:hover,
+		.dropdown-menu > li > a:focus {
+
+			text-decoration: none;
+			background: #3c5b79 !important;
+			color: white !important;
+		}
+	</style>
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: absolute;margin-top: -16px;    margin-left: -16px; background-color: #f8f9fa!important;     padding: 0.6rem 1rem;">
+
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav mr-auto">
+								<li class="nav-item active">
+									<a class="nav-link informations" href="#">Informations
+									</a>
+								</li>
+								<li class="nav-item etudiants">
+									<a class="nav-link" href="#">Gérer Les Absences</a>
+								</li>
+								<li class="nav-item notes">
+									<a class="nav-link" href="#">Gérer Les Notes</a>
+								</li>
+
+							</ul>
+
+						</div>
+					</nav>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<div class="tableau_absences">
+					
+
+						</div>
+
+						<br></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript"></script>
+
+		<script>
+			const addTagLink2 = document.createElement('a')
+addTagLink2.classList.add('add_tag_list')
+addTagLink2.href = '#'
+addTagLink2.innerText = 'Add a tag'
+addTagLink2.dataset.collectionHolderClass = 'tags2'
+
+const newLinkLi2 = document.createElement('div').append(addTagLink2)
+
+const collectionHolder2 = document.querySelector('.tags2')
+collectionHolder2.appendChild(addTagLink2)
+
+const addFormToCollection2 = (e) => {
+const collectionHolder2 = document.querySelector('.' + e.currentTarget.dataset.collectionHolder2Class);
+
+const item = document.createElement('div');
+
+item.innerHTML = collectionHolder2.dataset.prototype.replace(/__name__/g, collectionHolde2.dataset.index);
+
+collectionHolder2.appendChild(item);
+
+collectionHolder2.dataset.index ++;
+collectionHolder2.appendChild(addTagLink2)
+} addTagLink2.addEventListener("click", addFormToCollection2)
+		</script>
+
+
+		{% for etudiant in etudiants %}
+
+
+			<input class="etudiantsListe {{loop.index}}" type="text" value="{{etudiant.id}}" style="display:none;">
+
+
+		{% endfor %}
+
+
+		<script>
+			$(".etudiantsListe").each(function (index) {
+
+addTagLink2.click();
+
+var counter = 1;
+$('.etudiant').each(function () {
+$(this).val($('.' + counter).val())
+
+
+counter++;
+});
+
+});
+
+
+$("#notes_classes").change(function () {
+
+window.location = '/notes/new/' + $(this).val();
+
+
+});
+
+
+$('.note2').hide()
+$('.observation2').hide()
+$('.note3').hide()
+$('.observation3').hide()
+
+$(".discount1").click(function () {
+$(this).addClass("bolder");
+$('.titrenote').text('Note1 /20')
+$(".discount2").removeClass("bolder");
+$(".discount3").removeClass("bolder");
+$('.note1').show()
+$('.observation1').show()
+
+$('.note2').hide()
+$('.observation2').hide()
+
+$('.note3').hide()
+$('.observation3').hide()
+});
+$(".discount2").click(function () {
+$(this).addClass("bolder");
+$('.titrenote').text('Note2 /20')
+$(".discount1").removeClass("bolder");
+$(".discount3").removeClass("bolder");
+$('.note1').hide()
+$('.observation1').hide()
+
+$('.note2').show()
+$('.observation2').show()
+
+$('.note3').hide()
+$('.observation3').hide()
+});
+$(".discount3").click(function () {
+$(this).addClass("bolder");
+$('.titrenote').text('Note3 /20')
+$(".discount1").removeClass("bolder");
+$(".discount2").removeClass("bolder");
+$('.note1').hide()
+$('.observation1').hide()
+
+$('.note2').hide()
+$('.observation2').hide()
+
+$('.note3').show()
+$('.observation3').show()
+});
+
+
+$("div#etudiant").each(function (index) {
+
+$(this).addClass("index" + index);
+
+$(".index" + index).append($("#notes_tableau_" + index + "_etudiant option:selected").text())
+$(".index" + index).append($("#absences_tableau_" + index + "_etudiant option:selected").text())
+});
+		</script>
+
+	{% endblock %}

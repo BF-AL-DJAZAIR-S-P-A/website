@@ -1,0 +1,935 @@
+{% block modal %}
+
+<style>
+	.btn-group,
+	.btn-group-vertical {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.badge,
+	.badge2,
+	.progress-bar {
+		cursor: pointer;
+	}
+	.badge {
+		display: inline-block;
+		min-width: 10px;
+		padding: 5px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #000;
+		background: #fff;
+		background: -moz-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, #fff), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+		background: -webkit-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -o-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -ms-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: linear-gradient(to bottom, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	.dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+		cursor: pointer;
+	}
+	.dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+		color: #ffffff;
+		text-decoration: none;
+		background: #3c5b79 !important;
+	}
+	.dropdown-menu > li > a {
+		font-size: 13px;
+	}
+	.dropdown-menu > li > a {
+		display: block;
+		padding: 3px 20px;
+		clear: both;
+		font-weight: normal;
+		line-height: 1.42857143;
+		color: #333;
+		white-space: nowrap;
+	}
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		display: none;
+		float: left;
+		min-width: 160px;
+		padding: 5px 0;
+		margin: 2px 0 0;
+		list-style: none;
+		font-size: 14px;
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		-webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+		box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+		background-clip: padding-box;
+	}
+	.badge2 {
+		width: 98px;
+		display: inline-block;
+		min-width: 10px;
+		padding: 6px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #ffffff;
+
+		background: linear-gradient(to bottom, #82bc40 0%, #47761d 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	.badge3 {
+		width: 98px;
+		display: inline-block;
+		min-width: 10px;
+		padding: 6px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #ffffff;
+
+		background: linear-gradient(to bottom, #ff5200 0%, #ff5200 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	.badge4 {
+		width: 98px;
+		display: inline-block;
+		min-width: 10px;
+		padding: 6px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #ffffff;
+
+		background: linear-gradient(to bottom, #f31f15 0%, #f31f15 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	* {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.enretard {
+		max-width: 100px;
+		height: 20px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		padding: 2px 8px;
+		margin-top: 0;
+		border: none;
+		box-shadow: none;
+		color: white;
+		background: linear-gradient(to bottom, #f96e0c 0%, #f96e0c 0%, #f96e0c 51%, #f96e0c 71%, #f96e0c 100%);
+	}
+	.absent {
+		max-width: 100px;
+		height: 20px;
+		background: linear-gradient(to bottom, #f85032 0%, #f16f5c 0%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+	}
+	.dr .dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+
+		text-decoration: none;
+		background: #3c5b79 !important;
+		color: white !important;
+	}
+</style>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: absolute;margin-top: -16px;    margin-left: -16px; background-color: #f8f9fa!important;     padding: 0.6rem 1rem;">
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav mr-auto">
+							<li class="nav-item active">
+								<a class="nav-link informations" href="#">Informations
+								</a>
+							</li>
+							{% if app.user.roles[0] == "ROLE_ADMIN" %}
+							<li class="nav-item etudiants">
+								<a class="nav-link" href="#">Gérer Les Absences</a>
+							</li>
+							<li class="nav-item etudiants">
+								<a class="nav-link editevent" href="#">Editer</a>
+							</li>
+							{% endif %}
+					
+				{% if app.user.roles[0] == "ROLE_INTERVENANT" %}
+							<li class="nav-item etudiants">
+								<a class="nav-link" href="#">Gérer Les Absences</a>
+							</li>
+							
+							{% endif %}
+						</ul>
+
+					</div>
+				</nav>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+
+			
+<div class="tableau_notes">
+{{ form_start(form3) }}
+<style>
+.tableau{
+	display: inline-block;
+	max-width: 24%;
+	padding:5px;
+}
+.panel-success {
+    border-color: #dddddd;
+}
+.panel-success>.panel-heading {
+    background: linear-gradient(to bottom, #fff 0%, #f6f6f6 19%, #ededed 100%);
+    border-color: #dddddd;
+    color: #000;
+}
+.panel-title {
+
+	    font-size: 15px;
+    padding: 15px;
+}
+#show_discount_button {
+    border-radius: 3px;
+    font-size: 0.9em;
+    margin-right: 5px;
+    position: relative;
+    color: #000;
+    padding: 10px;
+    text-decoration: none;
+    margin-top: -87px;
+}
+.btn-glow {
+    font-size: 12px;
+    border-radius: 4px;
+    color: #333;
+    padding: 5px 10px;
+    text-align: center;
+    box-shadow: 0px 1px 0px 0px rgb(255 255 255 / 20%) inset, 0px 1px 0px 0px #ccc;
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    vertical-align: middle;
+    cursor: pointer;
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #fff 0%, #eef0f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #eef0f1));
+    background: -webkit-linear-gradient(top, #fff 0%, #eef0f1 100%);
+    background: -o-linear-gradient(top, #fff 0%, #eef0f1 100%);
+    background: -ms-linear-gradient(top, #fff 0%, #eef0f1 100%);
+    background: linear-gradient(to bottom, #fff 0%, #eef0f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef0f1',GradientType=0 );
+}
+.bolder{
+	font-weight:bold;
+}
+.etudiant,.add_tag_list{
+	display: none;
+}
+.absence,.retard {
+	margin-bottom:23px;
+}
+#etudiant{
+	padding-left: 30px;
+	font-weight:bold;
+}
+.titrenote{
+	
+}
+.hidden{
+	display:none;
+}
+.bolder{
+	font-weight:bold;
+}
+.etudiant,.add_tag_list{
+	display: none;
+}
+.absence,.retard {
+	margin-bottom:23px;
+}
+#etudiant{
+	padding-left: 30px;
+	font-weight:bold;
+}
+.titrenote{
+	
+}
+</style>
+
+<div class="row">
+	<div class="col-md-3 ">
+		{{ form_label(form3.classes, 'Classe') }}
+		{{ form_row(form3.classes,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form3.classes) }}
+	</div>
+		<div class="col-md-3 ">
+		{{ form_label(form3.module, 'Module') }}
+		{{ form_row(form3.module,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form3.module) }}
+	</div><div class="col-md-3 ">
+			{{ form_label(form3.semestre, 'Classe') }}
+		{{ form_row(form3.semestre,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form3.semestre) }}</div>
+	<div class="col-md-3">
+		{{ form_label(form3.type, 'Type') }}
+		{{ form_row(form3.type,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form3.type) }}
+	</div>
+	<div class="col-md-3 hidden">
+		{{ form_label(form3.blocid, 'Bloc') }}
+		{{ form_row(form3.blocid,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form3.blocid) }}
+	</div>
+
+</div>
+	<br><hr>
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				<strong>Apprenants</strong>
+			</h3>
+			<div class="pull-right">
+			<a id="show_discount_button" class="btn-glow btn-xs discount1 bolder">Note 1</a>
+				<a id="show_discount_button" class="btn-glow btn-xs discount2">Note 2</a>
+					<a id="show_discount_button" class="btn-glow btn-xs discount3">Note 3</a>
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+
+	{% macro tagCollectionItem(tableau) %}
+
+
+
+
+						<div class="row">
+				<div class="col-md-3"> </div>
+					<div class="col-md-3 titrenote">Note1 /20</div>
+					<div class="col-md-3">Observation</div>
+					<div class="col-md-3">Pièce jointe</div>
+						<div class="col-md-3" id="etudiant">
+					
+				{{ form_row(tableau.etudiant,{'attr': {'class': 'form-control etudiant'}}) }}
+				{{ form_errors(tableau.etudiant) }}
+						</div>
+
+					<div class="col-md-3">
+						
+				{{ form_row(tableau.note1,{'attr': {'class': 'form-control note1 '}}) }}
+				{{ form_errors(tableau.note1) }}
+
+					{{ form_row(tableau.note2,{'attr': {'class': 'form-control note2 '}}) }}
+				{{ form_errors(tableau.note2) }}
+
+					{{ form_row(tableau.note3,{'attr': {'class': 'form-control note3 '}}) }}
+				{{ form_errors(tableau.note3) }}
+				
+						</div>
+						
+					<div class="col-md-3">
+						
+				{{ form_row(tableau.observation1,{'attr': {'class': 'form-control  observation1'}}) }}
+				{{ form_errors(tableau.observation1) }}
+					{{ form_row(tableau.observation2,{'attr': {'class': 'form-control  observation2'}}) }}
+				{{ form_errors(tableau.observation2) }}
+
+				{{ form_row(tableau.observation3,{'attr': {'class': 'form-control  observation3'}}) }}
+				{{ form_errors(tableau.observation3) }}
+				
+						</div>
+			<div class="col-md-3">
+						
+				{{ form_row(tableau.copie,{'attr': {'class': 'form-control '}}) }}
+				{{ form_errors(tableau.copie) }}
+								
+				
+						</div>
+									
+		
+			</div>
+		
+	<hr>
+		
+	{% endmacro %}
+	
+			
+	<div class="tags" style="width:100%; " data-index="{{ form3.tableau|length > 0 ? form3.tableau|last.vars.name + 1 : 0 }}" data-prototype="{{ _self.tagCollectionItem(form3.tableau.vars.prototype)|e('html_attr') }}">
+
+				<div class="panel-body" style="font-size: 11px;color: black;padding-right: 0;padding-left: 1px; padding-bottom: 20px;    display: inline;">
+
+							
+		{% for tableau in form3.tableau %}
+
+	{{ _self.tagCollectionItem(tableau) }}
+
+		{% endfor %}
+
+	</div>
+			
+		
+	</div>
+	
+
+
+<br>
+
+
+<button type="submit" class="mt-1 btn btn-success">Sauvegarder</button>
+{{ form_end(form3) }}
+
+</div>
+<div class="tableau_absences">
+
+	{{ form_start(form4) }}
+						<style>
+							.tableau {
+								display: inline-block;
+								max-width: 24%;
+								padding: 5px;
+							}
+							.panel-success {
+								border-color: #dddddd;
+							}
+							.panel-success > .panel-heading {
+								background: linear-gradient(to bottom, #fff 0%, #f6f6f6 19%, #ededed 100%);
+								border-color: #dddddd;
+								color: #000;
+							}
+							.panel-title {
+
+								font-size: 15px;
+								padding: 15px;
+							}
+							#show_discount_button {
+								border-radius: 3px;
+								font-size: 0.9em;
+								margin-right: 5px;
+								position: relative;
+								color: #000;
+								padding: 10px;
+								text-decoration: none;
+								margin-top: -87px;
+							}
+							.btn-glow {
+								font-size: 12px;
+								border-radius: 4px;
+								color: #333;
+								padding: 5px 10px;
+								text-align: center;
+								box-shadow: 0 1px 0 0 rgb(255 255 255 / 20%) inset, 0 1px 0 0 #ccc;
+								display: inline-block;
+								border: 1px solid #e5e5e5;
+								vertical-align: middle;
+								cursor: pointer;
+								background: #ffffff;
+								background: -moz-linear-gradient(top, #fff 0%, #eef0f1 100%);
+								background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #eef0f1));
+								background: -webkit-linear-gradient(top, #fff 0%, #eef0f1 100%);
+								background: -o-linear-gradient(top, #fff 0%, #eef0f1 100%);
+								background: -ms-linear-gradient(top, #fff 0%, #eef0f1 100%);
+								background: linear-gradient(to bottom, #fff 0%, #eef0f1 100%);
+								filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef0f1',GradientType=0);
+							}
+							.bolder {
+								font-weight: bold;
+							}
+							.etudiant,
+							.add_tag_list {
+								display: none;
+							}
+							.absence,
+							.retard {
+								margin-bottom: 23px;
+							}
+							#etudiant {
+								padding-left: 30px;
+								font-weight: bold;
+							}
+							.titrenote {}
+						</style>
+
+						<div class="row">
+							<div class="col-md-3 hidden">
+
+								{{ form_row(form4.classe,{'attr': {'class': 'form-control select'}}) }}
+								{{ form_errors(form4.classe) }}
+							</div>
+
+
+						</div>
+						
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>Apprenants</strong>
+								</h3>
+
+								<div class="pull-right">
+									<a id="show_discount_button" class="btn-glow btn-xs discount1absence bolder">Absences</a>
+									<a id="show_discount_button" class="btn-glow btn-xs discount2retard">Retards</a>
+
+								</div>
+							</div>
+
+
+						</div>
+								 <input type="checkbox" id="tousprésent" name="présent">
+      <label for="tousprésent">Tout le monde présent</label>
+						{% macro tag2CollectionItem(tableau2) %}
+
+
+							<div class="row" style="  width: 100% !important;">
+								<div class="col-md-3"></div>
+								<div class="col-md-3 titrenoteab"></div>
+								<div class="col-md-3"> </div>
+								<div class="col-md-3"> </div>
+								<div class="col-md-3" id="etudiant2">
+
+									{{ form_row(tableau2.etudiant,{'attr': {'class': 'form-control hidden etudiant2'}}) }}
+									{{ form_errors(tableau2.etudiant) }}
+								</div>
+						<div class="col-md-3" id="presence">
+
+									{{ form_row(tableau2.presence,{'attr': {'class': 'present'}}) }}
+									{{ form_errors(tableau2.presence) }}
+								</div>
+								<div class="col-md-3">
+									{{ form_row(tableau2.enretard,{'attr': {'class': 'enretard'}}) }}
+									{{ form_errors(tableau2.enretard) }}
+
+									{{ form_row(tableau2.retard,{'attr': {'class': 'form-control duréeduretard '}}) }}
+									{{ form_errors(tableau2.retard) }}
+								</div>
+
+						<div class="col-md-3">
+			{{ form_row(tableau2.absence,{'attr': {'class': 'absent'}}) }}
+									{{ form_errors(tableau2.absence) }}
+
+	
+								</div>
+								<hr>
+						{{ form_row(tableau2.du,{'attr': {'class': 'form-control datedu '}}) }}
+									{{ form_errors(tableau2.du) }}
+				{{ form_row(tableau2.au,{'attr': {'class': 'form-control dateau '}}) }}
+									{{ form_errors(tableau2.au) }}
+
+							{% endmacro %}
+
+
+							<div class="tags2" style="width:100%; " data-index="{{ form4.tableau|length > 0 ? form4.tableau|last.vars.name + 1 : 0 }}" data-prototype="{{ _self.tag2CollectionItem(form4.tableau.vars.prototype)|e('html_attr') }}">
+
+								<div class="panel-body" style="font-size: 11px;color: black;padding-right: 0;padding-left: 1px; padding-bottom: 20px;    display: inline;">
+
+
+									{% for tableau in form4.tableau %}
+
+										{{ _self.tag2CollectionItem(tableau2) }}
+
+									{% endfor %}
+
+								</div>
+
+
+							</div>
+
+
+							<br>
+							{% if etudiants %}
+{% for etudiant in etudiants %}
+
+
+<input class="etudiantsListe {{loop.index}}" type="text" value="{{etudiant.id}}" style="display:none;">
+
+
+{% endfor %}
+
+{% else %}
+
+{% endif %}
+							<button type="submit" class="mt-1 btn btn-success">Sauvegarder</button>
+							{{ form_end(form4) }}
+</div>
+		<br></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div><script type="text/javascript"></script><script>
+		$(".Présent").each(function (index) {
+console.log(index + ": " + $(this).attr("id"));
+
+var tblFruits = document.getElementById('etat' + $(this).attr('user'));
+var chks = tblFruits.getElementsByTagName("INPUT");
+for (var i = 0; i < chks.length; i++) {
+chks[i].onclick = function () {
+for (var i = 0; i < chks.length; i++) {
+if (chks[i] != this && this.checked) {
+chks[i].checked = false;
+
+}
+}
+};
+}
+
+$(this).click(function () {
+if ($(this).is(':checked')) {
+var et = '1';
+} else {
+var et = '0';
+}
+$.ajax({
+type: 'GET',
+url: "{{ path('app_gestion_calendrier_absences', {'etat': 'En attente','user': "+$(this).attr('user')+"}) }}",
+data: {
+etat: et,
+user: $(this).attr('user')
+
+
+},
+success: function (data) { // $('#magasinDatas').html(data);
+if (data.etat == 1) {
+$("#Présent" + data.user).attr("checked", "checked")
+
+} else {
+$("#Présent" + data.user).attr("checked", false)
+}
+
+}
+});
+
+
+});
+
+
+});
+
+$('.enRetard').click(function () {
+
+$.ajax({
+type: 'GET',
+url: "{{ path('app_gestion_calendrier_absences', {'etat': 'En attente','user': "+$('.user_id').text() +"}) }}",
+data: {
+etat: "En retard",
+user: $(this).attr('id')
+
+
+},
+success: function (data) { // $('#magasinDatas').html(data);
+
+$('#etat' + data.user).removeClass().addClass("colored_select badge3 status-issued");
+
+$('.prog' + data.user).remove();
+$('#etat' + data.user).removeAttr('style');
+$('#etat' + data.user).css('background-position: -100px 0;');
+$('#etat' + data.user).removeClass().addClass("progst colored_select badge3 status-issued");
+
+$('#etat' + data.user).html('En retard ' + "<i class='fa fa-fw'> </i>");
+
+
+}
+});
+
+
+});
+$('.Absent').click(function () {
+$.ajax({
+type: 'GET',
+url: "{{ path('app_gestion_calendrier_absences', {'etat': 'En attente','user': "+$('.user_id').text() +"}) }}",
+data: {
+etat: "Absent",
+user: $(this).attr('id')
+
+
+},
+success: function (data) { // $('#magasinDatas').html(data);
+
+$('#etat' + data.user).removeClass().addClass("colored_select badge4 status-issued");
+
+$('.prog' + data.user).remove();
+$('#etat' + data.user).removeAttr('style');
+$('#etat' + data.user).css('background-position: -100px 0;');
+$('#etat' + data.user).removeClass().addClass("progst colored_select badge4 status-issued");
+$('#etat' + data.user).html('Absent ' + "<i class='fa fa-fw'> </i>");
+
+}
+});
+
+
+});
+$('.tableau_notes').hide();
+$('.tableau_absences').hide();
+$("li.notes").click(function () {
+
+$('.detail').hide();
+$('.du').hide();
+$('.au').hide();
+$('.classe').hide();
+$('.bloc').hide();
+$('.module').hide();
+$('.intervenant').hide();
+$('.detail').hide();
+$('.du').hide();
+$('.au').hide();
+$('.classe').hide();
+$('.bloc').hide();
+$('.module').hide();
+$('.intervenant').hide();
+$('.table_etudiants').hide();
+$('.tableau_absences').hide();
+$('.tableau_notes').show();
+});
+
+</script>
+
+
+<script>
+const addTagLink = document.createElement('a')
+addTagLink.classList.add('add_tag_list')
+addTagLink.href='#'
+addTagLink.innerText='Add a tag'
+addTagLink.dataset.collectionHolderClass='tags'
+
+const newLinkLi = document.createElement('div').append(addTagLink)
+
+const collectionHolder = document.querySelector('div.tags')
+collectionHolder.appendChild(addTagLink)
+
+const addFormToCollection = (e) => {
+	const collectionHolder = document.querySelector('.' + e.currentTarget.dataset.collectionHolderClass);
+
+      const item = document.createElement('div');
+		
+      item.innerHTML = collectionHolder
+        .dataset
+        .prototype
+        .replace(
+          /__name__/g,
+          collectionHolder.dataset.index
+        );
+
+      collectionHolder.appendChild(item);
+
+      collectionHolder.dataset.index++;
+	  collectionHolder.appendChild(addTagLink)
+}
+
+addTagLink.addEventListener("click", addFormToCollection)
+</script>
+<script>
+			const addTagLink2 = document.createElement('a')
+addTagLink2.classList.add('add_tag_list')
+addTagLink2.href = '#'
+addTagLink2.innerText = 'Add a tag'
+addTagLink2.dataset.collectionHolder2Class = 'tags2'
+
+const newLinkLi2 = document.createElement('div').append(addTagLink2)
+
+const collectionHolder2 = document.querySelector('.tags2')
+collectionHolder2.appendChild(addTagLink2)
+
+const addFormToCollection2 = (e) => {
+const collectionHolder2 = document.querySelector('.' + e.currentTarget.dataset.collectionHolder2Class);
+
+const item = document.createElement('div');
+
+item.innerHTML = collectionHolder2.dataset.prototype.replace(/__name__/g, collectionHolder2.dataset.index);
+
+collectionHolder2.appendChild(item);
+
+collectionHolder2.dataset.index ++;
+collectionHolder2.appendChild(addTagLink2)
+} 
+
+addTagLink2.addEventListener("click", addFormToCollection2)
+		</script>
+
+
+
+
+<script>
+$( ".etudiantsListe" ).each(function(index) {
+
+  addTagLink.click();
+  addTagLink2.click();
+var counter =1;
+$('.etudiant').each(function () {
+		$(this).val($('.'+counter).val())
+
+  
+    counter++;
+});
+
+var counter2 =1;
+$('.etudiant2').each(function () {
+		$(this).val($('.'+counter2).val())
+
+    counter2++;
+});
+
+});
+
+$( "div#etudiant" ).each(function(index) {
+
+$(this).addClass( "index"+index );
+
+
+});
+
+$( "div#etudiant2" ).each(function(index) {
+
+$(this).addClass( "index"+index );
+
+$(".index"+index).append($( "#absences_tableau_"+index+"_etudiant option:selected" ).text())
+});
+
+
+
+
+$( "#notes_classes" ).change(function() {
+	
+window.location = '/notes/new/'+$(this).val();
+
+
+});
+
+
+$('.note2').hide()
+$('.observation2').hide()
+$('.note3').hide()
+$('.observation3').hide()
+
+$( ".discount1" ).click(function() {
+$(this).addClass( "bolder" );
+$('.titrenote').text('Note1 /20')	
+$(".discount2").removeClass( "bolder" );
+$(".discount3").removeClass( "bolder" );		
+$('.note1').show()
+$('.observation1').show()
+
+$('.note2').hide()
+$('.observation2').hide()
+
+$('.note3').hide()
+$('.observation3').hide()
+});
+$( ".discount2" ).click(function() {
+$(this).addClass( "bolder" );	
+$('.titrenote').text('Note2 /20')
+$(".discount1").removeClass( "bolder" );
+$(".discount3").removeClass( "bolder" );	
+$('.note1').hide()
+$('.observation1').hide()
+
+$('.note2').show()
+$('.observation2').show()
+
+$('.note3').hide()
+$('.observation3').hide()
+});
+$( ".discount3" ).click(function() {
+	$(this).addClass( "bolder" );	
+	$('.titrenote').text('Note3 /20')
+$(".discount1").removeClass( "bolder" );
+$(".discount2").removeClass( "bolder" );	
+$('.note1').hide()
+$('.observation1').hide()
+
+$('.note2').hide()
+$('.observation2').hide()
+
+$('.note3').show()
+$('.observation3').show()
+});
+
+
+$('.retard').hide()
+
+$( ".discount1absence" ).click(function() {
+$(this).addClass( "bolder" );
+$('.titrenoteab').text("Date d'absence")	
+$(".discount2retard").removeClass( "bolder" );
+
+$('.absence').show()
+$('.retard').hide()
+
+});
+$( ".discount2retard" ).click(function() {
+$(this).addClass( "bolder" );	
+$('.titrenoteab').text("Durée du retard")
+$(".discount1absence").removeClass( "bolder" );
+
+$('.absence').hide()
+$('.retard').show()
+
+});
+
+
+  $('#tousprésent').click(function(){
+            if($(this).prop("checked") == true){
+               $( ".present" ).each(function(index) {
+
+			
+					$("#absences_tableau_"+index+"_presence").prop('checked', true);
+
+					});
+            }
+            else if($(this).prop("checked") == false){
+				    $( ".present" ).each(function(index) {
+            $("#absences_tableau_"+index+"_presence").prop('checked', false);
+				});
+            }
+        });
+
+
+$('#absences_classe').val($('#filtre_calendrier_classe').val());
+</script>
+
+{% endblock %}

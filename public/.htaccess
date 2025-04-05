@@ -107,5 +107,5 @@ RewriteCond %{HTTP_REFERER} !^https://website.bfaldjazair.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^https://website.bfaldjazair.com$      [NC]
 RewriteCond %{HTTP_REFERER} !^https://www.website.bfaldjazair.com/.*$      [NC]
 RewriteCond %{HTTP_REFERER} !^https://www.website.bfaldjazair.com$      [NC]
-RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
 

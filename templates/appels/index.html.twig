@@ -1,41 +1,166 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
-{% block title %}Appels index{% endblock %}
+{% block title %}Appels d'offres{% endblock %}
 
 {% block body %}
-    <h1>Appels index</h1>
+<style>
+		form {
+			display: contents;
+		}
+		.select2{
+			width: 100% !important;
+	
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Texte</th>
-                <th>Image</th>
-                <th>Date</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for appel in appels %}
-            <tr>
-                <td>{{ appel.id }}</td>
-                <td>{{ appel.titre }}</td>
-                <td>{{ appel.texte }}</td>
-                <td>{{ appel.image }}</td>
-                <td>{{ appel.date ? appel.date|date('Y-m-d') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_appels_show', {'id': appel.id}) }}">show</a>
-                    <a href="{{ path('app_appels_edit', {'id': appel.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
 
-    <a href="{{ path('app_appels_new') }}">Create new</a>
+    border-radius: 0.25rem;
+		}
+		.page,.current,.previous,.first,.next,.last{
+    border: solid 1px;
+    padding: 5px;
+    margin: 2px;
+}
+	</style>
+	{{ block("MenuTop", "Menus/MenuTop.html.twig") }}
+    	<div class="app-main">
+		{{ block("MenuLeft", "Menus/MenuLeft.html.twig") }}
+
+
+		<div class="app-main__outer">
+			<div class="app-main__inner">
+				<div class="app-page-title">
+					<div class="page-title-wrapper">
+						<div class="page-title-heading">
+							<div class="page-title-icon">
+								<i class="pe-7s-menu icon-gradient bg-ripe-malin"></i>
+							</div>
+							<div>Appels d'offres
+								<div class="page-title-subheading">Liste Appels d'offres</div>
+							</div>
+						</div>
+						<div class="page-title-actions">
+
+							<div class="d-inline-block dropdown">
+								<a href="{{ path('app_appels_new') }}">
+									<button class="btn-shadow btn btn-primary">
+										<span class="btn-icon-wrapper pr-2 opacity-7">
+											<i class="fa fa-plus fa-w-20"></i>
+										</span>
+										Ajouter un Appel d'offre
+									</button>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs-animation">
+					<div class="main-card mb-3 card">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-12" style="padding-bottom: 5px;">
+								<b>Recherche</b>
+								</div>
+							</div>
+							
+
+						<br>
+							<div id="example_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+								<div class="row">
+									<div class="col-sm-12">
+										<table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
+											<thead>
+												<tr role="row">
+
+													<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 233.2px;" aria-label="Position: activate to sort column ascending">Nom</th>
+													<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 233.2px;" aria-label="Position: activate to sort column ascending">Classe</th>
+
+													<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 110.2px;" aria-label="Start date: activate to sort column ascending">actions</th>
+													<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 110.2px;" aria-label="Start date: activate to sort column ascending">Info</th>
+
+
+												</tr>
+											</thead>
+											<tbody>
+
+												{% for appel in appels %}
+													<tr role="row" class="odd">
+
+														<td class="sorting_1 dtr-control">
+															
+																{{ appel.titre }}
+															
+														</td>
+														<td class="sorting_1 dtr-control">
+
+															{{ appel.texte }}
+
+														</td>
+
+
+														<td class="sorting_1 dtr-control">
+
+															<a href="{{ path('app_appels_edit', {'id': appel.id}) }}">
+																<button class="mb-2 mr-2 btn-icon btn-pill btn btn-link">
+																	<i class="pe-7s-tools btn-icon-wrapper"></i>Modifier</button>
+															</a>
+														</td>
+														<td class="sorting_1 dtr-control" align="center">
+															<button type="button" data-toggle="tooltip" title="" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark" data-original-title="Crée Le {{ appel.date ? appel.date|date('Y-m-d') : '' }} ">
+																<i class="fa fa-info"></i>
+															</button>
+														</td>
+													</tr>
+												{% else %}
+													<tr role="row" class="odd">
+														<td class="sorting_1 dtr-control" colspan="6">no records found</td>
+													</tr>
+												{% endfor %}
+
+											</tbody>
+
+										</table>
+										
+							
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+		{{ block("Footer", "Menus/Footer.html.twig") }}
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+	<script>
+
+		$(document).ready(function () {
+
+$("#filtre_bloc_classe").select2({
+    placeholder: "Filtrer par classe",
+    allowClear: true
+});
+});
+	</script>
+
+
 {% endblock %}

@@ -1,0 +1,59 @@
+{% block modal_classe_creation %}
+
+	<style>
+		.modal-backdrop.show,
+		.show.blockOverlay {
+			opacity: .5;
+			z-index: -1;
+		}
+		.modal-dialog {
+			margin: 2.75rem auto 2.75rem 28%;
+			max-width: 58%;
+		}
+	</style>
+	{{ form_start(form2) }}
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document" style="margin-top:100px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ajouter une classe</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<div class="form-row">
+						<div class="col-md-3">
+							{{ form_label(form.nom, 'Intitulé du diplôme') }}
+							{{ form_row(form2.nom,{'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form2.nom) }}
+						</div>
+						<div class="col-md-3">
+							{{ form_row(form2.Annee_Scolaire,{'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form2.Annee_Scolaire) }}
+						</div>
+						<div class="col-md-3">
+							{{ form_row(form2.curus,{'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form2.curus) }}
+						</div>
+						<div class="col-md-3">
+							{{ form_row(form2.nbsemestre,{'attr': {'class': 'form-control'}}) }}
+							{{ form_errors(form2.nbsemestre) }}
+						</div>
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-primary">Ajouter</button>
+				</div>
+
+				{{ form_end(form2) }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

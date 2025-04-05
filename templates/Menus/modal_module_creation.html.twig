@@ -1,0 +1,92 @@
+{% block modal_module_creation %}
+
+	<style>
+		.modal-backdrop.show,
+		.show.blockOverlay {
+			opacity: .5;
+			z-index: -1;
+		}
+		.modal-dialog {
+			margin: 2.75rem auto 2.75rem 28%;
+			max-width: 58%;
+		}
+	</style>
+	{{ form_start(form2) }}
+	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document" style="margin-top:100px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ajouter une classe</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+
+					<div class="form-row">
+					<div class="col-md-3">
+		{{ form_row(form2.nom,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(form2.nom) }}
+	</div>
+
+	<div class="col-md-3">
+		{{ form_label(form2.classes, 'Classe') }}
+		<button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" style="    position: absolute;
+								    padding: 5px;
+								    margin-top: -5px;
+								    margin-left: 5px;
+								    background: none;
+								    border: none;">
+			<i class="fa fa-fw" aria-hidden="true" title="Copy to use plus" style="color:black;"></i>
+		</button>
+
+		{{ form_row(form2.classes,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form2.classes) }}
+	</div>
+	<div class="col-md-3">
+		{{ form_label(form2.bloc, 'Bloc') }}
+		<button type="button" class="btn mr-2 mb-2 btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" style="    position: absolute;
+				    padding: 5px;
+				    margin-top: -5px;
+				    margin-left: 5px;
+				    background: none;
+				    border: none;">
+			<i class="fa fa-fw" aria-hidden="true" title="Copy to use plus" style="color:black;"></i>
+		</button>
+
+		{{ form_row(form2.bloc,{'attr': {'class': 'form-control select'}}) }}
+		{{ form_errors(form2.bloc) }}</div>
+
+	<div class="col-md-3">
+		{{ form_row(form2.coefficient,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(form2.coefficient) }}
+	</div>
+
+
+</div>
+<br>
+<div class="form-row">
+	<div class="col-md-3">
+		{{ form_row(form2.files,{'attr': {'class': ''}}) }}
+		{{ form_errors(form2.files) }}</div>
+	<div class="col-md-3">
+		{{ form_row(form2.documents,{'attr': {'class': ''}}) }}
+		{{ form_errors(form2.documents) }}</div>
+</div>
+
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+					<button type="submit" class="btn btn-primary">Ajouter</button>
+				</div>
+
+				{{ form_end(form2) }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,242 @@
+{% block modal_justification %}
+
+<style>
+	.btn-group,
+	.btn-group-vertical {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.badge,
+	.badge2,
+	.progress-bar {
+		cursor: pointer;
+	}
+	.badge {
+		display: inline-block;
+		min-width: 10px;
+		padding: 5px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #000;
+		background: #fff;
+		background: -moz-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, #fff), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+		background: -webkit-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -o-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: -ms-linear-gradient(top, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		background: linear-gradient(to bottom, #fff 0%, #f6f6f6 47%, #ededed 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	.dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+		cursor: pointer;
+	}
+	.dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+		color: #ffffff;
+		text-decoration: none;
+		background: #3c5b79 !important;
+	}
+	.dropdown-menu > li > a {
+		font-size: 13px;
+	}
+	.dropdown-menu > li > a {
+		display: block;
+		padding: 3px 20px;
+		clear: both;
+		font-weight: normal;
+		line-height: 1.42857143;
+		color: #333;
+		white-space: nowrap;
+	}
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 1000;
+		display: none;
+		float: left;
+		min-width: 160px;
+		padding: 5px 0;
+		margin: 2px 0 0;
+		list-style: none;
+		font-size: 14px;
+		background-color: #ffffff;
+		border: 1px solid #cccccc;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 4px;
+		-webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+		box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+		background-clip: padding-box;
+	}
+	.badge2 {
+		width: 98px;
+		display: inline-block;
+		min-width: 10px;
+		padding: 6px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #ffffff;
+
+		background: linear-gradient(to bottom, #82bc40 0%, #47761d 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	.badge3 {
+		width: 98px;
+		display: inline-block;
+		min-width: 10px;
+		padding: 6px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #ffffff;
+
+		background: linear-gradient(to bottom, #ff5200 0%, #ff5200 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	.badge4 {
+		width: 98px;
+		display: inline-block;
+		min-width: 10px;
+		padding: 6px 28px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		color: #ffffff;
+
+		background: linear-gradient(to bottom, #f31f15 0%, #f31f15 100%);
+		border-radius: 10px;
+		-webkit-box-shadow: -1px 1px 5px -2px rgb(0 0 0 / 75%);
+		-moz-box-shadow: -1px 1px 5px -2px rgba(0, 0, 0, 0.75);
+		box-shadow: 1px 1px 5px -2px rgb(0 0 0 / 75%);
+	}
+	* {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.enretard {
+		max-width: 100px;
+		height: 20px;
+		font-size: 10px;
+		text-transform: none;
+		font-weight: lighter;
+		line-height: 1;
+		text-align: center;
+		white-space: nowrap;
+		padding: 2px 8px;
+		margin-top: 0;
+		border: none;
+		box-shadow: none;
+		color: white;
+		background: linear-gradient(to bottom, #f96e0c 0%, #f96e0c 0%, #f96e0c 51%, #f96e0c 71%, #f96e0c 100%);
+	}
+	.absent {
+		max-width: 100px;
+		height: 20px;
+		background: linear-gradient(to bottom, #f85032 0%, #f16f5c 0%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+	}
+	.dr .dropdown-menu > li > a:hover,
+	.dropdown-menu > li > a:focus {
+
+		text-decoration: none;
+		background: #3c5b79 !important;
+		color: white !important;
+	}
+   .modal-backdrop{
+    display:none !important;
+   } 
+   .modal-lg{
+    margin-top:200px !important;
+   }
+   .hidden{
+    display:none;
+   }
+   label[for="justifications_tableau"]
+{
+    display:none;
+}
+</style>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+
+				<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: absolute;margin-top: -16px;    margin-left: -16px; background-color: #f8f9fa!important;     padding: 0.6rem 1rem;">
+
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				
+								<h4 class="nav-link informations" href="#">Justifier votre absence
+								</h4>
+					
+							
+			
+					</div>
+				</nav>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+
+		
+{{ form_start(form3) }}
+
+
+		{{ form_row(form3.message,{'attr': {'class': 'form-control '}}) }}
+		{{ form_errors(form3.message) }}
+<br>
+		{{ form_row(form3.files,{'attr': {'class': 'form-control '}}) }}
+		{{ form_errors(form3.files) }}
+
+<br>
+		{{ form_row(form3.tableauabsence,{'attr': {'class': 'form-control hidden' }}) }}
+		{{ form_errors(form3.tableauabsence) }}
+
+<button type="submit" class="mt-1 btn btn-success">Envoyer</button>
+{{ form_end(form3) }}
+
+</div>
+
+		<br></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+<script>
+
+$('#justifications_tableauabsence').val($('.idabsence').text());
+</script>
+{% endblock %}
