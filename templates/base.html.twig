@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('modules/proxima-templates/favicon/newFavicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('modules/proxima-templates/favicon/newFavicon-16x16.png')}}">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  
+  
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -265,7 +267,7 @@
             </div>
             <!-- Header primary Logo -->
             <div class='header-primary-logo '>
-                <a href="/global/fr/" title="Retour à la page d'accueil">
+                <a href="{{path('app_homepage')}}" title="Retour à la page d'accueil">
             <img src="img/logo4.svg" width="300">
         </a>
             </div>
@@ -419,7 +421,7 @@
                         
                     </li>
                        <li class="header-navigation-item">
-                        <button onclick="window.location.href='aaa.html';" class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
+                        <button onclick='window.location.href="{{path('app_appels')}}";' class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
                             aria-expanded="false">
                         Appels d'offres <svg class="icon icon-arrow">
                         <use href="#icon-arrow"></use>

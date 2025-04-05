@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class AppelsType extends AbstractType
 {
@@ -21,9 +22,9 @@ class AppelsType extends AbstractType
 
             ])
             ->add('texte', TextareaType::class, [
+             
                 'label' => false,
-                'required' => true,
-                'attr' => ['rows' => 5], // optionnel pour définir la hauteur
+             
             ])
             ->add('image', FileType::class, [
                 'label' => false,

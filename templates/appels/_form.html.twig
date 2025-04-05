@@ -14,9 +14,10 @@
 </div>
 <br>
  <div class="form-row">
-	<div class="col-md-12">
+	<div class="col-10">
      {{ form_label(form.texte, "Description") }}
-		{{ form_row(form.texte,{'attr': {'class': 'form-control'}}) }}
+	    {{ form_row(form.texte) }} {# CKEditor avec ID #}
+
 		{{ form_errors(form.texte) }}
 	</div>
  </div>

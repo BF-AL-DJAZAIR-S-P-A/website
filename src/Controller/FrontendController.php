@@ -15,4 +15,12 @@ final class FrontendController extends AbstractController
             'controller_name' => 'FrontendController',
         ]);
     }
+
+    #[Route('/appels-doffres', name: 'app_appels')]
+    public function appels(): Response
+    {
+        return $this->render('frontend/appels.html.twig', [
+            'controller_name' => 'FrontendController',
+        ]);
+    }
 }

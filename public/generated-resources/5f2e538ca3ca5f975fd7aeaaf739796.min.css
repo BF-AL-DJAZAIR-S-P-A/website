@@ -1,0 +1,93 @@
+* {
+    background: transparent !important;
+  }
+  p {
+    font-size: 16px;
+  }
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+  img {
+    display: inline-block !important;
+    max-width: 300px !important;
+  }
+  #header-global,
+  #root > footer,
+  .accordion-introduction svg.icon-arrow,
+  .breadcrumb,
+  .button svg,
+  .content-sidebar,
+  .content-tabs-list,
+  .modal,
+  .slider-navigation,
+  .slick-arrow,
+  .slider-prev,
+  .slider-next {
+    display: none !important;
+  }
+  .content-edito-sidebar > article > .content-block {
+    float: none;
+    width: 100% !important;
+  }
+  .block-content.block-list-accordion .content-slider,
+  .block-content.block-list-accordion .content-default,
+  .block-content.block-list-accordion .content-newswall,
+  .block-content.block-list-accordion .content-gallery,
+  .block-content.block-list-accordion .card-list.card-list-slider,
+  .block-content.block-list-accordion .content-list-image,
+  .block-content.block-list-accordion .content-title,
+  .block-content.block-list-accordion .content-list-icon,
+  .block-content.block-list-accordion .accordion-content {
+    display: block !important;
+  }
+  .block-content.block-list-accordion .content-rich-text,
+  .block-content.block-list-accordion .content-link-list,
+  .block-content.block-list-accordion .content-quote,
+  .block-content.block-list-accordion .card-list {
+    display: flex !important;
+  }
+  .content-tabs-section {
+    display: block !important;
+  }
+  .content-tabs-section .content-slider,
+  .content-tabs-section .content-default,
+  .content-tabs-section .content-newswall,
+  .content-tabs-section .content-gallery,
+  .content-tabs-section .card-list.card-list-slider,
+  .content-tabs-section .content-list-image,
+  .content-tabs-section .content-title,
+  .content-tabs-section .content-list-icon,
+  .content-tabs-section .accordion-content {
+    display: block !important;
+  }
+  .content-tabs-section .content-rich-text,
+  .content-tabs-section .content-link-list,
+  .content-tabs-section .content-quote,
+  .content-tabs-section .card-list {
+    display: flex !important;
+  }
+  .js-slider {
+    display: flex !important;
+    flex-flow: row wrap !important;
+  }
+  .js-slider .card {
+    width: calc(100% / 3) !important;
+  }
+  .js-slider .card img {
+    display: inline-block !important;
+    max-width: 300px !important;
+  }
+  .page-contact-list {
+    display: none; !important;
+  }
+  /* print cart sampling */
+  .table-product-delete {
+    display: none; !important;
+  }
+  .table-product-name {
+    border: 1px solid black;
+  }
+  .js-sampling-update > .content-link {
+    display: none; !important;
+  }
