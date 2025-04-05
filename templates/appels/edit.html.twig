@@ -28,8 +28,8 @@
 }
 	</style>
 
-  		<link rel="stylesheet" href="../../ck/style.css">
-		<link rel="stylesheet" href="../../ck/ckeditor5/ckeditor5.css">
+  		<link rel="stylesheet" href="../../../ck/style.css">
+		<link rel="stylesheet" href="../../../ck/ckeditor5/ckeditor5.css">
 	{{ block("MenuTop", "Menus/MenuTop.html.twig") }}
     	<div class="app-main">
 		{{ block("MenuLeft", "Menus/MenuLeft.html.twig") }}
@@ -73,7 +73,7 @@
 
     {{ include('appels/_form.html.twig', {'button_label': 'Update'}) }}
 
-	
+	    {{ include('appels/_delete_form.html.twig') }}
 									</div>
 								</div>
 
@@ -95,7 +95,7 @@
 
 
 
-    {{ include('appels/_delete_form.html.twig') }}
+
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
@@ -108,12 +108,12 @@
     		<script type="importmap">
 		{
 			"imports": {
-				"ckeditor5": "../../ck/ckeditor5/ckeditor5.js",
-				"ckeditor5/": "../../ck/ckeditor5/"
+				"ckeditor5": "../../../ck/ckeditor5/ckeditor5.js",
+				"ckeditor5/": "../../../ck/ckeditor5/"
 			}
 		}
 		</script>
-		<script type="module" src="../../ck/main.js"></script>
+		<script type="module" src="../../../ck/main.js"></script>
    
 
 	<script>
