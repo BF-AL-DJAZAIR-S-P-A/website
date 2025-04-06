@@ -32,7 +32,7 @@ import {
     Italic,
     Link,
     List,
-    Markdown,
+   
     MediaEmbed,
     Mention,
     Paragraph,
@@ -111,7 +111,7 @@ const editorConfig = {
         Italic,
         Link,
         List,
-        Markdown,
+       
         MediaEmbed,
         Mention,
         Paragraph,
