@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BF AL DJAZAIR - Appels d'offres{% endblock %}
+
+{% block body %}
+<style>
+@media only screen and (min-width: 1025px) {
+    .search-result-list.list-column-2 .card {
+        width: calc(100% - 10px);
+        margin-right: 20% !important;
+        margin-left: 20%;
+    }
+}
+.card.card-large .card-link {
+    margin-bottom: 15px;
+}
+</style>
+<main class="content-edito " id="main-content">
+    <article data-type="arkema">
+
+        <div class="js-categories" data-result-quantity='18'></div>
+<section class="banner banner-background content-color-primary " style='background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255) 45%, rgba(255, 255, 255, 0.5) 70%),url("{{asset('aa2.jpg')}}")'>
+    <div class="wrapper">
+        <ul class="banner-tag">
+            <li>
+                    <span class="tag tag-primary">Forage</span>
+                </li>
+            </ul>
+        <p class="banner-date">{{ appel.date|date('d M Y ') }} - <strong>Appel d'offre</strong></p>
+        <h1 class="banner-title">{{appel.titre}}</h1>
+
+        </div>
+  
+    </section>
+
+       <section class="content-block content-introduction content-background-grey">
+    <div class="content-introduction-wrapper">
+        <p>
+            {{appel.titre}}</p>
+    </div>
+</section>
+<section class="content-block content-center content-rich-text content-color-gradient accordion-content ">
+                    <div class="wrapper">
+                        <div class="content-text">
+                                   {{appel.texte|raw}}
+</div>
+                            </div>
+                    </section>
+
+
+</main>
+
+{% endblock %}

@@ -5,6 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use App\Entity\Appels;
+use App\Repository\AppelsRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 final class FrontendController extends AbstractController
 {
@@ -21,6 +24,14 @@ final class FrontendController extends AbstractController
     {
         return $this->render('frontend/appels.html.twig', [
             'controller_name' => 'FrontendController',
+        ]);
+    }
+    #[Route('/appels-doffres/{id}', name: 'app_appels_show', methods: ['GET'])]
+    public function appelsShow(Appels $appel): Response
+    {
+        return $this->render('frontend/appelsShow.html.twig', [
+            'controller_name' => 'FrontendController',
+            'appel' => $appel,
         ]);
     }
 }
