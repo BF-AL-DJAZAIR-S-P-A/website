@@ -20,10 +20,13 @@ final class FrontendController extends AbstractController
     }
 
     #[Route('/appels-doffres', name: 'app_appels')]
-    public function appels(): Response
+    public function appels(AppelsRepository $AppelsRepository): Response
     {
+        $appels = $AppelsRepository->findAll();
+
         return $this->render('frontend/appels.html.twig', [
             'controller_name' => 'FrontendController',
+            'appels' => $appels,
         ]);
     }
     #[Route('/appels-doffres/{id}', name: 'app_appels_show', methods: ['GET'])]

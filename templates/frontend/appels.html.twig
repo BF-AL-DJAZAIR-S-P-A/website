@@ -89,14 +89,16 @@
                 8 Appels d'offres
             </p>
         </header>
-
+    
         <section id="search-result-list" class="content-block search-result-list list-column list-column-2">
-
+    {% for appel in appels %}
+    
+ 
     <article class="card card-bordered card-large card-large-image" data-image-side="right" data-list-offset="1">
 
-		<a href="https://website.bfaldjazair.com/appels-doffres/1" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema"></a>
+		<a href="{{ path('app_appels_show', {'id': appel.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema"></a>
 	
-	<div class="card-wrapper">
+	    <div class="card-wrapper">
 
 				<figure>
 			<img src="{{asset('aa2.png')}}" alt="Thumbnail -  URD.png">
@@ -105,9 +107,9 @@
 
 						<div class="card-date">
 				<div class="date">
-					<span class="date-month">avril</span>
-					<span class="date-day">06</span>
-					<span class="date-year">2025</span>
+					<span class="date-month">{{appel.date|date('M')}}</span>
+					<span class="date-day">{{appel.date|date('d')}}</span>
+					<span class="date-year">{{appel.date|date('Y')}}</span>
 				</div>
 			</div>
 			
@@ -126,17 +128,17 @@
 		</header>
 
 				<h3 class="card-title">
-			Travaux de Forage Agricole
+			{{appel.titre}}
 		</h3>
 		
 				<div class="card-text">
 			<p>
-				Dans le cadre de l’extension de ses activités agricoles dans la région de Timimoun, la société BF AL DJAZAIR SPA, entreprise algéro-italienne spécialisée dans l’agriculture industrielle...
+				{{appel.texte|striptags|slice(0, 50) ~ '...'}}
 			</p>
 		</div>
 		
 				<div class="card-link">
-			<a href="https://website.bfaldjazair.com/appels-doffres/1" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema">
+			<a href="{{ path('app_appels_show', {'id': appel.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema">
 				Plus d'information
 				<svg class="icon icon-boutons-link-normal" xml:lang="fr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use href="#icon-boutons-link-normal"></use>
@@ -144,9 +146,9 @@
 			</a>
 		</div>
 			</div>
-</article>
+    </article>
 
-        
+               {% endfor %}
 
 
             <nav class="pagination" aria-controls="search-header-list search-result-list">

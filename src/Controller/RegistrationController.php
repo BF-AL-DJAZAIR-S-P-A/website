@@ -18,6 +18,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -26,7 +27,7 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager): Response
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager,UsersAthenticatorAuthenticator $authenticator,UserAuthenticatorInterface $userAuthenticator,): Response
     {
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
@@ -53,8 +54,13 @@ class RegistrationController extends AbstractController
             );
 
             // do anything else you need here, like send an email
-
-            return $security->login($user, UsersAthenticatorAuthenticator::class, 'main');
+            $userAuthenticator->authenticateUser(
+                $user,
+                $authenticator,
+                $request
+            );
+            return $this->redirectToRoute('app_homepage');
+            
         }
 
         return $this->render('registration/register.html.twig', [
