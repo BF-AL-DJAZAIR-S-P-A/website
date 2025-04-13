@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<style>
+.fiche{
+
+    text-align: center;
+    margin-top: 80px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background: #ededed;
+    padding: 20px;
+}
+
+ff-controller .btn-file, input[type=date], input[type=email], input[type=number], input[type=password], input[type=tel], input[type=text] {
+    height: 40px;
+    margin-bottom:10px;
+
+}
+.modal-content {
+
+    top: 310px;
+
+}
+@media only screen and (min-width: 1025px) {
+    .modal-content {
+        width: initial;
+        padding: initial;
+    }
+}
+
+.m-success{
+    text-align:center;
+}
+
+.m-success h1, span{
+    color:#089447;
+}
+.m-success a{
+        font-weight: 400;
+        text-decoration:none;
+            color:#089447;
+}
+
+    .py-md-5 {
+    
+        min-height: 100vh;
+    }
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5 m-success" tabindex="-1" role="dialog" id="modalSignin">
+ 
+                 {% for flash_error in app.flashes('verify_email_error') %}
+                                    <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                                    {% endfor %}
+                    <h1>Merci pour votre inscription !</h1>
+
+                    <p>Un email de confirmation vient de vous être envoyé.
+                    Veuillez vérifier votre boîte de réception (et vos spams).
+                    Votre compte doit être validé par email pour être activé.</p>
+
+                    <p>Si vous n'avez pas reçu l'email, <span><a href="#">cliquez ici pour le renvoyer.</a></span></p>
+  
+</div>
+
+                          
+
+
+
+
+
+
+    
+{% endblock %}

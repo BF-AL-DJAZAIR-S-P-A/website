@@ -26,6 +26,8 @@ class RegistrationController extends AbstractController
     {
     }
 
+
+   
     #[Route('/register', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager,UsersAthenticatorAuthenticator $authenticator,UserAuthenticatorInterface $userAuthenticator,): Response
     {
@@ -97,4 +99,31 @@ class RegistrationController extends AbstractController
 
         return $this->redirectToRoute('app_register');
     }
+
+
+
+    #[Route('/success', name: 'app_success')]
+    public function success(Request $request, UserPasswordHasherInterface $userPasswordHasher, Security $security, EntityManagerInterface $entityManager,UsersAthenticatorAuthenticator $authenticator,UserAuthenticatorInterface $userAuthenticator, UsersRepository $usersRepository): Response
+    {
+
+
+        $id = $request->query->get('id');
+
+        if($id){
+            
+        }
+      
+        $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+        (new TemplatedEmail())
+            ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR'))
+            ->to((string) $user->getEmail())
+            ->subject('Please Confirm your Email')
+            ->htmlTemplate('registration/confirmation_email.html.twig')
+    );
+
+        return $this->render('registration/success.html.twig', [
+         
+        ]);
+    }
+
 }
