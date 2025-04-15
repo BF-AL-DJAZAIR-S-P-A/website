@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acctualites{% endblock %}
+
+{% block body %}
+    <h1>Acctualites</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ acctualite.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ acctualite.titre }}</td>
+            </tr>
+            <tr>
+                <th>Texte</th>
+                <td>{{ acctualite.texte }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ acctualite.image }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ acctualite.date ? acctualite.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_acctualites_index') }}">back to list</a>
+
+    <a href="{{ path('app_acctualites_edit', {'id': acctualite.id}) }}">edit</a>
+
+    {{ include('acctualites/_delete_form.html.twig') }}
+{% endblock %}

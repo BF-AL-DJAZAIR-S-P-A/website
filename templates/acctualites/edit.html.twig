@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Acctualites{% endblock %}
+
+{% block body %}
+    <h1>Edit Acctualites</h1>
+
+    {{ include('acctualites/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_acctualites_index') }}">back to list</a>
+
+    {{ include('acctualites/_delete_form.html.twig') }}
+{% endblock %}
