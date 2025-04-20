@@ -1,0 +1,101 @@
+{% extends 'dashboard.html.twig' %}
+
+{% block title %}Appels d'offres{% endblock %}
+
+{% block body %}
+<style>
+		form {
+			display: contents;
+		}
+		.select2{
+			width: 100% !important;
+	
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+
+    border-radius: 0.25rem;
+		}
+		.page,.current,.previous,.first,.next,.last{
+    border: solid 1px;
+    padding: 5px;
+    margin: 2px;
+}
+	</style>
+	{{ block("MenuTop", "Menus/MenuTop.html.twig") }}
+    	<div class="app-main">
+		{{ block("MenuLeft", "Menus/MenuLeft.html.twig") }}
+
+
+		<div class="app-main__outer">
+			<div class="app-main__inner">
+				<div class="app-page-title">
+					<div class="page-title-wrapper">
+						<div class="page-title-heading">
+							<div class="page-title-icon">
+								<i class="pe-7s-menu icon-gradient bg-ripe-malin"></i>
+							</div>
+							<div>Dashboard
+								<div class="page-title-subheading">Dashboard Admin</div>
+							</div>
+						</div>
+						<div class="page-title-actions">
+
+							<div class="d-inline-block dropdown">
+							
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs-animation">
+					<div class="main-card mb-3 card">
+						<div class="card-body">
+						
+
+							<div id="example_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+								<div class="row">
+									<div class="col-sm-12">
+									
+							
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+		{{ block("Footer", "Menus/Footer.html.twig") }}
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+	<script>
+
+		$(document).ready(function () {
+
+$("#filtre_bloc_classe").select2({
+    placeholder: "Filtrer par classe",
+    allowClear: true
+});
+});
+	</script>
+
+
+{% endblock %}
