@@ -194,4 +194,4 @@ const editorConfig = {
 	}
 };
 
-ClassicEditor.create(document.querySelector('#appels_texte'), editorConfig);
+
