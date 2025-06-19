@@ -15,14 +15,16 @@ use Doctrine\ORM\EntityManagerInterface;
 final class FrontendController extends AbstractController
 {
     #[Route('/', name: 'app_homepage')]
-    public function index(AcctualitesRepository $AcctualitesRepository): Response
+    public function index(AcctualitesRepository $AcctualitesRepository,AppelsRepository $AppelsRepository): Response
     {
        
-        $acctualites = $AcctualitesRepository->findBy([], ['id' => 'DESC'], 4);
+        $acctualites = $AcctualitesRepository->findBy([], ['date' => 'DESC'], 4);
+        $appels = $AppelsRepository->findBy([], ['date' => 'DESC'], 4);
 
         return $this->render('frontend/index.html.twig', [
             'controller_name' => 'FrontendController',
             'acctualites' => $acctualites,
+            'appels' => $appels,
         ]);
     }
 

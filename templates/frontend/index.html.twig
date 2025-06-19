@@ -311,6 +311,52 @@
                 </div>
             </section>
 
+   <section class="content-block content-newswall  content-color-transparent">
+                <div class="content-wrapper">
+             
+                    <!-- news teaser - short - start -->
+
+                        {% for appel in appels %}
+                    <article class="news news-teaser news-teaser-short">
+                        <div class="wrapper">
+                            <header class="news-header">
+                                <div class="news-date date">
+                                    <span class="date-month">{{appel.date|date('M')}}</span>
+                                    <span class="date-day">{{appel.date|date('d')}}</span>
+                                    <span class="date-year ">{{appel.date|date('Y')}}</span>
+                                </div>
+
+                                <ul class="news-tags-list">
+                                    <li>
+                                        <span class="tag tag-primary news-tags-item">Appel d'offre</span>
+                                    </li>
+                                </ul>
+                            </header>
+                            <section class="news-content">
+                                <div class="news-title news-content-title">{{appel.titre}}</div>
+                                <div class="news-text">{{appel.texte|striptags|slice(0, 100) ~ '...'}}</div>
+                                <a href="" class="button button-link news-link">
+                                    Lire plus<svg class="icon icon-boutons-link-normal">
+                                        <use href="#icon-boutons-link-normal"></use>
+                                    </svg>
+                                </a>
+                                <a href="{{ path('app_appels_show', {'id': appel.id}) }}" class="news-link-overlay" title="{{appel.titre}}"></a>
+                            </section>
+                        </div>
+
+                        <figure class="news-image">
+                            <img src="{{ asset('uploads/' ~ appel.image) }}" alt="Thumbnail -  campagne alternance 2025.png">
+                            
+                        </figure>
+                    </article>
+                        {% endfor %}
+          
+                    <!-- news teaser - short - end -->
+                    <div class="content-link">
+                        <a href="{{path('app_acctualites')}}" class="button button-tertiary">Voir plus d'actualités</a>
+                    </div>
+                </div>
+            </section>
         
             <section class="content-block content-title content-background-grey content-center content-color-transparent" id="decouvrez-nos-evenements">
                 <div class="content-wrapper">
