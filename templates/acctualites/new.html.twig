@@ -105,22 +105,18 @@
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
   <!-- CKEditor compilé -->
-<script type="importmap">
-		{
-			"imports": {
-				"ckeditor5": "../../ck/ckeditor5/ckeditor5.js",
-				"ckeditor5/": "../../ck/ckeditor5/"
-			}
-		}
-		</script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.umd.js" crossorigin></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/translations/fr.umd.js" crossorigin></script>
 
   <script src="../../ck/main.js"></script>
 
-  <script>
+  
 
+	
 
-  const editorField = document.querySelector('#acctualites_texte', editorConfig);
-
+	<script>
+	
+  const editorField = document.querySelector('#acctualites_texte');
 // Assurez-vous que le contenu est en HTML
 const initialValue = editorField.value; // Récupère la valeur initiale
 
@@ -137,11 +133,6 @@ ClassicEditor.create(editorField, editorConfig)
     .catch(err => {
         console.error(err.stack);
     });
-  </script>
-
-	
-
-	<script>
 
 		$(document).ready(function () {
 
