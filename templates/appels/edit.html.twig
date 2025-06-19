@@ -103,17 +103,33 @@
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 
+  <!-- CKEditor compilé -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.umd.js" crossorigin></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/translations/fr.umd.js" crossorigin></script>
 
+  <script src="../../../ck/main.js"></script>
 
-    		<script type="importmap">
-		{
-			"imports": {
-				"ckeditor5": "../../../ck/ckeditor5/ckeditor5.js",
-				"ckeditor5/": "../../../ck/ckeditor5/"
-			}
-		}
-		</script>
-		<script type="module" src="../../../ck/main.js"></script>
+	<script>
+ 
+  const editorField = document.querySelector('#appels_texte');
+
+// Assurez-vous que le contenu est en HTML
+const initialValue = editorField.value; // Récupère la valeur initiale
+
+ClassicEditor.create(editorField, editorConfig)
+    .then(newEditor => {
+        newEditor.setData(initialValue); 
+
+        // Écouter les changements dans l'éditeur
+        newEditor.model.document.on('change:data', () => {
+            const editorData = newEditor.getData();
+            editorField.value = editorData; // Met à jour le champ textarea
+        });
+    })
+    .catch(err => {
+        console.error(err.stack);
+    });
+  </script>
    
 
 	<script>

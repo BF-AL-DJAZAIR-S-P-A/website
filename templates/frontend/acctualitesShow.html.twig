@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BF AL DJAZAIR - Acctualité{% endblock %}
+
+{% block body %}
+<style>
+@media only screen and (min-width: 1025px) {
+    .search-result-list.list-column-2 .card {
+        width: calc(100% - 10px);
+        margin-right: 20% !important;
+        margin-left: 20%;
+    }
+}
+.card.card-large .card-link {
+    margin-bottom: 15px;
+}
+
+.content-text a {
+    font-weight: initial;
+}
+.subtitle, h1 b, h1 span:not([lang]), h1 strong, h2 b, h2 span:not([lang]), h2 strong, h3 b, h3 span:not([lang]), h3 strong, h4 b, h4 span:not([lang]), h4 strong, h5 b, h5 span:not([lang]), h5 strong {
+    color: #1a2955;
+}
+</style>
+<main class="content-edito " id="main-content">
+    <article data-type="arkema">
+
+        <div class="js-categories" data-result-quantity='18'></div>
+<section class="banner banner-background content-color-primary " style='background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255) 45%, rgba(255, 255, 255, 0.5) 70%),url("{{ asset('uploads/' ~ acctualite.image) }}")'>
+    <div class="wrapper">
+        <ul class="banner-tag">
+            <li>
+                    <span class="tag tag-primary">Forage</span>
+                </li>
+            </ul>
+        <p class="banner-date">{{ acctualite.date|date('d M Y ') }} - <strong>Appel d'offre</strong></p>
+        <h1 class="banner-title">{{acctualite.titre}}</h1>
+
+        </div>
+  
+    </section>
+
+       <section class="content-block content-introduction content-background-grey">
+    <div class="content-introduction-wrapper">
+        <p>
+            {{acctualite.titre}}</p>
+    </div>
+</section>
+<section class="content-block content-center content-rich-text content-color-gradient accordion-content ">
+                    <div class="wrapper">
+                        <div class="content-text">
+                                   {{acctualite.texte|raw}}
+</div>
+                            </div>
+                    </section>
+
+
+</main>
+
+{% endblock %}

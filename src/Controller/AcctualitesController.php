@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
 #[Route('/admin/acctualites')]
@@ -24,16 +26,36 @@ final class AcctualitesController extends AbstractController
     }
 
     #[Route('/new', name: 'app_acctualites_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $acctualite = new Acctualites();
         $form = $this->createForm(AcctualitesType::class, $acctualite);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+         $imageFile = $form->get('image')->getData();
+
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+    
+                try {
+                    $imageFile->move(
+                        $this->getParameter('uploads_directory'), // à définir
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    throw new \Exception('Erreur lors du déplacement du fichier.');
+                }
+    
+                // On remplace l’objet UploadedFile par le nom du fichier dans l’entité
+                $acctualite->setImage($newFilename);
+            }
+
+
             $entityManager->persist($acctualite);
             $entityManager->flush();
-
             return $this->redirectToRoute('app_acctualites_index', [], Response::HTTP_SEE_OTHER);
         }
 

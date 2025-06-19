@@ -292,153 +292,47 @@
             </section>
             <section class="content-block content-newswall  content-color-transparent">
                 <div class="content-wrapper">
+             
                     <!-- news teaser - short - start -->
+
+                        {% for acctualite in acctualites %}
                     <article class="news news-teaser news-teaser-short">
                         <div class="wrapper">
                             <header class="news-header">
                                 <div class="news-date date">
-                                    <span class="date-month">févr.</span>
-                                    <span class="date-day">27</span>
-                                    <span class="date-year ">2025</span>
+                                    <span class="date-month">{{acctualite.date|date('M')}}</span>
+                                    <span class="date-day">{{acctualite.date|date('d')}}</span>
+                                    <span class="date-year ">{{acctualite.date|date('Y')}}</span>
                                 </div>
 
                                 <ul class="news-tags-list">
                                     <li>
-                                        <span class="tag tag-primary news-tags-item">Carrières</span>
+                                        <span class="tag tag-primary news-tags-item">Acctualité</span>
                                     </li>
                                 </ul>
                             </header>
                             <section class="news-content">
-                                <div class="news-title news-content-title">Projet de céréales à Timimoun : BF AL DJAZAIR obtient le contrat de concession</div>
-                                <div class="news-text">Le ministère de l’Agriculture a accordé, ce jeudi, un contrat de concession à la société italienne (BF SPA) pour la réalisation d’un projet  ...</div>
-                                <a href="" class="button button-link news-link">
-                Lire plus<svg class="icon icon-boutons-link-normal">
-                    <use href="#icon-boutons-link-normal"></use>
-                </svg>
-            </a>
-                                <a href="/global/fr/media/newslist/news/non-global/countries/France/2025/20240219-lancement-campagne-de-recrutement/" class="news-link-overlay" title="BF AL DJAZAIR lance sa<strong> </strong>campagne<strong> </strong>de <strong>recrutement d&rsquo;alternants avec 250 postes &agrave; pourvoir</strong>"></a>
-                            </section>
-                        </div>
-
-                        <figure class="news-image">
-                            <img src="a1.png" alt="Thumbnail -  campagne alternance 2025.png">
-                            <figcaption>Thumbnail - campagne alternance 2025.png</figcaption>
-                        </figure>
-                    </article>
-                    <!-- news teaser - short - end -->
-                    <!-- news teaser - short - start -->
-                    <article class="news news-teaser news-teaser-short">
-                        <div class="wrapper">
-                            <header class="news-header">
-                                <div class="news-date date">
-                                    <span class="date-month">févr.</span>
-                                    <span class="date-day">04</span>
-                                    <span class="date-year ">2025</span>
-                                </div>
-
-                                <ul class="news-tags-list">
-                                    <li>
-                                        <span class="tag tag-primary news-tags-item">Corporate</span>
-                                    </li>
-                                    <li>
-                                        <span class="tag tag-primary news-tags-item">RSE</span>
-                                    </li>
-                                </ul>
-                            </header>
-                            <section class="news-content">
-                                <div class="news-title news-content-title">Algérie-Italie : Un contrat de concession pour un projet de céréales et de légumineuses à Timimoun</div>
-                                <div class="news-text">Le contrat a été remis par le ministre de l'Agriculture, du Développement rural et de la Pêche, Youcef Cherfa, au président du Conseil d'administration de «BF El Djazair», Mustapha Houari, et ce, lors d'une cérémonie organisée au siège du ministère ....</div>
-                                <a href="" class="button button-link news-link">
-                Lire plus<svg class="icon icon-boutons-link-normal">
-                    <use href="#icon-boutons-link-normal"></use>
-                </svg>
-            </a>
-                                <a href="/global/fr/media/newslist/news/global/csr/2025/20250204-pragati-year-8-sustainable-castor-bean-program/" class="news-link-overlay" title="BF AL DJAZAIR et ses partenaires publient <strong>le bilan de la 8&egrave;me ann&eacute;e de &lsquo;Pragati&rsquo;</strong>, programme mondial de culture durable du ricin"></a>
-                            </section>
-                        </div>
-
-                        <figure class="news-image">
-                            <img src="a2.png" alt="Thumbnail -  Pragati 8 2025.png">
-                            <figcaption>Thumbnail - Pragati 8 2025.png</figcaption>
-                        </figure>
-                    </article>
-                    <!-- news teaser - short - end -->
-                    <!-- news teaser - short - start -->
-                    <article class="news news-teaser news-teaser-short">
-                        <div class="wrapper">
-                            <header class="news-header">
-                                <div class="news-date date">
-                                    <span class="date-month">févr.</span>
-                                    <span class="date-day">04</span>
-                                    <span class="date-year ">2025</span>
-                                </div>
-
-                                <ul class="news-tags-list">
-                                    <li>
-                                        <span class="tag tag-primary news-tags-item">Innovation</span>
-                                    </li>
-                                    <li>
-                                        <span class="tag tag-primary news-tags-item">Produits</span>
-                                    </li>
-                                </ul>
-                            </header>
-                            <section class="news-content">
-                                <div class="news-title news-content-title">La concession s’étale sur 36 000 hectares : L’italien BF décroche un acte de concession de 40 ans à Timimoun</div>
-                                <div class="news-text">Du nouveau pour le mégaprojet de la société italienne Bonifiche Ferraresi (BF) en Algérie. L’entreprise a obtenu ce jeudi le contrat de concession de 36 000 hectares (Ha). Le ministère de l’Agriculture, du Développement rural et de la Pêche a effet accordé le contrat au président du conseil d’administration de «BF El Djazair», Mustapha Houari ...</div>
-                                <a href="" class="button button-link news-link">
-                Lire plus<svg class="icon icon-boutons-link-normal">
-                    <use href="#icon-boutons-link-normal"></use>
-                </svg>
-            </a>
-                                <a href="/global/fr/media/newslist/news/global/products/sartomer/20250130-graphic-art-center-photocurable-technologies/" class="news-link-overlay" title="BF AL DJAZAIR annonce la cr&eacute;ation d&rsquo;un nouveau <strong>centre d&rsquo;excellence en arts graphiques</strong> d&eacute;di&eacute; aux technologies de photo-r&eacute;ticulation &agrave; Wetherby (Royaume-Uni)"></a>
-                            </section>
-                        </div>
-
-                        <figure class="news-image">
-                            <img src="a3.png" alt="Graphic arts digital printing.jpg">
-                            <figcaption>Graphic arts digital printing.jpg</figcaption>
-                        </figure>
-                    </article>
-                    <!-- news teaser - short - end -->
-                    <!-- news teaser - short - start -->
-                    <article class="news news-teaser news-teaser-short">
-                        <div class="wrapper">
-                            <header class="news-header">
-                                <div class="news-date date">
-                                    <span class="date-month">janv.</span>
-                                    <span class="date-day">30</span>
-                                    <span class="date-year ">2025</span>
-                                </div>
-
-                                <ul class="news-tags-list">
-                                    <li>
-                                        <span class="tag tag-primary news-tags-item">RSE</span>
-                                    </li>
-                                    <li>
-                                        <span class="tag tag-primary news-tags-item">Innovation</span>
-                                    </li>
-                                </ul>
-                            </header>
-                            <section class="news-content">
-                                <div class="news-title news-content-title">Le groupe italien BF révolutionne la production de blé dur en Algérie</div>
-                                <div class="news-text">Le projet de production de  blé dur dans le cadre du partenariat entre l’Algérie et le groupe italien BF prend forme. Les premiers hectares ont été semés à Timimoun par la partie italienne. Les moyens mis en œuvre sont conséquents à l’image de la puissance des tracteurs utilisés ...</div>
+                                <div class="news-title news-content-title">{{acctualite.titre}}</div>
+                                <div class="news-text">{{acctualite.texte|striptags|slice(0, 50) ~ '...'}}</div>
                                 <a href="" class="button button-link news-link">
                                     Lire plus<svg class="icon icon-boutons-link-normal">
                                         <use href="#icon-boutons-link-normal"></use>
                                     </svg>
                                 </a>
-                                <a href="/global/fr/media/newslist/news/global/csr/2025/20250130-sponsorship-ooyoo/" class="news-link-overlay" title="BF AL DJAZAIR et OOYOO LTD.&nbsp;partenaires pour le d&eacute;veloppement <strong>de membranes de s&eacute;paration de gaz pour le captage du carbone</strong>"></a>
+                                <a href="{{ path('app_acctualites_show', {'id': acctualite.id}) }}" class="news-link-overlay" title="{{acctualite.titre}}"></a>
                             </section>
                         </div>
 
                         <figure class="news-image">
-                            <img src="a4.png" alt="Thumbnail -  partenariat Ooyoo table droite.png">
-                            <figcaption>Thumbnail - partenariat Ooyoo table droite.png</figcaption>
+                            <img src="{{ asset('uploads/' ~ acctualite.image) }}" alt="Thumbnail -  campagne alternance 2025.png">
+                            
                         </figure>
                     </article>
+                        {% endfor %}
+          
                     <!-- news teaser - short - end -->
                     <div class="content-link">
-                        <a href="/global/fr/media/newslist/" class="button button-tertiary">Voir plus d'actualités</a>
+                        <a href="{{path('app_acctualites')}}" class="button button-tertiary">Voir plus d'actualités</a>
                     </div>
                 </div>
             </section>
@@ -510,34 +404,7 @@
                 document.getElementById('content-share-price-value').innerHTML = value;
                 document.getElementById('content-share-price-evolution').innerHTML = evol + "% <span>" + upAndDown + "</span>";
             </script>
-            <section class="content-block content-link-list content-color-transparent accordion-content content-background-grey" id="6f823510-b2a4-47c0-9dc2-2b4690a8564b">
-                <div class="wrapper">
-                    <h2>Nos <strong>familles de produits</strong></h2>
-                    <div class="content-text"></div>
-                    <div class="link-list link-list-column-three">
-                        <ul class="list">
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/acrylics/" target="_self" class="button button-link"><span>Céréales & Graines</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/coating-resins/" target="_self" class="button button-link"><span>Farines & Semoules</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/fluorochemicals/" target="_self" class="button button-link"><span>Pâtes & Couscous</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/hydrogen-peroxide/" target="_self" class="button button-link"><span>Huiles & Matières grasses</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/molecular-sieves/" target="_self" class="button button-link"><span>Boulangerie & Pâtisserie</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/oxygenated-solvents/" target="_self" class="button button-link"><span>Produits laitiers & Dérivés</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/rheology-additives/" target="_self" class="button button-link"><span>Sucre & Produits sucrés</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-                            <li class="content-link">
-                                <a href="/global/fr/products/product-families/specialty-adhesives/" target="_self" class="button button-link"><span>Produits bio & Nutritionnels</span><svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg></a></li>
-
-                       
-                        </ul>
-                    </div>
-                </div>
-            </section>
+         
         </article>
     </main>
     <footer>
@@ -548,35 +415,35 @@
                     <nav aria-label="Pied de page primaire">
                         <ul>
                             <li>
-                                <a href="https://www.linkedin.com/company/BF AL DJAZAIR" target="_blank" title="Linkedin">
+                                <a title="Linkedin">
             <svg class="icon icon-linkedin">
                 <use href="#icon-linkedin"></use>
             </svg>
         </a>
                             </li>
                             <li>
-                                <a href="https://www.facebook.com/BF AL DJAZAIRGroup" target="_blank" title="Facebook">
+                                <a title="Facebook">
             <svg class="icon icon-facebook">
                 <use href="#icon-facebook"></use>
             </svg>
         </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/BF AL DJAZAIR_group" target="_blank" title="Twitter">
+                                <a title="Twitter">
             <svg class="icon icon-twitter">
                 <use href="#icon-twitter"></use>
             </svg>
         </a>
                             </li>
                             <li>
-                                <a href="https://www.youtube.com/user/BF AL DJAZAIRTV/videos" target="_blank" title="Youtube">
+                                <a  title="Youtube">
             <svg class="icon icon-youtube">
                 <use href="#icon-youtube"></use>
             </svg>
         </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/BF AL DJAZAIRgroup/" target="_blank" title="Instagram">
+                                <a title="Instagram">
             <svg class="icon icon-instagram">
                 <use href="#icon-instagram"></use>
             </svg>
@@ -620,25 +487,25 @@
                             <a class="link-white" href="/global/fr/site-map/">Site</a>
                         </li>
                         <li>
-                            <a href="/global/fr/legals/" target="_self" class="link-white">Informations légales</a></li>
+                            <a  class="link-white">Informations légales</a></li>
                         <li>
-                            <a href="/global/fr/BF AL DJAZAIR-group/ethics-and-compliance/data-privacy-information-notice/" target="_self" class="link-white">Données Personnelles</a></li>
+                            <a  class="link-white">Données Personnelles</a></li>
                         <li>
-                            <a href="/global/fr/cookies/" target="_self" class="link-white">Utilisation des cookies</a></li>
+                            <a  class="link-white">Utilisation des cookies</a></li>
                         <li>
-                            <a href="javascript:Didomi.preferences.show()" target="_self" "" target="_blank" class="link-white">Cookie management</a></li>
+                            <a  target="_blank" class="link-white">Cookie management</a></li>
                         <li>
-                            <a href="/global/fr/sales-conditions/" target="_self" class="link-white">Conditions générales de vente</a></li>
+                            <a  class="link-white">Conditions générales de vente</a></li>
                         <li>
-                            <a href="/global/fr/media/social-media-hub/" target="_self" class="link-white">BF AL DJAZAIR group Social Media wall</a></li>
+                            <a  class="link-white">BF AL DJAZAIR group Social Media wall</a></li>
                         <li>
-                            <a href="https://www.BF AL DJAZAIR.com/global/fr/accessibilite-numerique/" target="_blank" class="link-white">Accessibilité numérique</a></li>
+                            <a  class="link-white">Accessibilité numérique</a></li>
                         <li>
-                            <a href="/global/fr/products/product-safety/" target="_self" class="link-white">Sécurité des produits(FDS)</a></li>
+                            <a  target="_self" class="link-white">Sécurité des produits(FDS)</a></li>
                         <li>
-                            <a href="/global/fr/products/services/" target="_self" class="link-white">Services</a></li>
+                            <a class="link-white">Services</a></li>
                         <li>
-                            <a href="https://my.BF AL DJAZAIR.com/fr/" target="_blank" class="link-white">Portail client</a></li>
+                            <a class="link-white">Portail client</a></li>
                     </ul>
                 </nav>
             </div>

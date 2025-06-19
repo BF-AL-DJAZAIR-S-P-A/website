@@ -111,7 +111,26 @@
   <script src="../../ck/main.js"></script>
 
   <script>
-  ClassicEditor.create(document.querySelector('#acctualites_texte'), editorConfig);
+
+
+  const editorField = document.querySelector('#acctualites_texte');
+
+// Assurez-vous que le contenu est en HTML
+const initialValue = editorField.value; // Récupère la valeur initiale
+
+ClassicEditor.create(editorField, editorConfig)
+    .then(newEditor => {
+        newEditor.setData(initialValue); // Utilise setData pour définir le contenu
+
+        // Écouter les changements dans l'éditeur
+        newEditor.model.document.on('change:data', () => {
+            const editorData = newEditor.getData();
+            editorField.value = editorData; // Met à jour le champ textarea
+        });
+    })
+    .catch(err => {
+        console.error(err.stack);
+    });
   </script>
 
 	
