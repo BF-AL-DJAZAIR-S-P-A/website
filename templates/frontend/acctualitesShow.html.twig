@@ -28,12 +28,8 @@
         <div class="js-categories" data-result-quantity='18'></div>
 <section class="banner banner-background content-color-primary " style='background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255) 45%, rgba(255, 255, 255, 0.5) 70%),url("{{ asset('uploads/' ~ acctualite.image) }}")'>
     <div class="wrapper">
-        <ul class="banner-tag">
-            <li>
-                    <span class="tag tag-primary">Forage</span>
-                </li>
-            </ul>
-        <p class="banner-date">{{ acctualite.date|date('d M Y ') }} - <strong>Appel d'offre</strong></p>
+       
+        <p class="banner-date">{{ acctualite.date|date('d M Y ') }} - <strong> Actualité</strong></p>
         <h1 class="banner-title">{{acctualite.titre}}</h1>
 
         </div>
@@ -47,9 +43,11 @@
     </div>
 </section>
 <section class="content-block content-center content-rich-text content-color-gradient accordion-content ">
+   <img src="{{ asset('uploads/' ~ acctualite.image) }}" >
+                        <br>
                     <div class="wrapper">
                         <div class="content-text">
-                        <img src="{{ asset('uploads/' ~ acctualite.image) }}">
+                     
                                    {{acctualite.texte|raw}}
 </div>
                             </div>
