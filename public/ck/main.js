@@ -1,43 +1,53 @@
 /**
  * This configuration was generated using the CKEditor 5 Builder. You can modify it anytime using this link:
- * https://ckeditor.com/ckeditor-5/builder/#installation/NoNgNARATAdCMEYKRCAnAgLGkBWBA7AQBwFpm6qZSG4AMAzJgmnQbppg1MhAGYAnZHTDAEYcZIkSAupAZ9cAYyZ0IMoA
+ * https://ckeditor.com/ckeditor-5/builder/?redirect=portal#installation/NoNgNARATAdCMEYKQQBgCwFYDMICcuA7HgBzaEUl54gJTZRQkLqHbpRsbaYKGaEQyCADMATslRhgCMFPlywCALqQq1AEYbUEZUA=
  */
 
-const {
+import {
 	ClassicEditor,
+	Alignment,
 	Autosave,
-	BalloonToolbar,
 	BlockQuote,
-	BlockToolbar,
 	Bold,
+	Bookmark,
 	Code,
+	CodeBlock,
 	Essentials,
 	FontBackgroundColor,
 	FontColor,
 	FontFamily,
 	FontSize,
+	GeneralHtmlSupport,
 	Heading,
 	Highlight,
+	HorizontalLine,
 	Indent,
 	IndentBlock,
 	Italic,
 	Link,
 	Paragraph,
+	PlainTableOutput,
 	RemoveFormat,
 	Strikethrough,
+	Style,
 	Subscript,
 	Superscript,
 	Table,
 	TableCaption,
 	TableCellProperties,
 	TableColumnResize,
+	TableLayout,
 	TableProperties,
 	TableToolbar,
 	Underline
-} = window.CKEDITOR;
+} from 'ckeditor5';
 
-const LICENSE_KEY =
-	'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODE4MjcxOTksImp0aSI6ImFjMzUwM2UyLWFiMWQtNGU4NS05ZmE4LTk4NDYyMTgyOTMyMCIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIl0sInZjIjoiMjZmYzU0ZDIifQ.k948IMbwHzkqdyBP7nShsR3zto5Rc2Rd00WNa1FWc_93eAE_O0BfOAysH1nQ25gxS9oqKiawgMvL5gs582NzIQ';
+import translations from 'ckeditor5/translations/fr.js';
+
+/**
+ * Create a free account with a trial: https://portal.ckeditor.com/checkout?plan=free
+ */
+const LICENSE_KEY = 'GPL'; // or <YOUR_LICENSE_KEY>.
 
 const editorConfig = {
 	toolbar: {
@@ -46,6 +56,7 @@ const editorConfig = {
 			'redo',
 			'|',
 			'heading',
+			'style',
 			'|',
 			'fontSize',
 			'fontFamily',
@@ -61,61 +72,58 @@ const editorConfig = {
 			'code',
 			'removeFormat',
 			'|',
+			'horizontalLine',
 			'link',
+			'bookmark',
 			'insertTable',
+			'insertTableLayout',
 			'highlight',
 			'blockQuote',
+			'codeBlock',
+			'|',
+			'alignment',
 			'|',
 			'outdent',
 			'indent'
 		],
-		shouldNotGroupWhenFull: false
+		shouldNotGroupWhenFull: true
 	},
 	plugins: [
+		Alignment,
 		Autosave,
-		BalloonToolbar,
 		BlockQuote,
-		BlockToolbar,
 		Bold,
+		Bookmark,
 		Code,
+		CodeBlock,
 		Essentials,
 		FontBackgroundColor,
 		FontColor,
 		FontFamily,
 		FontSize,
+		GeneralHtmlSupport,
 		Heading,
 		Highlight,
+		HorizontalLine,
 		Indent,
 		IndentBlock,
 		Italic,
 		Link,
 		Paragraph,
+		PlainTableOutput,
 		RemoveFormat,
 		Strikethrough,
+		Style,
 		Subscript,
 		Superscript,
 		Table,
 		TableCaption,
 		TableCellProperties,
 		TableColumnResize,
+		TableLayout,
 		TableProperties,
 		TableToolbar,
 		Underline
-	],
-	balloonToolbar: ['bold', 'italic', '|', 'link'],
-	blockToolbar: [
-		'fontSize',
-		'fontColor',
-		'fontBackgroundColor',
-		'|',
-		'bold',
-		'italic',
-		'|',
-		'link',
-		'insertTable',
-		'|',
-		'outdent',
-		'indent'
 	],
 	fontFamily: {
 		supportAllValues: true
@@ -169,7 +177,18 @@ const editorConfig = {
 			}
 		]
 	},
-	
+	htmlSupport: {
+		allow: [
+			{
+				name: /^.*$/,
+				styles: true,
+				attributes: true,
+				classes: true
+			}
+		]
+	},
+	initialData:
+		'<h2>Congratulations on setting up CKEditor 5! 🎉</h2>\n<p>\n\tYou\'ve successfully created a CKEditor 5 project. This powerful text editor\n\twill enhance your application, enabling rich text editing capabilities that\n\tare customizable and easy to use.\n</p>\n<h3>What\'s next?</h3>\n<ol>\n\t<li>\n\t\t<strong>Integrate into your app</strong>: time to bring the editing into\n\t\tyour application. Take the code you created and add to your application.\n\t</li>\n\t<li>\n\t\t<strong>Explore features:</strong> Experiment with different plugins and\n\t\ttoolbar options to discover what works best for your needs.\n\t</li>\n\t<li>\n\t\t<strong>Customize your editor:</strong> Tailor the editor\'s\n\t\tconfiguration to match your application\'s style and requirements. Or\n\t\teven write your plugin!\n\t</li>\n</ol>\n<p>\n\tKeep experimenting, and don\'t hesitate to push the boundaries of what you\n\tcan achieve with CKEditor 5. Your feedback is invaluable to us as we strive\n\tto improve and evolve. Happy editing!\n</p>\n<h3>Helpful resources</h3>\n<ul>\n\t<li>📝 <a href="https://portal.ckeditor.com/checkout?plan=free">Trial sign up</a>,</li>\n\t<li>📕 <a href="https://ckeditor.com/docs/ckeditor5/latest/installation/index.html">Documentation</a>,</li>\n\t<li>⭐️ <a href="https://github.com/ckeditor/ckeditor5">GitHub</a> (star us if you can!),</li>\n\t<li>🏠 <a href="https://ckeditor.com">CKEditor Homepage</a>,</li>\n\t<li>🧑‍💻 <a href="https://ckeditor.com/ckeditor-5/demo/">CKEditor 5 Demos</a>,</li>\n</ul>\n<h3>Need help?</h3>\n<p>\n\tSee this text, but the editor is not starting up? Check the browser\'s\n\tconsole for clues and guidance. It may be related to an incorrect license\n\tkey if you use premium features or another feature-related requirement. If\n\tyou cannot make it work, file a GitHub issue, and we will help as soon as\n\tpossible!\n</p>\n',
 	language: 'fr',
 	licenseKey: LICENSE_KEY,
 	link: {
@@ -185,16 +204,55 @@ const editorConfig = {
 			}
 		}
 	},
-	menuBar: {
-		isVisible: true
-	},
 	placeholder: 'Type or paste your content here!',
+	style: {
+		definitions: [
+			{
+				name: 'Article category',
+				element: 'h3',
+				classes: ['category']
+			},
+			{
+				name: 'Title',
+				element: 'h2',
+				classes: ['document-title']
+			},
+			{
+				name: 'Subtitle',
+				element: 'h3',
+				classes: ['document-subtitle']
+			},
+			{
+				name: 'Info box',
+				element: 'p',
+				classes: ['info-box']
+			},
+			{
+				name: 'CTA Link Primary',
+				element: 'a',
+				classes: ['button', 'button--green']
+			},
+			{
+				name: 'CTA Link Secondary',
+				element: 'a',
+				classes: ['button', 'button--black']
+			},
+			{
+				name: 'Marker',
+				element: 'span',
+				classes: ['marker']
+			},
+			{
+				name: 'Spoiler',
+				element: 'span',
+				classes: ['spoiler']
+			}
+		]
+	},
 	table: {
 		contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
-	}
+	},
+	translations: [translations]
 };
-
-
-
 
 
