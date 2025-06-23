@@ -128,7 +128,7 @@
 
                                         <div class="wrapped-image">
                                             <figure>
-                                                <img src="5.jpg">
+                                                <img src="{{asset('5.jpg')}}">
                                                 <figcaption></figcaption>
                                             </figure>
                                         </div>
@@ -166,7 +166,7 @@
                         <a class="link-overlay" title="<b>Carri&egrave;res</b>"></a>
                         <div class="content-picture">
                             <figure>
-                                <img src="img/teaser-all-text-en.jpg" alt="">
+                                <img src="{{asset('img/teaser-all-text-en.jpg')}}" alt="">
                                 <figcaption>
                                     " "</figcaption>
                             </figure>
@@ -190,7 +190,7 @@
                         <a class="link-overlay"  title="<strong>Product </strong>Finder"></a>
                         <div class="content-picture">
                             <figure>
-                                <img src="img/illustration-teaser-webinar-crop.jpg_177131746-crop400x300.jpg" alt="" "">
+                                <img src="{{asset('img/illustration-teaser-webinar-crop.jpg_177131746-crop400x300.jpg')}}" alt="" "">
                                 <figcaption>
                                     " "</figcaption>
                             </figure>
@@ -214,7 +214,7 @@
                         <a class="link-overlay" title="Au c&oelig;ur<strong> du sport</strong>"></a>
                         <div class="content-picture">
                             <figure>
-                                <img src="img/partenariat.png" alt="">
+                                <img src="{{asset('img/partenariat.png')}}" alt="">
                                 <figcaption>
                                 </figcaption>
                             </figure>
@@ -238,7 +238,7 @@
                         <a class="link-overlay" title="<strong>Ressources</strong>"></a>
                         <div class="content-picture">
                             <figure>
-                                <img src="img/making-safer-product.jpeg" alt="" "">
+                                <img src="{{asset('img/making-safer-product.jpeg')}}" alt="" "">
                                 <figcaption>
                                     " "</figcaption>
                             </figure>
@@ -475,7 +475,7 @@
                         BF AL DJAZAIR </p>
                     <a class="button button-tertiary button-white">
                             Découvrez nos implantations</a>
-                        <img id="dzmap" class="dzmap" src="dz.svg" style="    width: 60%;
+                        <img id="dzmap" class="dzmap" src="{{asset('dz.svg')}}" style="    width: 60%;
                         float: left;
                         position: absolute;
                         top: -82px;
@@ -489,7 +489,7 @@
         <div class="footer-primary">
             <div class="wrapper">
                 <div class="footer-logo">
-                    <a title="BF AL DJAZAIR, innovative chemistry">
+                    <a href="{{path('app_homepage')}}"title="BF AL DJAZAIR, innovative chemistry">
             <img src="{{asset('logo-footer.png')}}" alt="BF AL DJAZAIR S.P.A">
                 </a>
                 </div>
