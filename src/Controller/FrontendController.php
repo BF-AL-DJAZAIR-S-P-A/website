@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Appels;
 use App\Repository\AppelsRepository;
 
@@ -12,10 +14,19 @@ use App\Entity\Acctualites;
 use App\Repository\AcctualitesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
-final class FrontendController extends AbstractController
+ class FrontendController extends AbstractController
 {
-    #[Route('/', name: 'app_homepage')]
-    public function index(AcctualitesRepository $AcctualitesRepository,AppelsRepository $AppelsRepository): Response
+
+    #[Route('/', name: 'redirect_to_locale')]
+    public function redirectToLocale(Request $request): RedirectResponse
+    {
+        $locale = $request->getPreferredLanguage(['fr', 'en', 'ar','it']) ?? 'fr';
+
+        return $this->redirect($request->getBasePath() . '/' . $locale . '/');
+    }
+
+    #[Route('/{_locale}/', name: 'app_homepage', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+    public function index(AcctualitesRepository $AcctualitesRepository,AppelsRepository $AppelsRepository,Request $request): Response
     {
        
         $acctualites = $AcctualitesRepository->findBy([], ['date' => 'DESC'], 4);
@@ -28,8 +39,8 @@ final class FrontendController extends AbstractController
         ]);
     }
 
-    #[Route('/appels-doffres', name: 'app_appels')]
-    public function appels(AppelsRepository $AppelsRepository): Response
+    #[Route('/{_locale}/appels-doffres', name: 'app_appels', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+    public function appels(AppelsRepository $AppelsRepository,Request $request): Response
     {
         $appels = $AppelsRepository->findAll();
 
@@ -39,8 +50,8 @@ final class FrontendController extends AbstractController
         ]);
     }
     
-    #[Route('/appels-doffres/{id}', name: 'app_appels_show', methods: ['GET'])]
-    public function appelsShow(Appels $appel): Response
+    #[Route('/{_locale}/appels-doffres/{id}', name: 'app_appels_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+    public function appelsShow(Appels $appel,Request $request): Response
     {
         return $this->render('frontend/appelsShow.html.twig', [
             'controller_name' => 'FrontendController',
@@ -49,8 +60,8 @@ final class FrontendController extends AbstractController
     }
 
 
-    #[Route('/news', name: 'app_acctualites')]
-    public function acctualites(AcctualitesRepository $AcctualitesRepository): Response
+    #[Route('/{_locale}/news', name: 'app_acctualites', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+    public function acctualites(AcctualitesRepository $AcctualitesRepository,Request $request): Response
     {
         $acctualites = $AcctualitesRepository->findAll();
 
@@ -60,8 +71,8 @@ final class FrontendController extends AbstractController
         ]);
     }
 
-      #[Route('/news/{id}', name: 'app_acctualites_show', methods: ['GET'])]
-    public function acctualitesShow(Acctualites $acctualites): Response
+      #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+    public function acctualitesShow(Acctualites $acctualites,Request $request): Response
     {
         return $this->render('frontend/acctualitesShow.html.twig', [
             'controller_name' => 'FrontendController',
