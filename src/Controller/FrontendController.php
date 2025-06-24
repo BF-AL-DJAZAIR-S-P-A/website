@@ -40,13 +40,17 @@ use Doctrine\ORM\EntityManagerInterface;
     }
 
     #[Route('/{_locale}/appels-doffres', name: 'app_appels', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
-    public function appels(AppelsRepository $AppelsRepository,Request $request): Response
+    public function appels(AppelsRepository $AppelsRepository,AcctualitesRepository $AcctualitesRepository,Request $request): Response
     {
         $appels = $AppelsRepository->findAll();
+
+        $acctualites = $AcctualitesRepository->findBy([], ['date' => 'DESC'], 4);
+    
 
         return $this->render('frontend/appels.html.twig', [
             'controller_name' => 'FrontendController',
             'appels' => $appels,
+            'acctualites' => $acctualites,
         ]);
     }
     
