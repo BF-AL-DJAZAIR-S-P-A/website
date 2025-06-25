@@ -13,7 +13,7 @@
                             <div class="js-slide">
                                 <div class="content-block content-rich-text">
                                     <div class="wrapper">
-                                        <a href="https://website.bfaldjazair.com/news/2" class="content-slider-link" title="Composites : BF AL DJAZAIR au<strong> JEC World 2025</strong>"></a>
+                                        <a href="{{ path('app_acctualites_show', {'_locale': app.request.locale, 'id': 2}) }}" class="content-slider-link" title="Composites : BF AL DJAZAIR au<strong> JEC World 2025</strong>"></a>
                                         <div class="wrapped-content">
                                             <div class="subtitle subtitle-primary">
                                                 {{ 'banniere1-tag'|trans|raw }}</div>
@@ -25,7 +25,7 @@
                                             </div>
 
                                             <div class="content-link">
-                                                <a class="button button-primary" href="https://website.bfaldjazair.com/news/2">
+                                                <a class="button button-primary" href="{{ path('app_acctualites_show', {'_locale': app.request.locale, 'id': 2}) }}">
                                                     {{ 'banniere1-bouton'|trans|raw }}  <span>
                                                         <svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg>
                                                     </span>
