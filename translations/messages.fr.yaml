@@ -41,4 +41,10 @@ cat4-soustitre: "Découvrez nos sites d’exploitation, de la culture des céré
 cat4-bouton: "Parcourir"
 
 actualites-titre: "Actualités & évènements"
+actualites-bouton: "Voir toutes les actualités"
+
 appels-titre: "Appels d'offres"
+appels-bouton: "Voir tous nos appels d'offres"
+
+
+partenaires-titre: "Nos <strong>Partenaires</strong> " 

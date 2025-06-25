@@ -45,5 +45,10 @@ cat4-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> اكتشفوا م
 cat4-bouton: "تصفح"
 
 actualites-titre: "الأخبار والفعاليات"
+actualites-bouton: "عرض كل الأخبار" 
+
 appels-titre: "طلبات العروض"
+appels-bouton: "عرض جميع طلبات العروض الخاصة بنا"
+
+
 partenaires-titre: "شركاؤنا" 
