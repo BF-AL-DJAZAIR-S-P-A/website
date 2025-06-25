@@ -1,0 +1,48 @@
+menu:
+  accueil: "الرئيسية"
+  actualites: "الأخبار"
+  offres: "المناقصات"
+  contact: "اتصل بنا"
+
+
+
+banniere1-tag: "الأخبار"
+banniere1-titre: "<div dir='rtl' class='arabic-text' lang='ar'>حصلت الشركة الإيطالية بونيفكي فيراريزي على <strong> عقد امتياز لمدة 40 سنة على مساحة 36,000 هكتار في تيميمون </strong></div> "
+banniere1-soustitre: "<div dir='rtl' class='arabic-text' lang='ar'>الجديد بخصوص المشروع الضخم الذي تنفذه الشركة بونيفكي فيراريزي في الجزائر </div>"
+banniere1-bouton: "اكتشف المزيد"
+
+banniere2-tag: "الأخبار"
+banniere2-titre: "<div class='arabic-text' dir='rtl' lang='ar'><strong>بي إف الجزائر</strong> نحو تعزيز <br><strong>الأمن الغذائي</strong></div>"
+banniere2-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'>تسعى <strong>BF الجزائر</strong> إلى تعزيز الأمن الغذائي من خلال مشاريع زراعية هيكلية. وبالشراكة مع خبراء دوليين، تهدف إلى زيادة الإنتاج المحلي. وتندرج هذه المبادرة ضمن استراتيجية لتحقيق الاكتفاء الذاتي المستدام في الجزائر.</div>"
+banniere2-bouton: "اكتشف المزيد"
+
+banniere3-tag: "الأخبار"
+banniere3-titre: "<div class='arabic-text' dir='rtl' lang='ar'> <strong>مشروع شراكة</strong> بين المجموعة الإيطالية BF والجزائر لإنتاج الحبوب والبقوليات </div>"
+banniere3-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> أطلق كل من المجموعة الإيطالية BF والجزائر شراكة استراتيجية تهدف إلى تطوير الإنتاج المحلي من الحبوب والبقوليات. يندرج هذا المشروع في إطار مبادرة لتحقيق الاكتفاء الذاتي الغذائي ونقل التكنولوجيا الزراعية. ويشمل استغلال مساحات زراعية شاسعة في جنوب الجزائر بدعم تقني إيطالي. </div>"
+banniere3-bouton: "اكتشف المزيد"
+
+banniere4-tag: "مجموعة"
+banniere4-titre: "<div class='arabic-text' dir='rtl' lang='ar'> مجموعة BF، محرك الابتكار في مجال <strong>الصناعات الزراعية</strong> </div>"
+banniere4-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> تُعد مجموعة BF مركزًا للخبرة التكنولوجية والزراعية في خدمة القطاع الزراعي الصناعي الإيطالي.<br /> تُعزز التعاون بين مختلف الأطراف لخلق قيمة مشتركة.<br /> وتهدف إلى تطوير سلسلة إنتاج متكاملة ومبتكرة تعود بالفائدة على جميع الشركاء.<br /> &nbsp; </div>"
+banniere4-bouton: "تعريف بالمجموعة"
+
+
+cat1-titre: "<div class='arabic-text' dir='rtl' lang='ar'>الوظائف</div>"
+cat1-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> شارك في مغامرة إنسانية ومبتكرة في قلب الصناعات الزراعية. لنعمل معًا على زراعة التميز وبناء مستقبل الغذاء.</div>"
+cat1-bouton: "انضم إلينا"
+
+
+cat2-titre: "<div class='arabic-text' dir='rtl' lang='ar'> البحث عن المنتجات</div>"
+cat2-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> يمكنك الوصول إلى مجموعتنا الكاملة من خلال أداة البحث. قم بتصفية المنتجات حسب الفئة أو الخصائص. </div>"
+cat2-bouton: "بحث"
+
+cat3-titre: "<div class='arabic-text' dir='rtl' lang='ar'>الشراكات الرئيسية</div>"
+cat3-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> تعتمد شركة BF AL DJAZAIR على شراكات استراتيجية من أجل الابتكار وتوفير حلول مستدامة تلبي احتياجات السوق. </div>"
+cat3-bouton: "اكتشف"
+
+cat4-titre: "<div class='arabic-text' dir='rtl' lang='ar'>مواقع التشغيل</div>"
+cat4-soustitre: "<div class='arabic-text' dir='rtl' lang='ar'> اكتشفوا مواقع التشغيل لدينا، من زراعة الحبوب إلى معالجتها، مما يعكس التزامنا بالجودة والابتكار والتنمية المستدامة. </div>"
+cat4-bouton: "تصفح"
+
+actualites-titre: "الأخبار والفعاليات"
+appels-titre: "طلبات العروض"

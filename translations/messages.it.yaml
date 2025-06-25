@@ -1,0 +1,46 @@
+menu:
+  accueil: "Home"
+  actualites: "Notizie"
+  offres: "Gare"
+  contact: "Contattaci"
+
+
+banniere1-tag: "Notizie"
+banniere1-titre: "La concessione si estende su 36.000 ettari: la società italiana BF ottiene <strong>una concessione di 40 anni a Timimoun</strong>"
+banniere1-soustitre: "Novità per il megaprogetto della società italiana Bonifiche Ferraresi (BF) in Algeria. L’azienda..."
+banniere1-bouton: "Scopri di più"
+
+banniere2-tag: "Notizie"
+banniere2-titre: "BF Al Djazair Verso il rafforzamento della <strong>sicurezza alimentare</strong>"
+banniere2-soustitre: "BF Al DJAZAIR si impegna a rafforzare la sicurezza alimentare attraverso progetti agricoli strutturali. In collaborazione con esperti internazionali, punta ad aumentare la produzione locale. Questa iniziativa si inserisce in una strategia di autosufficienza sostenibile per l'Algeria."
+banniere2-bouton: "Scopri di più"
+
+banniere3-tag: "Notizie"
+banniere3-titre: "<strong>Progetto di partenariato</strong> tra il gruppo italiano BF e l'Algeria per la produzione di cereali e legumi"
+banniere3-soustitre: "Il gruppo italiano BF e l'Algeria hanno avviato una partnership strategica volta a sviluppare la produzione locale di cereali e legumi. Questo progetto rientra in un'iniziativa di autosufficienza alimentare e di trasferimento di tecnologia agricola. Prevede lo sfruttamento di vaste aree agricole nel sud dell'Algeria con il supporto tecnico italiano."
+banniere3-bouton: "Scopri di più"
+
+banniere4-tag: "Gruppo"
+banniere4-titre: "Il Gruppo BF, motore dell’innovazione <strong>agroindustriale</strong>"
+banniere4-soustitre: "Il Gruppo BF è un centro di competenza tecnologica e agronomica al servizio del settore agroindustriale italiano. Favorisce le sinergie tra gli attori per creare valore condiviso. Il suo obiettivo è sviluppare una filiera integrata e innovativa a beneficio di tutti i partner.<br /> &nbsp;"
+banniere4-bouton: "Presentazione del gruppo"
+
+cat1-titre: "Carriere"
+cat1-soustitre: "Partecipa a un’avventura umana e innovativa nel cuore dell’agroindustria. Coltiviamo insieme l’eccellenza e costruiamo il futuro dell’alimentazione."
+cat1-bouton: "Unisciti a noi"
+
+
+cat2-titre: "Ricerca prodotti"
+cat2-soustitre: "Accedi alla nostra gamma completa con il nostro strumento di ricerca. Filtra i prodotti per categoria o specificità."
+cat2-bouton: "Cerca"
+
+cat3-titre: "Principali Partenariati"
+cat3-soustitre: "BF AL DJAZAIR si basa su partnership strategiche per innovare e garantire soluzioni sostenibili, adatte alle esigenze del mercato."
+cat3-bouton: "Découvrir"
+
+cat4-titre: "Siti operativi"
+cat4-soustitre: "Scoprite i nostri siti operativi, dalla coltivazione dei cereali alla loro trasformazione, a testimonianza del nostro impegno per la qualità, l’innovazione e lo sviluppo sostenibile."
+cat4-bouton: "Sfoglia" 
+
+actualites-titre: "Notizie ed Eventi"
+appels-titre: "Bandi di gara"

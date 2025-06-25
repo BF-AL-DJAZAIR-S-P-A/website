@@ -1,0 +1,44 @@
+menu:
+  accueil: "Accueil"
+  actualites: "Actualités"
+  offres: "Appels d'offres"
+  contact: "Contact"
+
+banniere1-tag: "Actualité"
+banniere1-titre: "La concession s’étale sur 36 000 hectares : L’italien BF décroche un <strong>acte de concession de 40 ans à Timimoun</strong>"
+banniere1-soustitre: "Du nouveau pour le mégaprojet de la société italienne Bonifiche Ferraresi (BF) en Algérie. L’entreprise..."
+banniere1-bouton: "En savoir plus"
+
+banniere2-tag: "Actualité"
+banniere2-titre: "BF Al Djazair Vers le renforcement de la <strong>sécurité alimentaire</strong>"
+banniere2-soustitre: "BF Algérie œuvre à renforcer la sécurité alimentaire à travers des projets agricoles structurants. En partenariat avec des experts internationaux, elle vise à accroître la production locale. Cette initiative s’inscrit dans une démarche d’autosuffisance durable pour l’Algérie."
+banniere2-bouton: "En savoir plus"
+
+banniere3-tag: "Actualité"
+banniere3-titre: "Projet de partenariat</strong> entre le groupe italien BF et l’Algérie pour la production de céréales et de légumineuses"
+banniere3-soustitre: "Le groupe italien BF et l’Algérie ont lancé un partenariat stratégique visant à développer la production locale de céréales et de légumineuses. Ce projet s'inscrit dans une démarche d'autosuffisance alimentaire et de transfert de technologie agricole. Il prévoit l’exploitation de vastes terres agricoles dans le sud algérien avec un accompagnement technique italien."
+banniere3-bouton: "En savoir plus"
+
+banniere4-titre: "Le Groupe BF, moteur de l’innovation <strong>agro-industrielle</strong>"
+banniere4-soustitre: "Le Groupe BF est un pôle d’expertise technologique et agronomique au service du secteur agro-industriel italien. Il favorise les synergies entre acteurs pour créer de la valeur partagée. Son objectif est de développer une filière intégrée et innovante, au bénéfice de tous les partenaires.<br/> &nbsp;"
+banniere4-bouton: "Présentation du groupe"
+
+cat1-titre: "Carrières"
+cat1-soustitre: "Participez à une aventure humaine et innovante au cœur de l’agro-industrie. Ensemble, cultivons l’excellence et bâtissons l’avenir de l’alimentation."
+cat1-bouton: "Nous rejoindre"
+
+
+cat2-titre: "Product finder"
+cat2-soustitre: "Accédez à l’ensemble de notre gamme grâce à notre outil de recherche. Filtrez nos produits par catégorie ou spécificité."
+cat2-bouton: "Rechercher"
+
+cat3-titre: "Principaux partenariats"
+cat3-soustitre: " BF AL DJAZAIR s’appuie sur des partenariats stratégiques pour innover et garantir des solutions durables, adaptées aux besoins du marché."
+cat3-bouton: "Découvrir"
+
+cat4-titre: "Sites d'exploitation"
+cat4-soustitre: "Découvrez nos sites d’exploitation, de la culture des céréales à leur transformation, illustrant notre engagement pour la qualité, l’innovation et le développement durable."
+cat4-bouton: "Parcourir"
+
+actualites-titre: "Actualités & évènements"
+appels-titre: "Appels d'offres"

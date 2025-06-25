@@ -130,6 +130,11 @@
  
 
     <style>
+            .arabic-text {
+            direction: rtl;
+            text-align: right;
+            font-family: "Arial", "Amiri", sans-serif;
+        }
         .header-primary-logo img {
             max-width: 300px;
             max-height: 76px;
@@ -216,7 +221,7 @@
                            <li class="header-navigation-item">
                         <button onclick='window.location.href="{{path('app_homepage')}}";' class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
                             aria-expanded="false">
-                         Accueil<svg class="icon icon-arrow">
+                         {{ 'menu.accueil'|trans }}<svg class="icon icon-arrow">
                         <use href="#icon-arrow"></use>
                             </svg>
                         </button>
@@ -227,7 +232,7 @@
                        <li class="header-navigation-item">
                         <button onclick='window.location.href="{{path('app_acctualites')}}";' class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
                             aria-expanded="false">
-                         Actualité<svg class="icon icon-arrow">
+                         {{ 'menu.actualites'|trans }}<svg class="icon icon-arrow">
                         <use href="#icon-arrow"></use>
                             </svg>
                         </button>
@@ -237,7 +242,7 @@
                        <li class="header-navigation-item">
                         <button onclick='window.location.href="{{path('app_appels')}}";' class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
                             aria-expanded="false">
-                        Appels d'offres <svg class="icon icon-arrow">
+                         {{ 'menu.offres'|trans }} <svg class="icon icon-arrow">
                         <use href="#icon-arrow"></use>
                             </svg>
                         </button>
@@ -250,7 +255,7 @@
                        <li class="header-navigation-item">
                         <button onclick="window.location.href='#';" class="js-switch js-switch-marked header-navigation-button js-hover  js-megamenu-level" data-level="1" data-target="aaa.html"
                             aria-expanded="false">
-                        Contact<svg class="icon icon-arrow">
+                        {{ 'menu.contact'|trans }}<svg class="icon icon-arrow">
                         <use href="#icon-arrow"></use>
                             </svg>
                         </button>

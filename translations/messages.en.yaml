@@ -1,0 +1,45 @@
+menu:
+  accueil: "Home"
+  actualites: "News"
+  offres: "Tenders"
+  contact: "Contact us"
+
+banniere1-tag: "News"
+banniere1-titre: "The concession covers 36,000 hectares: Italian company BF secures a <strong>40-year concession agreement in Timimoun</strong>"
+banniere1-soustitre: "New developments for the megaproject of the Italian company Bonifiche Ferraresi (BF) in Algeria. The company..."
+banniere1-bouton: "Learn more"
+
+banniere2-tag: "News"
+banniere2-titre: "BF Al Djazair Towards strengthening <strong>food security</strong>"
+banniere2-soustitre: "BF Al DJAZAIR is working to strengthen food security through large-scale agricultural projects. In partnership with international experts, it aims to increase local production. This initiative is part of a sustainable self-sufficiency strategy for Algeria."
+banniere2-bouton: "Learn more"
+
+banniere3-tag: "News"
+banniere3-titre: "<strong>Partnership project</strong> between the Italian group BF and Algeria for the production of cereals and legumes"
+banniere3-soustitre: "The Italian group BF and Algeria have launched a strategic partnership aimed at developing local production of cereals and legumes. This project is part of a food self-sufficiency initiative and agricultural technology transfer. It involves the cultivation of vast agricultural lands in southern Algeria with technical support from Italy."
+banniere3-bouton: "Learn more"
+
+banniere4-tag: "Group"
+banniere4-titre: "The BF Group, a driving force in <strong>agro-industrial</strong> innovation"
+banniere4-soustitre: "The BF Group is a hub of technological and agronomic expertise serving the Italian agro-industrial sector. It fosters synergies between stakeholders to create shared value. Its goal is to develop an integrated and innovative supply chain for the benefit of all partners.<br/> &nbsp;"
+banniere4-bouton: "Group Overview"
+
+cat1-titre: "Careers"
+cat1-soustitre: "Join a human and innovative adventure at the heart of the agro-industry. Together, let's cultivate excellence and build the future of food."
+cat1-bouton: "Join us"
+
+
+cat2-titre: "Product finder"
+cat2-soustitre: "Access our full range with our search tool. Filter our products by category or specificity."
+cat2-bouton: "Search"
+
+cat3-titre: "Key Partnerships"
+cat3-soustitre: "BF AL DJAZAIR relies on strategic partnerships to innovate and provide sustainable solutions tailored to market needs."
+cat3-bouton: "Découvrir"
+
+cat4-titre: "Operational Sites"
+cat4-soustitre: "Discover our operational sites, from cereal cultivation to their processing, showcasing our commitment to quality, innovation, and sustainable development."
+cat4-bouton: "Browse"
+
+actualites-titre: "News & Events"
+appels-titre: "Tenders"
