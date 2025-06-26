@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Entity;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 use App\Repository\AcctualitesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: AcctualitesRepository::class)]
+#[Gedmo\TranslationEntity(class: App\Entity\Translation::class)]
 class Acctualites
 {
     #[ORM\Id]
@@ -14,11 +14,16 @@ class Acctualites
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Gedmo\Translatable]
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
+    #[Gedmo\Translatable]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $texte = null;
+
+    #[Gedmo\Locale] // Cette propriété ne sera pas en BDD
+    private ?string $locale = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
@@ -28,6 +33,11 @@ class Acctualites
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $video = null;
+
+    public function setTranslatableLocale(string $locale): void
+    {
+        $this->locale = $locale;
+    }
 
     public function getId(): ?int
     {
