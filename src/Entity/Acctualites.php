@@ -6,6 +6,7 @@ use App\Repository\AcctualitesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Entity(repositoryClass: AcctualitesRepository::class)]
 #[Gedmo\TranslationEntity(class: App\Entity\Translation::class)]
 class Acctualites
 {
