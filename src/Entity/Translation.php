@@ -1,5 +1,7 @@
 <?php
-// src/Entity/Translation.php
+
+namespace App\Entity;
+
 use Gedmo\Translatable\Entity\MappedSuperclass\AbstractTranslation;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -7,5 +9,5 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: "ext_translations")]
 class Translation extends AbstractTranslation
 {
-    // Laisse vide, tout est hérité
+    // Pas besoin d'ajouter autre chose, tout est hérité
 }
