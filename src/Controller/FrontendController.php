@@ -94,27 +94,19 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
     }
 
  #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
-public function acctualitesShow(
-    Request $request,
-    EntityManagerInterface $em,
-    int $id
-): Response {
+public function acctualitesShow(int $id, Request $request, AcctualitesRepository $acctualitesRepository): Response
+{
     $locale = $request->getLocale();
 
-    // Activer le filtre translatable
-    $em->getFilters()->enable('gedmo_translatable');
-    $em->getFilters()->getFilter('gedmo_translatable')
-        ->setParameter('locale', $locale);
-
-    $acctualite = $em->getRepository(Acctualites::class)->find($id);
+    $acctualite = $acctualitesRepository->findOnlyTranslatedById($locale, $id);
 
     if (!$acctualite) {
-        throw $this->createNotFoundException('Article introuvable');
+        throw $this->createNotFoundException('Actualité non trouvée.');
     }
 
     return $this->render('frontend/acctualitesShow.html.twig', [
+        'controller_name' => 'FrontendController',
         'acctualite' => $acctualite,
     ]);
 }
-
 }
