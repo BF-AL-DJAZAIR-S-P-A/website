@@ -189,8 +189,7 @@
 </a>
     {% set locales = ['fr', 'en', 'ar', 'it'] %}
     {% set currentLocale = app.request.locale %}
-     {% set currentRoute = app.request.attributes.get('_route') %}
-                {% set currentParams = app.request.attributes.get('_route_params')|merge({'_locale': 'fr'}) %}
+    {% set homepageRoute = 'app_homepage' %}
             <!-- Header secondary Language selector -->
             <div class="header-secondary-language" id="header-secondary-language" aria-live="polite">
                 <button class="header-secondary-language-current js-switch js-hover" data-target="header-secondary-language" aria-controls="header-secondary-language" data-hover="hover-group-2">
@@ -200,7 +199,7 @@
                    <li>
                         {% for locale in locales %}
                             {% if locale != currentLocale %}
-                                <a href="{{ path(currentRoute, currentParams|merge({'_locale': locale})) }}">
+                                <a href="{{ path(homepageRoute, {'_locale': locale}) }}">
                                     {{ locale|upper }}
                                 </a>
                             {% endif %}
