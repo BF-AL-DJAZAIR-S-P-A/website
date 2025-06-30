@@ -35,7 +35,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
         $appels = $AppelsRepository->findAllOnlyTranslated($locale);
-        $acctualites = $AppelsRepository->findAllOnlyTranslated($locale);
+        $acctualites = $AcctualitesRepository->findAllOnlyTranslated($locale);
        
 
         return $this->render('frontend/index.html.twig', [
