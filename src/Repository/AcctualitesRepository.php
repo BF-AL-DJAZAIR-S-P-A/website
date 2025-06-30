@@ -69,13 +69,20 @@ public function findOnlyTranslatedById(string $locale, int $id): ?Acctualites
     $dql = "
         SELECT a
         FROM App\Entity\Acctualites a
-        WHERE a.id = :id
+        JOIN App\Entity\Translation t
+            WITH t.foreignKey = a.id
+             AND t.locale = :locale
+             AND t.objectClass = :class
+             AND a.id = :id
     ";
 
-    $query = $em->createQuery($dql);
-    $query->setParameter('id', $id);
-    $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class);
-    $query->setHint(TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale);
+    $query = $em->createQuery($dql)
+        ->setParameter('locale', $locale)
+        ->setParameter('id', $id)
+        ->setParameter('class', Acctualites::class)
+        ->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class)
+        ->setHint(TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale)
+        ->setMaxResults(1);
 
     return $query->getOneOrNullResult();
 }
