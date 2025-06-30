@@ -262,7 +262,8 @@
                 <div class="content-wrapper">
              
                     <!-- news teaser - short - start -->
-
+                        {% set currentRoute = app.request.attributes.get('_route') %}
+                        {{currentRoute}}
                         {% for acctualite in acctualites %}
                     <article class="news news-teaser news-teaser-short">
                         <div class="wrapper">
