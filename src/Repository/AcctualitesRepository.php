@@ -62,7 +62,7 @@ class AcctualitesRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-   public function findOnlyTranslatedById(string $locale,$id): array
+   public function findOnlyTranslatedById(string $locale,$acctualites): array
     {
         $em = $this->getEntityManager();
 
@@ -76,7 +76,7 @@ class AcctualitesRepository extends ServiceEntityRepository
 
         $query = $em->createQuery($dql);
         $query->setParameter('locale', $locale);
-         $query->setParameter('id', $id);
+         $query->setParameter('id', $acctualites);
         $query->setParameter('class', Acctualites::class);
         $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class);
         $query->setHint(TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale);
