@@ -9,6 +9,10 @@ doctrine:
         profiling_collect_backtrace: '%kernel.debug%'
         use_savepoints: true
     orm:
+        filters:
+            gedmo_translatable:
+                class: Gedmo\Translatable\Filter\TranslationFilter
+                enabled: false
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
         report_fields_where_declared: true
