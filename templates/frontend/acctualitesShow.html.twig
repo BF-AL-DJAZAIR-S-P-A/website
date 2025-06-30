@@ -23,11 +23,13 @@
 }
 </style>
 <main class="content-edito " id="main-content">
+       {% set lang = app.request.locale  %}
     <article data-type="arkema">
 
         <div class="js-categories" data-result-quantity='18'></div>
 <section class="banner banner-background content-color-primary " style='background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255) 45%, rgba(255, 255, 255, 0.5) 70%),url("{{ asset('uploads/' ~ acctualite.image) }}")'>
     <div class="wrapper">
+
        
         <p class="banner-date">{{ acctualite.date|date('d M Y ') }} - <strong> Actualité</strong></p>
         <h1 class="banner-title">{{acctualite.titre}}</h1>
@@ -37,19 +39,38 @@
     </section>
 
        <section class="content-block content-introduction content-background-grey">
+         {% if lang == 'ar' %}
+
+<div class="content-introduction-wrapper arabic-text" dir='rtl' lang='ar'>
+        <p>
+            {{acctualite.titre}}</p>
+    </div>
+    {% else %}
+
     <div class="content-introduction-wrapper">
         <p>
             {{acctualite.titre}}</p>
     </div>
+         {% endif %}
+    
 </section>
 <section class="content-block content-center content-rich-text content-color-gradient accordion-content ">
    <img src="{{ asset('uploads/' ~ acctualite.image) }}" style="width:100%;" >
                        
                     <div class="wrapper">
-                        <div class="content-text">
+                     {% if lang == 'ar' %}
+                        <div class="content-text arabic-text" dir='rtl' lang='ar'>
                       <br> <br>
                                    {{acctualite.texte|raw}}
-</div>
+                        </div>
+                            {% else %}
+
+                                <div class="content-text">
+                      <br> <br>
+                                   {{acctualite.texte|raw}}
+                        </div>
+
+                          {% endif %}
                             </div>
                     </section>
 
