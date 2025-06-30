@@ -27,8 +27,8 @@
 }
 	</style>
 
-  		<link rel="stylesheet" href="../../ck/style.css">
-		<link rel="stylesheet" href="../../ck/ckeditor5/ckeditor5.css">
+  		<link rel="stylesheet" href="{{asset('ck/style.css')}}">
+		<link rel="stylesheet" href="{{asset('ck/ckeditor5/ckeditor5.css')}}">
 	{{ block("MenuTop", "Menus/MenuTop.html.twig") }}
     	<div class="app-main">
 		{{ block("MenuLeft", "Menus/MenuLeft.html.twig") }}
@@ -108,7 +108,7 @@
 		<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.umd.js" crossorigin></script>
 		<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/translations/fr.umd.js" crossorigin></script>
 
-  <script src="../../ck/main.js"></script>
+  <script src="{{asset('ck/main.js')}}"></script>
 
   
 

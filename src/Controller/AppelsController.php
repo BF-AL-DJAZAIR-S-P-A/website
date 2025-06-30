@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
-#[Route('/admin/appels')]
+#[Route('/{_locale}/admin/appels')]
 final class AppelsController extends AbstractController
 {
     #[Route(name: 'app_appels_index', methods: ['GET'])]

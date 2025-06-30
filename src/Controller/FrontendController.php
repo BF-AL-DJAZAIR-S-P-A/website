@@ -9,11 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use App\Entity\Appels;
 use App\Repository\AppelsRepository;
+use Gedmo\Translatable\Query\TreeWalker\TranslationWalker;
+use Gedmo\Translatable\TranslatableListener;
 
 use App\Entity\Acctualites;
 use App\Repository\AcctualitesRepository;
 use Doctrine\ORM\EntityManagerInterface;
-
+use Symfony\Component\DependencyInjection\ContainerInterface;
  class FrontendController extends AbstractController
 {
 
@@ -65,13 +67,19 @@ use Doctrine\ORM\EntityManagerInterface;
 
 
     #[Route('/{_locale}/news', name: 'app_acctualites', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
-    public function acctualites(AcctualitesRepository $AcctualitesRepository,Request $request): Response
+    public function acctualites(AcctualitesRepository $AcctualitesRepository,Request $request,): Response
     {
-        $acctualites = $AcctualitesRepository->findAll();
+        
+        $locale = $request->getLocale(); // récupère la locale courante
+
+
+
+        $acctualite = $AcctualitesRepository->findOnlyTranslated($locale);
+   
 
         return $this->render('frontend/acctualites.html.twig', [
             'controller_name' => 'FrontendController',
-            'acctualites' => $acctualites,
+            'acctualites' => $acctualite,
         ]);
     }
 

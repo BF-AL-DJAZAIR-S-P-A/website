@@ -69,26 +69,26 @@
         </header>
     
         <section id="search-result-list" class="content-block search-result-list list-column list-column-2">
-    {% for acctualite in acctualites %}
+    {% for a  in acctualites %}
     
  
     <article class="card card-bordered card-large card-large-image" data-image-side="right" data-list-offset="1">
 
-		<a href="{{ path('app_acctualites_show', {'id': acctualite.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema"></a>
+		<a href="{{ path('app_acctualites_show', {'id': a.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema"></a>
 	
 	    <div class="card-wrapper">
 
 				<figure>
 			
-            <img src="{{ asset('uploads/' ~ acctualite.image) }}" alt="Appel d'offre">
+            <img src="{{ asset('uploads/' ~ a.image) }}" alt="Appel d'offre">
 		</figure>
 				<header class="card-header">
 
 						<div class="card-date">
 				<div class="date">
-					<span class="date-month">{{acctualite.date|date('M')}}</span>
-					<span class="date-day">{{acctualite.date|date('d')}}</span>
-					<span class="date-year">{{acctualite.date|date('Y')}}</span>
+					<span class="date-month">{{a.date|date('M')}}</span>
+					<span class="date-day">{{a.date|date('d')}}</span>
+					<span class="date-year">{{a.date|date('Y')}}</span>
 				</div>
 			</div>
 			
@@ -105,17 +105,17 @@
 		</header>
 
 				<h3 class="card-title">
-			{{acctualite.titre}}
+			{{a.titre}}
 		</h3>
 		
 				<div class="card-text">
 			<p>
-				{{acctualite.texte|striptags|slice(0, 50) ~ '...'}}
+				{{a.texte|striptags|slice(0, 50) ~ '...'}}
 			</p>
 		</div>
 		
 				<div class="card-link">
-			<a href="{{ path('app_acctualites_show', {'id': acctualite.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema">
+			<a href="{{ path('app_acctualites_show', {'id': a.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema">
 				Plus d'information
 				<svg class="icon icon-boutons-link-normal" xml:lang="fr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use href="#icon-boutons-link-normal"></use>

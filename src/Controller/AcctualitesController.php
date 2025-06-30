@@ -14,7 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
-#[Route('/admin/acctualites')]
+#[Route('/{_locale}/admin/acctualites')]
 final class AcctualitesController extends AbstractController
 {
     #[Route(name: 'app_acctualites_index', methods: ['GET'])]
@@ -52,6 +52,9 @@ final class AcctualitesController extends AbstractController
                 // On remplace l’objet UploadedFile par le nom du fichier dans l’entité
                 $acctualite->setImage($newFilename);
             }
+
+             $locale = $request->getLocale();
+             $acctualite->setTranslatableLocale($locale);
 
 
             $entityManager->persist($acctualite);
