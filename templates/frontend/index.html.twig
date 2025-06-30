@@ -262,9 +262,13 @@
                 <div class="content-wrapper">
              
                     <!-- news teaser - short - start -->
-                         
-                        {{ app.request.locale }}
+                            {% set lang = app.request.locale  %}
+                        
+                   
                         {% for acctualite in acctualites %}
+                        
+                        
+                    
                     <article class="news news-teaser news-teaser-short">
                         <div class="wrapper">
                             <header class="news-header">
@@ -281,8 +285,13 @@
                                 </ul>
                             </header>
                             <section class="news-content">
+                            {% if lang = 'ar' %}
+                                <div class="news-title news-content-title arabic-text" dir='rtl' lang='ar'>{{acctualite.titre}}</div>
+                                <div class="news-text arabic-text" dir='rtl' lang='ar'>{{acctualite.texte|striptags|slice(0, 100) ~ '...'}}</div>
+                                {% else %}
                                 <div class="news-title news-content-title">{{acctualite.titre}}</div>
                                 <div class="news-text">{{acctualite.texte|striptags|slice(0, 100) ~ '...'}}</div>
+                                {% endif %}
                                 <a href="" class="button button-link news-link">
                                     Lire plus<svg class="icon icon-boutons-link-normal">
                                         <use href="#icon-boutons-link-normal"></use>
