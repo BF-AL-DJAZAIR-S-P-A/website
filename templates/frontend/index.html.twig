@@ -262,11 +262,8 @@
                 <div class="content-wrapper">
              
                     <!-- news teaser - short - start -->
-                            {% set locales = ['fr', 'en', 'ar', 'it'] %}
-                            {% set currentLocale = app.request.locale %}
-                            {% set currentRoute = app.request.attributes.get('_route') %}
-                            {% set currentParams = app.request.attributes.get('_route_params')|merge({'_locale': 'fr'}) %}
-                        {{currentParams}}
+                         
+                        {{ app.request.locale }}
                         {% for acctualite in acctualites %}
                     <article class="news news-teaser news-teaser-short">
                         <div class="wrapper">
