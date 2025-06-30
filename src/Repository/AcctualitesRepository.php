@@ -62,27 +62,27 @@ class AcctualitesRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-   public function findOnlyTranslatedById(string $locale,$acctualites): array
-    {
-        $em = $this->getEntityManager();
+   public function findOnlyTranslatedById(string $locale, Acctualites $acctualites): ?Acctualites
+{
+    $em = $this->getEntityManager();
 
-        $dql = "
-            SELECT a
-            FROM App\Entity\Acctualites a
-            JOIN App\Entity\Translation t
-                WITH t.foreignKey = a.id AND t.locale = :locale AND a.id = :id AND t.objectClass = :class
-            ORDER BY a.date DESC
-        ";
+    $dql = "
+        SELECT a
+        FROM App\Entity\Acctualites a
+        JOIN App\Entity\Translation t
+            WITH t.foreignKey = a.id AND t.locale = :locale AND t.objectClass = :class
+        WHERE a.id = :id
+    ";
 
-        $query = $em->createQuery($dql);
-        $query->setParameter('locale', $locale);
-         $query->setParameter('id', $acctualites);
-        $query->setParameter('class', Acctualites::class);
-        $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class);
-        $query->setHint(TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale);
-        $query->setMaxResults(4);
+    $query = $em->createQuery($dql);
+    $query->setParameter('locale', $locale);
+    $query->setParameter('id', $acctualites->getId());
+    $query->setParameter('class', Acctualites::class);
 
-        return $query->getResult();
-    }
+    $query->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class);
+    $query->setHint(TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale);
+
+    return $query->getOneOrNullResult();
+}
 
 }

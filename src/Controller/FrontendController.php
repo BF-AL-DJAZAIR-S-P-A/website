@@ -93,15 +93,15 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
         ]);
     }
 
-      #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
-    public function acctualitesShow(Acctualites $acctualites,Request $request,AcctualitesRepository $AcctualitesRepository): Response
-    {
-        $locale = $request->getLocale(); // récupère la locale courante
+    #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+public function acctualitesShow(Acctualites $acctualites, Request $request, AcctualitesRepository $AcctualitesRepository): Response
+{
+    $locale = $request->getLocale();
 
-        $acctualites = $AcctualitesRepository->findOnlyTranslatedById($locale,$acctualites);
-        return $this->render('frontend/acctualitesShow.html.twig', [
-            'controller_name' => 'FrontendController',
-            'acctualite' => $acctualites,
-        ]);
-    }
+    $translated = $AcctualitesRepository->findOnlyTranslatedById($locale, $acctualites);
+
+    return $this->render('frontend/acctualitesShow.html.twig', [
+        'acctualite' => $translated,
+    ]);
+}
 }
