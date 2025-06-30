@@ -30,9 +30,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
     #[Route('/{_locale}/', name: 'app_homepage', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
     public function index(AcctualitesRepository $AcctualitesRepository,AppelsRepository $AppelsRepository,Request $request): Response
     {
+
+        $locale = $request->getLocale(); // récupère la locale courante
+
+
+        $appels = $AppelsRepository->findAllOnlyTranslated($locale);
+        $acctualites = $AppelsRepository->findAllOnlyTranslated($locale);
        
-        $acctualites = $AcctualitesRepository->findBy([], ['date' => 'DESC'], 4);
-        $appels = $AppelsRepository->findBy([], ['date' => 'DESC'], 4);
 
         return $this->render('frontend/index.html.twig', [
             'controller_name' => 'FrontendController',
