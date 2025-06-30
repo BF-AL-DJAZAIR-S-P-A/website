@@ -77,6 +77,7 @@ class AcctualitesRepository extends ServiceEntityRepository
     $query = $em->createQuery($dql);
     $query->setParameter('locale', $locale);
     $query->setParameter('id', $acctualites->getId());
+    
     $query->setParameter('class', Acctualites::class);
 
     $query->setHint(\Doctrine\ORM\Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class);
