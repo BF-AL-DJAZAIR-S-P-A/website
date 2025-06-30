@@ -93,7 +93,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
         ]);
     }
 
-  #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+ #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
 public function acctualitesShow(
     Request $request,
     EntityManagerInterface $em,
@@ -101,9 +101,10 @@ public function acctualitesShow(
 ): Response {
     $locale = $request->getLocale();
 
-    // Important : informer le listener de la langue
-    $translatableListener = $em->getFilters()->getFilter('gedmo_translatable');
-    $translatableListener->setParameter('locale', $locale);
+    // Activer le filtre translatable
+    $em->getFilters()->enable('gedmo_translatable');
+    $em->getFilters()->getFilter('gedmo_translatable')
+        ->setParameter('locale', $locale);
 
     $acctualite = $em->getRepository(Acctualites::class)->find($id);
 
@@ -115,4 +116,5 @@ public function acctualitesShow(
         'acctualite' => $acctualite,
     ]);
 }
+
 }
