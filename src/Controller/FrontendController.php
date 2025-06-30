@@ -44,8 +44,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
     #[Route('/{_locale}/appels-doffres', name: 'app_appels', requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
     public function appels(AppelsRepository $AppelsRepository,AcctualitesRepository $AcctualitesRepository,Request $request): Response
     {
-        $appels = $AppelsRepository->findAll();
 
+         $locale = $request->getLocale(); // récupère la locale courante
+
+
+
+        $appels = $AppelsRepository->findOnlyTranslated($locale);
+
+     
         $acctualites = $AcctualitesRepository->findBy([], ['date' => 'DESC'], 4);
     
 

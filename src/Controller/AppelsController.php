@@ -53,6 +53,9 @@ final class AppelsController extends AbstractController
                 $appel->setImage($newFilename);
             }
 
+             $locale = $request->getLocale();
+             $appel->setTranslatableLocale($locale);
+
 
             $entityManager->persist($appel);
             $entityManager->flush();
