@@ -94,7 +94,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
     }
 
       #[Route('/{_locale}/news/{id}', name: 'app_acctualites_show', methods: ['GET'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
-    public function acctualitesShow(Acctualites $acctualites,Request $request): Response
+    public function acctualitesShow(Acctualites $acctualites,Request $request,AcctualitesRepository $AcctualitesRepository): Response
     {
         $locale = $request->getLocale(); // récupère la locale courante
 
