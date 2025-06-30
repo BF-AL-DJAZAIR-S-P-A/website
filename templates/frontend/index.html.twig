@@ -285,7 +285,7 @@
                                 </ul>
                             </header>
                             <section class="news-content">
-                            {% if lang = 'ar' %}
+                            {% if lang == 'ar' %}
                                 <div class="news-title news-content-title arabic-text" dir='rtl' lang='ar'>{{acctualite.titre}}</div>
                                 <div class="news-text arabic-text" dir='rtl' lang='ar'>{{acctualite.texte|striptags|slice(0, 100) ~ '...'}}</div>
                                 {% else %}
