@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -68,7 +69,7 @@ final class CandidaturesController extends AbstractController
             }
 
               $email = (new TemplatedEmail())
-                    ->from($form->get('email')->getData(), 'BF - Candidature')
+                    ->from(new Address('info@bfaldjazair.com', 'BF - Recrutement'))
                     ->to('elm3hdi@gmail.com')
                     ->subject('Nouvelle candidature ' . $form->get('poste')->getData())
                     ->htmlTemplate('emails/candidature.html.twig')
