@@ -159,22 +159,22 @@ class CandidaturesType extends AbstractType
             'required' => false,
             'label' => false 
         ])
-            ->add('cv', FileType::class, [
-                'label' => false,
-                'mapped' => false, // très important si le champ n’est pas directement dans l’entité
-                'required' => false,
-                'constraints' => [
-                    new \Symfony\Component\Validator\Constraints\File([
-                        'maxSize' => '5M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/webp',
-                        ],
-                        'mimeTypesMessage' => 'Format du document non valide.',
-                    ])
-                ],
-            ])
+           ->add('cv', FileType::class, [
+            'label' => false,
+            'mapped' => false,
+            'required' => false,
+            'constraints' => [
+                new \Symfony\Component\Validator\Constraints\File([
+                    'maxSize' => '50M',
+                    'mimeTypes' => [
+                        'application/pdf',
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                    ],
+                    'mimeTypesMessage' => 'Seuls les fichiers PDF, DOC ou DOCX sont autorisés.',
+                ])
+            ],
+        ])
           
         ;
     }
