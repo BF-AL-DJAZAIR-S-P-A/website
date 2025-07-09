@@ -68,7 +68,7 @@ final class CandidaturesController extends AbstractController
             }
 
               $email = (new TemplatedEmail())
-                    ->from($form->get('email')->getData())
+                    ->from($form->get('email')->getData(), 'BF - Candidature')
                     ->to('elm3hdi@gmail.com')
                     ->subject('Nouvelle candidature ' . $form->get('poste')->getData())
                     ->htmlTemplate('emails/candidature.html.twig')
