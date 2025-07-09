@@ -21,7 +21,7 @@
 <p><strong>Email :</strong> {{ adresse_email }}</p>
 <p><strong>Téléphone :</strong> {{ tel }}</p>
 
-<p><strong>Lettre de motivation :</strong> {{ lettre|raw  }}</p>
+<p><strong>Lettre de motivation :</strong> {{ lettre|nl2br|raw  }}</p>
 
 <p>Le CV est en pièce jointe.</p>
 {% endblock %}
