@@ -1,0 +1,31 @@
+{# templates/emails/candidature.html.twig #}
+
+{% extends 'emails/base_email.html.twig' %}
+
+{% set subject = 'Nouvelle candidature' %}
+{% set company_name = 'BF ALDJAZAIR SPA' %}
+{% set logo_url = asset('img/logo4.svg') %}
+{% set company_address = 'Lotissement El Fath villa No 29, section 44, Groupe de propriété No 17 E Biar, Alger' %}
+{% set company_email = 'info@bfaldjazair.com' %}
+{% set company_phone = '+213 (0) 23 05 18 36' %}
+
+{% block content %}
+    <h2 style="margin-top:0;">Nouvelle candidature reçue pour le poste de "{{poste}}"</h2>
+
+
+<p><strong>Poste :</strong> {{ poste }}</p>
+<p><strong>Expérience :</strong> {{ experience }}</p>
+<p><strong>Nom :</strong> {{ nom }}</p>
+<p><strong>Prenom :</strong> {{ prenom }}</p>
+<p><strong>date de naissance :</strong> {{ datenaissance|date('d/m/Y') }}</p>
+<p><strong>Email :</strong> {{ adresse_email }}</p>
+<p><strong>Téléphone :</strong> {{ tel }}</p>
+
+<p><strong>Lettre de motivation :</strong> {{ lettre|raw  }}</p>
+
+<p>Le CV est en pièce jointe.</p>
+{% endblock %}
+
+
+
+
