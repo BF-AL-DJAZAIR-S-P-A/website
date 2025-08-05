@@ -64,8 +64,6 @@ final class CandidaturesController extends AbstractController
                 $candidature->setCv($newFilename);
 
                 
-
-                
             }
 
               $email = (new TemplatedEmail())
