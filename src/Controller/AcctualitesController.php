@@ -101,7 +101,7 @@ final class AcctualitesController extends AbstractController
                 }
     
                 // On remplace l’objet UploadedFile par le nom du fichier dans l’entité
-                $appel->setImage($newFilename);
+                $acctualite->setImage($newFilename);
             }
             $entityManager->flush();
 
