@@ -18,11 +18,11 @@ class CandidaturesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-       
+        $translator = $options['translator']; // injecté via service ou FormType
         $builder
            
 
-      ->add('poste', ChoiceType::class, [
+           ->add('poste', ChoiceType::class, [
     'choices' => [
         'form.poste.ingenieur_agronome' => 'ingenieur_agronome',
         'form.poste.production_vegetale' => 'production_vegetale',
@@ -42,6 +42,28 @@ class CandidaturesType extends AbstractType
     'required' => false,
     'label' => false,
 ])
+
+          ->add('experience',ChoiceType::class, [
+            'choices' => [
+                "1an d'expérience" => "1an d'expérience",
+                "2ans d'expérience" => "2ans d'expérience",
+                "3ans d'expérience" => "3ans d'expérience",
+                "4ans d'expérience" => "4ans d'expérience",
+                "5ans d'expérience" => "5ans d'expérience",
+                "6ans d'expérience" => "6ans d'expérience",
+                "7ans d'expérience" => "7ans d'expérience",
+                "8ans d'expérience" => "8ans d'expérience",
+                "9ans d'expérience" => "9ans d'expérience",
+                "10ans d'expérience" => "10ans d'expérience",
+                "Plus de 10ans d'expérience" => "Plus de 10ans d'expérience",
+                
+            ],
+            'placeholder' => '',
+            'expanded' => false,
+            'multiple' => false,
+            'required' => false,
+            'label' => false 
+        ])
           
             ->add('nom',TextType::class,[
                 'label'=> false,
