@@ -35,7 +35,7 @@ class CandidaturesType extends AbstractType
         'form.poste.conducteur_engins' => 'conducteur_engins',
     ],
     'choice_translation_domain' => 'forms',
-    'placeholder' => 'form.poste.placeholder',
+    'placeholder' => '',
     'translation_domain' => 'forms',
     'expanded' => false,
     'multiple' => false,
