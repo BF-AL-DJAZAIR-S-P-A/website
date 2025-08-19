@@ -25,7 +25,7 @@
                                             </div>
 
                                             <div class="content-link">
-                                                <a class="button button-primary" href="{{ path('app_acctualites_show', {'_locale': app.request.locale, 'id': 2}) }}">
+                                                <a class="button button-primary" href="{{ path('app_acctualites_show', {'_locale': app.request.locale, 'id': 26}) }}">
                                                     {{ 'banniere1-bouton'|trans|raw }}  <span>
                                                         <svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg>
                                                     </span>
@@ -99,6 +99,7 @@
             <section class="content-block content-list-image content-background-grey content-color-transparent accordion-content">
                 <div class="wrapper">
                     <article class="content-teaser content-teaser-image">
+                    <a href="{{path('app_candidatures_new')}}">
                         <div class="content-teaser-content">
                             <div class="content-teaser-image-title"><b> {{ 'cat1-titre'|trans|raw }} </b></div>
                             <div class="content-text">
@@ -121,6 +122,7 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </article>
                     <article class="content-teaser content-teaser-image">
                         <div class="content-teaser-content">
