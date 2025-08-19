@@ -99,7 +99,7 @@
             <section class="content-block content-list-image content-background-grey content-color-transparent accordion-content">
                 <div class="wrapper">
                     <article class="content-teaser content-teaser-image">
-                    <a href="{{path('app_candidatures_new')}}">
+                    <a>
                         <div class="content-teaser-content">
                             <div class="content-teaser-image-title"><b> {{ 'cat1-titre'|trans|raw }} </b></div>
                             <div class="content-text">
@@ -115,14 +115,15 @@
                                     " "</figcaption>
                             </figure>
                             <div class="content-link ">
+                                 <a href="{{path('app_candidatures_new')}}">
                                 <div class="button button-primary">
                                     {{ 'cat1-bouton'|trans|raw }}<span>
-                        <svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg>
-                            </span>
+                                    <svg class="icon icon-boutons-link-normal"><use href="#icon-boutons-link-normal"></use></svg>
+                                        </span>
                                 </div>
+                                </a>
                             </div>
                         </div>
-                        </a>
                     </article>
                     <article class="content-teaser content-teaser-image">
                         <div class="content-teaser-content">
