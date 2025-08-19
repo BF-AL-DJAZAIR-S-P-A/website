@@ -13,7 +13,7 @@
                             <div class="js-slide">
                                 <div class="content-block content-rich-text">
                                     <div class="wrapper">
-                                        <a href="{{ path('app_acctualites_show', {'_locale': app.request.locale, 'id': 2}) }}" class="content-slider-link"></a>
+                                        <a href="{{ path('app_acctualites_show', {'_locale': app.request.locale, 'id': 26}) }}" class="content-slider-link"></a>
                                         <div class="wrapped-content">
                                             <div class="subtitle subtitle-primary">
                                                 {{ 'banniere1-tag'|trans|raw }}</div>
@@ -99,7 +99,7 @@
             <section class="content-block content-list-image content-background-grey content-color-transparent accordion-content">
                 <div class="wrapper">
                     <article class="content-teaser content-teaser-image">
-                    <a>
+                   
                         <div class="content-teaser-content">
                             <div class="content-teaser-image-title"><b> {{ 'cat1-titre'|trans|raw }} </b></div>
                             <div class="content-text">
@@ -108,6 +108,7 @@
                         </div>
 
                         <a class="link-overlay" title="<b>Carri&egrave;res</b>"></a>
+                         <a href="{{path('app_candidature_new')}}">
                         <div class="content-picture">
                             <figure>
                                 <img src="{{asset('img/teaser-all-text-en.jpg')}}" alt="">
@@ -123,6 +124,7 @@
                                 </a>
                             </div>
                         </div>
+                        </a>
                     </article>
                     <article class="content-teaser content-teaser-image">
                         <div class="content-teaser-content">
