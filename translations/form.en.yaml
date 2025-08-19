@@ -1,0 +1,12 @@
+form:
+  poste:
+    placeholder: "Select a position"
+    ingenieur_agronome: "Agronomy engineer"
+    production_vegetale: "Plant production engineer"
+    agroalimentaire: "Food industry engineer"
+    electricite: "Electrical engineer"
+    informatique: "IT engineer"
+    irrigation: "Irrigation engineer"
+    rh: "Human Resources Manager"
+    logistique: "Logistics Manager"
+    conducteur_engins: "Agricultural machinery driver"

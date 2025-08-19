@@ -1,0 +1,12 @@
+form:
+  poste:
+    placeholder: "اختر منصباً"
+    ingenieur_agronome: "مهندس زراعي"
+    production_vegetale: "مهندس إنتاج نباتي"
+    agroalimentaire: "مهندس صناعات غذائية"
+    electricite: "مهندس كهرباء"
+    informatique: "مهندس إعلام آلي"
+    irrigation: "مهندس ري"
+    rh: "مسؤول الموارد البشرية"
+    logistique: "مسؤول لوجستي"
+    conducteur_engins: "سائق الآلات الزراعية"

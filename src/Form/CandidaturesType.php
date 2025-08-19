@@ -18,27 +18,31 @@ class CandidaturesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('poste',ChoiceType::class, [
-            'choices' => [
-                "Ingénieur agronome" => "Ingénieur agronome",
-                "Ingénieur en production végétale" => "Ingénieur en production végétale",
-                "Ingénieur agroalimentaire" => "Ingénieur agroalimentaire",
-                "Ingénieur en éléctricité" => "Ingénieur en éléctricité",
-                "Ingénieur informatique" => "Ingénieur informatique",
-                "Ingénieur d'irrigation" => "Ingénieur d'irrigation",
-                "Responsable ressources humaines " => "Responsable ressources humaines ",
-                "Responsable logistique" => "Responsable logistique",
-                "Conducteur d'engins agricoles" => "Conducteur d'engins agricoles",
-               
+           
 
-                
-            ],
-            'placeholder' => ' ',
-            'expanded' => false,
-            'multiple' => false,
-            'required' => false,
-            'label' => false 
-        ])
+       ->add('poste', ChoiceType::class, [
+        'choices' => [
+            'form.poste.ingenieur_agronome' => 'Ingénieur agronome',
+            'form.poste.production_vegetale' => 'Ingénieur en production végétale',
+            'form.poste.agroalimentaire' => 'Ingénieur agroalimentaire',
+            'form.poste.electricite' => 'Ingénieur en éléctricité',
+            'form.poste.informatique' => 'Ingénieur informatique',
+            'form.poste.irrigation' => "Ingénieur d'irrigation",
+            'form.poste.rh' => 'Responsable ressources humaines',
+            'form.poste.logistique' => 'Responsable logistique',
+            'form.poste.conducteur_engins' => "Conducteur d'engins agricoles",
+        ],
+        'choice_label' => function($choice, $key, $value) {
+            return 'form.poste.'.$value;
+        },
+        'placeholder' => 'form.poste.placeholder',
+        'expanded' => false,
+        'multiple' => false,
+        'required' => false,
+        'label' => false,
+        'translation_domain' => 'forms'
+    ])
+
           ->add('experience',ChoiceType::class, [
             'choices' => [
                 "1an d'expérience" => "1an d'expérience",

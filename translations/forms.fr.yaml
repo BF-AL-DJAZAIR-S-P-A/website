@@ -1,0 +1,12 @@
+form:
+  poste:
+    placeholder: "Sélectionnez un poste"
+    ingenieur_agronome: "Ingénieur agronome"
+    production_vegetale: "Ingénieur en production végétale"
+    agroalimentaire: "Ingénieur agroalimentaire"
+    electricite: "Ingénieur en électricité"
+    informatique: "Ingénieur informatique"
+    irrigation: "Ingénieur d'irrigation"
+    rh: "Responsable ressources humaines"
+    logistique: "Responsable logistique"
+    conducteur_engins: "Conducteur d'engins agricoles"

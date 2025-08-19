@@ -1,0 +1,12 @@
+form:
+  poste:
+    placeholder: "Seleziona una posizione"
+    ingenieur_agronome: "Ingegnere agronomo"
+    production_vegetale: "Ingegnere in produzione vegetale"
+    agroalimentaire: "Ingegnere agroalimentare"
+    electricite: "Ingegnere elettrico"
+    informatique: "Ingegnere informatico"
+    irrigation: "Ingegnere in irrigazione"
+    rh: "Responsabile risorse umane"
+    logistique: "Responsabile logistica"
+    conducteur_engins: "Conduttore di macchine agricole"
