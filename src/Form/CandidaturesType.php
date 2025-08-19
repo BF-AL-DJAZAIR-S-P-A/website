@@ -12,36 +12,38 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class CandidaturesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $translator = $options['translator']; // injecté via service ou FormType
         $builder
            
 
        ->add('poste', ChoiceType::class, [
-        'choices' => [
-            'form.poste.ingenieur_agronome' => 'Ingénieur agronome',
-            'form.poste.production_vegetale' => 'Ingénieur en production végétale',
-            'form.poste.agroalimentaire' => 'Ingénieur agroalimentaire',
-            'form.poste.electricite' => 'Ingénieur en éléctricité',
-            'form.poste.informatique' => 'Ingénieur informatique',
-            'form.poste.irrigation' => "Ingénieur d'irrigation",
-            'form.poste.rh' => 'Responsable ressources humaines',
-            'form.poste.logistique' => 'Responsable logistique',
-            'form.poste.conducteur_engins' => "Conducteur d'engins agricoles",
-        ],
-        'choice_label' => function($choice, $key, $value) {
-            return 'form.poste.'.$value;
-        },
-        'placeholder' => 'form.poste.placeholder',
-        'expanded' => false,
-        'multiple' => false,
-        'required' => false,
-        'label' => false,
-        'translation_domain' => 'forms'
-    ])
+            'choices' => [
+                'ingenieur_agronome' => 'ingenieur_agronome',
+                'production_vegetale' => 'production_vegetale',
+                'agroalimentaire' => 'agroalimentaire',
+                'electricite' => 'electricite',
+                'informatique' => 'informatique',
+                'irrigation' => 'irrigation',
+                'rh' => 'rh',
+                'logistique' => 'logistique',
+                'conducteur_engins' => 'conducteur_engins',
+            ],
+            'choice_label' => function($choice, $key, $value) {
+                return $this->translator->trans('form.poste.' . $value, [], 'forms');
+            },
+            'placeholder' => 'form.poste.placeholder',
+            'translation_domain' => 'forms',
+            'expanded' => false,
+            'multiple' => false,
+            'required' => false,
+            'label' => false,
+        ])
 
           ->add('experience',ChoiceType::class, [
             'choices' => [
