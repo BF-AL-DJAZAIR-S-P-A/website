@@ -24,22 +24,22 @@ class CandidaturesType extends AbstractType
 
            ->add('poste', ChoiceType::class, [
     'choices' => [
-        'form.poste.ingenieur_agronome' => 'ingenieur_agronome',
-        'form.poste.production_vegetale' => 'production_vegetale',
-        'form.poste.agroalimentaire' => 'agroalimentaire',
-        'form.poste.electricite' => 'electricite',
-        'form.poste.informatique' => 'informatique',
-        'form.poste.irrigation' => 'irrigation',
-        'form.poste.rh' => 'rh',
-        'form.poste.logistique' => 'logistique',
-        'form.poste.conducteur_engins' => 'conducteur_engins',
+        'form.poste.ingenieur_agronome' => 'Agronomy engineer',
+        'form.poste.production_vegetale' => 'Plant production engineer',
+        'form.poste.agroalimentaire' => 'Food industry engineer',
+        'form.poste.electricite' => 'Electrical engineer',
+        'form.poste.informatique' => 'IT engineer',
+        'form.poste.irrigation' => 'Irrigation engineer',
+        'form.poste.rh' => 'Human Resources Manager',
+        'form.poste.logistique' => 'Logistics Manager',
+        'form.poste.conducteur_engins' => 'Agricultural machinery driver',
     ],
     'choice_translation_domain' => 'forms',
     'placeholder' => '',
     'translation_domain' => 'forms',
     'expanded' => false,
     'multiple' => false,
-    'required' => false,
+    'required' => true,
     'label' => false,
 ])
 
@@ -61,7 +61,7 @@ class CandidaturesType extends AbstractType
             'placeholder' => '',
             'expanded' => false,
             'multiple' => false,
-            'required' => false,
+            'required' => true,
             'label' => false 
         ])
           
@@ -160,7 +160,7 @@ class CandidaturesType extends AbstractType
             'placeholder' => '',
             'expanded' => false,
             'multiple' => false,
-            'required' => false,
+            'required' => true,
             'label' => false 
         ])
            ->add('cv', FileType::class, [
