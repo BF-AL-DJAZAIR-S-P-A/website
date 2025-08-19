@@ -55,12 +55,12 @@ input[type=file] {
   
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-nom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre nom'}}) }}
+          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-nom'|trans}}) }}
         </div>
 
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-prenom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre prenom'}}) }}
+          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-prenom'|trans}}) }}
         </div>
         <br> <br>
   </div>
@@ -76,19 +76,19 @@ input[type=file] {
         <div class="form-floating col-md-6">
         <br>
         <span for="candidatures_experience" class="required">{{ 'form-candidature-ville'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3','placeholder': 'name@example.com'}}) }}
+          {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3'}}) }}
          <br> 
         </div>
   </div>
     <div class="row">
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-telephone'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'Téléphone'}}) }}
+          {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-telephone'|trans}}) }}
         </div>
 
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-email'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.email,{'attr': {'class': 'form-control rounded-3','placeholder': 'name@example.com'}}) }}
+          {{ form_row(form.email,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-email'|trans}}) }}
          <br> 
         </div>
   </div>
@@ -99,7 +99,7 @@ input[type=file] {
          {{ form_row(form.lettre, {
             'attr': {
                 'class': 'form-control rounded-3',
-                'placeholder': 'form-candidature-lettre'|trans
+                'placeholder': 'form-placeholder-lettre'|trans
             }
         }) }}
         </div>
