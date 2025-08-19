@@ -49,3 +49,17 @@ appels-bouton: "Voir tous nos appels d'offres"
 
 
 partenaires-titre: "Nos <strong>Partenaires</strong> " 
+
+
+ban-candidature: "Offres d'emploi"
+form-candidature-titre: "Soumettre votre candidature"
+form-candidature-postes: "Postes disponnibles"
+form-candidature-experience: "Votre expérience"
+form-candidature-nom: "Nom"
+form-candidature-prenom: "Prenom"
+form-candidature-date: "Date de naissance"
+form-candidature-ville: "Ville" 
+form-candidature-telephone: "Téléphone"
+form-candidature-email: "Email"
+form-candidature-lettre: "Lettre de motivation"
+form-candidature-cv: "Votre CV"

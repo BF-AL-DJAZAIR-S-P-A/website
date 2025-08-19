@@ -53,3 +53,16 @@ appels-bouton: "عرض جميع طلبات العروض الخاصة بنا"
 
 
 partenaires-titre: "شركاؤنا" 
+
+ban-candidature: "عروض عمل"
+form-candidature-titre: "إرسال طلب التوظيف"
+form-candidature-postes: "الوظائف الشاغرة"
+form-candidature-experience: "خبرتك"
+form-candidature-nom: "الاسم"
+form-candidature-prenom: "اللقب"
+form-candidature-date: "تاريخ الميلاد"
+form-candidature-ville: "المدينة" 
+form-candidature-telephone: "الهاتف"
+form-candidature-email: "البريد الإلكتروني"
+form-candidature-lettre: "رسالة تحفيزية"
+form-candidature-cv: "سيرتك الذاتية"

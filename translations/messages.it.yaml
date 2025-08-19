@@ -50,3 +50,17 @@ appels-titre: "Bandi di gara"
 appels-bouton: "Vedi tutti i nostri bandi di gara"
 
 partenaires-titre: "I Nostri <strong>Partner</strong>"
+
+
+ban-candidature: "Offerte di lavoro"
+form-candidature-titre: "Invia la tua candidatura"
+form-candidature-postes: "Posizioni disponibili"
+form-candidature-experience: "La tua esperienza"
+form-candidature-nom: "Cognome"
+form-candidature-prenom: "Nome"
+form-candidature-date: "Data di nascita"
+form-candidature-ville: "Città" 
+form-candidature-telephone: "Telefono"
+form-candidature-email: "Email"
+form-candidature-lettre: "Lettera di motivazione"
+form-candidature-cv: "Il tuo CV"

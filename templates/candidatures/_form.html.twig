@@ -27,7 +27,7 @@ input[type=file] {
   <div class="modal-dialog">
     <div class="modal-content rounded-4 shadow">
       <div class="modal-header p-5 pb-4 border-bottom-0">
-        <h1 class="fw-bold mb-0 fs-2" style="color: #1a2955;">Soumettre votre candidature </h1>
+        <h1 class="fw-bold mb-0 fs-2" style="color: #1a2955;">{{ 'form-candidature-titre'|trans }} </h1>
    
       </div>
 
@@ -38,12 +38,12 @@ input[type=file] {
          {{ form_start(form) }}
   <div class="row">
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">Postes disponnibles <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-postes'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.poste,{'attr': {'class': 'form-control rounded-3'}}) }}
         </div>
         
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">Votre expérience <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-experience'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.experience,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre Expérience'}}) }}
          <br> 
         </div>
@@ -54,12 +54,12 @@ input[type=file] {
   <div class="row">
   
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">Nom <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-nom'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre nom'}}) }}
         </div>
 
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">Prenom <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-prenom'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre prenom'}}) }}
         </div>
         <br> <br>
@@ -69,25 +69,25 @@ input[type=file] {
    <div class="row">
         <div class="form-floating col-md-6">
         <br>
-        <span for="candidatures_experience" class="required">Date de naissance <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-date'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.datenaissance,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre date de naissance'}}) }}
         </div>
 
         <div class="form-floating col-md-6">
         <br>
-        <span for="candidatures_experience" class="required">Ville <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-ville'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3','placeholder': 'name@example.com'}}) }}
          <br> 
         </div>
   </div>
     <div class="row">
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">Téléphone <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-telephone'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'Téléphone'}}) }}
         </div>
 
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">Email <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-email'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.email,{'attr': {'class': 'form-control rounded-3','placeholder': 'name@example.com'}}) }}
          <br> 
         </div>
@@ -95,8 +95,13 @@ input[type=file] {
 
      <div class="row">
         <div class="form-floating col-md-12">
-        <span for="candidatures_experience" class="required">Lettre de motivation </span>
-          {{ form_row(form.lettre,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre message'}}) }}
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-lettre'|trans }}  </span>
+         {{ form_row(form.lettre, {
+            'attr': {
+                'class': 'form-control rounded-3',
+                'placeholder': 'form-candidature-lettre'|trans
+            }
+        }) }}
         </div>
         <br> <br>
 
@@ -106,7 +111,7 @@ input[type=file] {
        <div class="row">
         <div class="form-floating col-md-12">
          <br>
-        <span for="candidatures_experience" class="required">Votre CV <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form-candidature-cv'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.cv,{'attr': {'class': 'form-control'}}) }}
           <br>
         </div>
