@@ -22,50 +22,26 @@ class CandidaturesType extends AbstractType
         $builder
            
 
-       ->add('poste', ChoiceType::class, [
-            'choices' => [
-                'ingenieur_agronome' => 'ingenieur_agronome',
-                'production_vegetale' => 'production_vegetale',
-                'agroalimentaire' => 'agroalimentaire',
-                'electricite' => 'electricite',
-                'informatique' => 'informatique',
-                'irrigation' => 'irrigation',
-                'rh' => 'rh',
-                'logistique' => 'logistique',
-                'conducteur_engins' => 'conducteur_engins',
-            ],
-            'choice_label' => function($choice, $key, $value) {
-                return $this->translator->trans('form.poste.' . $value, [], 'forms');
-            },
-            'placeholder' => 'form.poste.placeholder',
-            'translation_domain' => 'forms',
-            'expanded' => false,
-            'multiple' => false,
-            'required' => false,
-            'label' => false,
-        ])
-
-          ->add('experience',ChoiceType::class, [
-            'choices' => [
-                "1an d'expérience" => "1an d'expérience",
-                "2ans d'expérience" => "2ans d'expérience",
-                "3ans d'expérience" => "3ans d'expérience",
-                "4ans d'expérience" => "4ans d'expérience",
-                "5ans d'expérience" => "5ans d'expérience",
-                "6ans d'expérience" => "6ans d'expérience",
-                "7ans d'expérience" => "7ans d'expérience",
-                "8ans d'expérience" => "8ans d'expérience",
-                "9ans d'expérience" => "9ans d'expérience",
-                "10ans d'expérience" => "10ans d'expérience",
-                "Plus de 10ans d'expérience" => "Plus de 10ans d'expérience",
-                
-            ],
-            'placeholder' => '',
-            'expanded' => false,
-            'multiple' => false,
-            'required' => false,
-            'label' => false 
-        ])
+      >add('poste', ChoiceType::class, [
+    'choices' => [
+        'form.poste.ingenieur_agronome' => 'ingenieur_agronome',
+        'form.poste.production_vegetale' => 'production_vegetale',
+        'form.poste.agroalimentaire' => 'agroalimentaire',
+        'form.poste.electricite' => 'electricite',
+        'form.poste.informatique' => 'informatique',
+        'form.poste.irrigation' => 'irrigation',
+        'form.poste.rh' => 'rh',
+        'form.poste.logistique' => 'logistique',
+        'form.poste.conducteur_engins' => 'conducteur_engins',
+    ],
+    'choice_translation_domain' => 'forms',
+    'placeholder' => 'form.poste.placeholder',
+    'translation_domain' => 'forms',
+    'expanded' => false,
+    'multiple' => false,
+    'required' => false,
+    'label' => false,
+])
           
             ->add('nom',TextType::class,[
                 'label'=> false,
