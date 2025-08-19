@@ -28,7 +28,7 @@ class AcctualitesRepository extends ServiceEntityRepository
             FROM App\Entity\Acctualites a
             JOIN App\Entity\Translation t
                 WITH t.foreignKey = a.id AND t.locale = :locale AND t.objectClass = :class
-            ORDER BY a.date DESC
+            ORDER BY a.id DESC
         ";
 
         $query = $em->createQuery($dql);
@@ -49,7 +49,7 @@ class AcctualitesRepository extends ServiceEntityRepository
             FROM App\Entity\Acctualites a
             JOIN App\Entity\Translation t
                 WITH t.foreignKey = a.id AND t.locale = :locale AND t.objectClass = :class
-            ORDER BY a.date DESC
+            ORDER BY a.id DESC
         ";
 
         $query = $em->createQuery($dql);
@@ -57,7 +57,7 @@ class AcctualitesRepository extends ServiceEntityRepository
         $query->setParameter('class', Acctualites::class);
         $query->setHint(Query::HINT_CUSTOM_OUTPUT_WALKER, TranslationWalker::class);
         $query->setHint(TranslatableListener::HINT_TRANSLATABLE_LOCALE, $locale);
-        $query->setMaxResults(4);
+       
 
         return $query->getResult();
     }
