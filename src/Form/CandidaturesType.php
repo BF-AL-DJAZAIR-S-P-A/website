@@ -18,7 +18,7 @@ class CandidaturesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $translator = $options['translator']; // injecté via service ou FormType
+   
         $builder
            
 
