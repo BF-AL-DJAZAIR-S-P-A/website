@@ -22,7 +22,7 @@ class CandidaturesType extends AbstractType
         $builder
            
 
-      >add('poste', ChoiceType::class, [
+      ->add('poste', ChoiceType::class, [
     'choices' => [
         'form.poste.ingenieur_agronome' => 'ingenieur_agronome',
         'form.poste.production_vegetale' => 'production_vegetale',
