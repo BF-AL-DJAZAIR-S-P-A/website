@@ -62,7 +62,7 @@
 										   <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Poste</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Datenaissance</th>
@@ -74,7 +74,7 @@
         <tbody>
         {% for candidature in candidatures %}
             <tr>
-                <td>{{ candidature.id }}</td>
+                <td>{{ candidature.poste }}</td>
                 <td>{{ candidature.nom }}</td>
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.datenaissance ? candidature.datenaissance|date('Y-m-d') : '' }}</td>
