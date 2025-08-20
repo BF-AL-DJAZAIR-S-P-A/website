@@ -568,6 +568,13 @@ display:none !important;
 .text-danger {
     color: #484848!important;
 }
+.language-options {
+  display: none;
+}
+
+.language-options.show {
+  display: block;
+}
 		</style>
 
 
@@ -597,24 +604,22 @@ setInterval(removeBranding, tick)
 
             
 <script>
-    const menu = document.getElementById('languageMenu');
-    const selected = menu.querySelector('.language-selected');
-    const options = menu.querySelectorAll('.language-options div');
+   document.addEventListener("DOMContentLoaded", function () {
+    const selected = document.querySelector(".language-selected");
+    const options = document.querySelector(".language-options");
 
-    // Ouvrir / fermer le menu
-    selected.addEventListener('click', () => {
-      menu.classList.toggle('open');
+    // Toggle affichage des langues au clic
+    selected.addEventListener("click", () => {
+        options.classList.toggle("show");
     });
 
-    // Choisir une langue
-    options.forEach(option => {
-      option.addEventListener('click', () => {
-        selected.textContent = option.textContent;
-        menu.classList.remove('open');
-        // Ici tu peux rediriger ou appeler une fonction Symfony
-        // Exemple: window.location.href = "/change-lang/" + option.dataset.lang;
-      });
+    // Fermer le menu si on clique ailleurs
+    document.addEventListener("click", (e) => {
+        if (!selected.contains(e.target) && !options.contains(e.target)) {
+            options.classList.remove("show");
+        }
     });
+});
   </script>
 			{% endblock %}
 
