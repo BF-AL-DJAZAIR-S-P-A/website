@@ -98,6 +98,7 @@ class CandidaturesType extends AbstractType
                  'attr' => [
                 'placeholder' => 'form.poste.telephone', // ✅ dans attr
                 ],
+                'translation_domain' => 'messages',
             ])
              ->add('ville',ChoiceType::class, [
             'choices' => [
