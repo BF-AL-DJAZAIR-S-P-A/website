@@ -22,8 +22,8 @@ class CandidaturesType extends AbstractType
         $builder
            
 
-           ->add('poste', ChoiceType::class, [
-    'choices' => [
+        ->add('poste', ChoiceType::class, [
+        'choices' => [
         'form.poste.ingenieur_agronome' => 'Agronomy engineer',
         'form.poste.production_vegetale' => 'Plant production engineer',
         'form.poste.agroalimentaire' => 'Food industry engineer',
@@ -42,28 +42,29 @@ class CandidaturesType extends AbstractType
     'required' => true,
     'label' => false,
 ])
-
-          ->add('experience',ChoiceType::class, [
-            'choices' => [
-                "1an d'expérience" => "1an d'expérience",
-                "2ans d'expérience" => "2ans d'expérience",
-                "3ans d'expérience" => "3ans d'expérience",
-                "4ans d'expérience" => "4ans d'expérience",
-                "5ans d'expérience" => "5ans d'expérience",
-                "6ans d'expérience" => "6ans d'expérience",
-                "7ans d'expérience" => "7ans d'expérience",
-                "8ans d'expérience" => "8ans d'expérience",
-                "9ans d'expérience" => "9ans d'expérience",
-                "10ans d'expérience" => "10ans d'expérience",
-                "Plus de 10ans d'expérience" => "Plus de 10ans d'expérience",
-                
-            ],
-            'placeholder' => '',
-            'expanded' => false,
-            'multiple' => false,
-            'required' => true,
-            'label' => false 
-        ])
+     ->add('experience', ChoiceType::class, [
+        'choices' => [
+        'form.poste.1an' => '1 year of experience',
+        'form.poste.2ans' => '2 years of experience',
+        'form.poste.3ans' => '3 years of experience',
+        'form.poste.4ans' => '4 years of experience',
+        'form.poste.5ans' => '5 years of experience',
+        'form.poste.6ans' => '6 years of experience',
+        'form.poste.7ans' => '7 years of experience',
+        'form.poste.8ans' => '8 years of experience',
+        'form.poste.9ans' => '9 years of experience',
+        'form.poste.10ans' => '10 years of experience',
+        'form.poste.plus10' => 'More than 10 years of experience',
+    ],
+    'choice_translation_domain' => 'forms',
+    'placeholder' => '',
+    'translation_domain' => 'forms',
+    'expanded' => false,
+    'multiple' => false,
+    'required' => true,
+    'label' => false,
+])
+    
           
             ->add('nom',TextType::class,[
                 'label'=> false,
