@@ -77,3 +77,12 @@ form-candidature-placeholder-email: "nom@exemple.com"
 form-candidature-placeholder-telephone: "Numéro de téléphone"
 form-candidature-placeholder-nom: "Votre nom"
 form-candidature-placeholder-prenom: "Votre prénom"
+
+
+candidats:
+  poste: "Poste"
+  experience: "Expérience"
+  nom: "Nom"
+  prenom: "Prénom"
+  datenaissance: "Date de naissance"
+  action: "Actions"
