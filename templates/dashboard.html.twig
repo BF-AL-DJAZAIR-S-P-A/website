@@ -610,6 +610,8 @@ display:none !important;
 }
 		</style>
 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 
 	</head>
 	<body>
@@ -634,6 +636,26 @@ setInterval(removeBranding, tick)
 			{% block javascripts %}
 
 				<script type="text/javascript" src="{{asset('assets/scripts/main.js')}}"></script>
+					<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+
+	<!-- JSZip pour l'export Excel -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+		<script>
+		$(document).ready(function () {
+			$('#maTable').DataTable({
+			dom: 'Bfrtip',
+			buttons: ['excelHtml5'],
+			
+			language: {
+				url: '//cdn.datatables.net/plug-ins/1.13.6/i18n/fr-FR.json'
+			}
+			});
+		});
+		</script>
 
             
 <script>

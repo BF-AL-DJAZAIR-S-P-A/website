@@ -25,7 +25,9 @@
     padding: 5px;
     margin: 2px;
 }
+
 	</style>
+    
 	{{ block("MenuTop", "Menus/MenuTop.html.twig") }}
     	<div class="app-main">
 		{{ block("MenuLeft", "Menus/MenuLeft.html.twig") }}
@@ -59,7 +61,8 @@
 
 								<div class="row">
 									<div class="col-sm-12">
-										   <table class="table">
+							<table style="width: 100%;" id="example" class="table table-hover table-striped table-bordered dataTable dtr-inline" role="grid" aria-describedby="example_info">
+
         <thead>
             <tr>
                 <th>Poste</th>
