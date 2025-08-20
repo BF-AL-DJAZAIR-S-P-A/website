@@ -83,7 +83,8 @@
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.datenaissance ? candidature.datenaissance|date('Y-m-d') : '' }}</td>
              
-                <td>{{ candidature.cv }}</td>
+                <td>
+                <a href="{{ asset('uploads/' ~ candidature.cv) }}"> Dowload CV</a> </td>
                 <td>
                 
                  
