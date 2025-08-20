@@ -15,6 +15,8 @@ use Gedmo\Translatable\TranslatableListener;
 use App\Entity\Acctualites;
 use App\Repository\AcctualitesRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Candidatures;
+use App\Form\CandidaturesType;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Symfony\Component\Mailer\MailerInterface;
@@ -23,8 +25,7 @@ use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use App\Entity\Candidatures;
-use App\Form\CandidaturesType;
+
 
 
  class FrontendController extends AbstractController
