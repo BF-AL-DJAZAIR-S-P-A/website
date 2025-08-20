@@ -35,31 +35,31 @@
 			<div class="app-header-right">
 				<div class="header-dots">
 					<div class="lang" style="padding-right: 5px;margin-top: 5px;">Language : </div>
-				<div class="language-switcher">
+					<div class="language-switcher">
 				    {% set locales = ['fr', 'en', 'ar', 'it'] %}
     				{% set currentLocale = app.request.locale %}
 					{% set homepageRoute = 'app_candidatures_index' %}
-    <!-- Langue sélectionnée -->
-    <div class="language-selected">
-        {{ app.request.locale|upper }}
-    </div>
+					<!-- Langue sélectionnée -->
+					<div class="language-selected">
+						{{ app.request.locale|upper }}
+					</div>
 
-    <!-- Autres langues -->
-    <div class="language-list">
-        {% for locale in locales %}
-            {% if locale != currentLocale %}
-                <div class="language-option" data-lang="{{ locale }}">
-                    <a href="{{ path(homepageRoute, {'_locale': locale}) }}">
-                        {{ locale|upper }}
-                    </a>
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
-</div>
+    	
+						<div class="language-list">
+							{% for locale in locales %}
+								{% if locale != currentLocale %}
+									<div class="language-option" data-lang="{{ locale }}">
+										<a href="{{ path(homepageRoute, {'_locale': locale}) }}">
+											{{ locale|upper }}
+										</a>
+									</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
 				</div>
 					
-				</div>
+				
 				<div class="header-btn-lg pr-0">
 					<div class="widget-content p-0">
 						<div class="widget-content-wrapper">
