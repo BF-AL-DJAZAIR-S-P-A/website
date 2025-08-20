@@ -86,3 +86,8 @@ candidats:
   prenom: "Prénom"
   datenaissance: "Date de naissance"
   action: "Actions"
+
+menuAdmin:
+  candidats: "Candidats"
+  appels: "Appels d'offres"
+  actualites: "Actualités"
