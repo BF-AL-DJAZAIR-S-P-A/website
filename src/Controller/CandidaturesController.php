@@ -18,7 +18,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
-#[Route('admin/{_locale}/')]
+#[Route('/admin/{_locale}/')]
 final class CandidaturesController extends AbstractController
 {
     #[Route(name: 'app_candidatures_index', methods: ['GET'])]
