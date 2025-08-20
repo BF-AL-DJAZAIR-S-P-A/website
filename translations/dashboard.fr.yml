@@ -1,0 +1,7 @@
+candidats:
+  poste: "Poste"
+  experience: "Expérience"
+  nom: "Nom"
+  prenom: "Prénom"
+  datenaissance: "Date de naissance"
+  action: "Actions"
