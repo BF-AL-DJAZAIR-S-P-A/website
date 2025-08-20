@@ -35,14 +35,19 @@
 			<div class="app-header-right">
 				<div class="header-dots">
 				<div class="lang" style="padding-right: 5px;margin-top: 5px;">Language : </div>
+				{% set locales = ['fr', 'en', 'ar', 'it'] %}
+				{% set currentLocale = app.request.locale %}
+				{% set homepageRoute = 'app_candidatures_index' %}
 					 <div class="language-menu" id="languageMenu">
+						<div class="language-selected"> {{ locale|upper }}</div>
+					 {% for locale in locales %}
+                            {% if locale != currentLocale %}
+                                <a href="{{ path(homepageRoute, {'_locale': locale}) }}">
+                                  <div data-lang="{{ locale }}">  {{ locale|upper }}</div>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
 					 
-					<div class="language-selected"> FR</div>
-					<div class="language-options">
-					<div data-lang="fr">FR</div>
-					<div data-lang="en">EN</div>
-					<div data-lang="it">IT </div>
-					<div data-lang="ar">AR</div>
 					</div>
 				</div>
 					
