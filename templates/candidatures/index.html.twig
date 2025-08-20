@@ -72,7 +72,7 @@
                 <th>{{ 'candidats.prenom'|trans }}</th>
                 <th>{{ 'candidats.datenaissance'|trans }}</th>
                 <th>Cv</th>
-                <th>{{ 'candidats.action'|trans }}</th>
+               
             </tr>
         </thead>
         <tbody>
@@ -86,11 +86,7 @@
              
                 <td>
                 <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> </td>
-                <td>
-                
-                 
-                    <a href="{{ path('app_candidatures_show', {'id': candidature.id}) }}"><button class="mb-2 me-2 btn-icon btn btn-warning"><i class="pe-7s-look"> </i> show</button></a>
-                </td>
+              
             </tr>
         {% else %}
             <tr>
