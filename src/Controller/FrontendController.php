@@ -122,7 +122,7 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
     ]);
 }
 
-     #[Route('/application', name: 'app_application', methods: ['GET', 'POST'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+     #[Route('/{_locale}/application', name: 'app_application', methods: ['GET', 'POST'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
     public function new(Request $request, EntityManagerInterface $entityManager,MailerInterface $mailer, SluggerInterface $slugger): Response
     {
          $locale = $request->getLocale(); // récupère la locale courante
