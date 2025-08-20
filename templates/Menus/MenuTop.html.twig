@@ -39,7 +39,7 @@
 				{% set currentLocale = app.request.locale %}
 				{% set homepageRoute = 'app_candidatures_index' %}
 					 <div class="language-menu" id="languageMenu">
-						<div class="language-selected"> {{ locale|upper }}</div>
+						<div class="language-selected"> {{ app.request.locale|upper }}</div>
 					 {% for locale in locales %}
                             {% if locale != currentLocale %}
                                 <a href="{{ path(homepageRoute, {'_locale': locale}) }}">
