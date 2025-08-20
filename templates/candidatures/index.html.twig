@@ -86,7 +86,8 @@
                 <td>{{ candidature.cv }}</td>
                 <td>
                     <a href="{{ path('app_candidatures_show', {'id': candidature.id}) }}">show</a>
-                    <a href="{{ path('app_candidatures_edit', {'id': candidature.id}) }}">edit</a>
+                 
+                    <button class="mb-2 me-2 btn-icon btn-pill btn btn-danger"><i class="lnr-eye btn-icon-wrapper"> </i>Show</button>
                 </td>
             </tr>
         {% else %}
