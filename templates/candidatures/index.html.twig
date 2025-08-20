@@ -63,6 +63,7 @@
         <thead>
             <tr>
                 <th>Poste</th>
+                <th>Experience</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Datenaissance</th>
@@ -75,6 +76,7 @@
         {% for candidature in candidatures %}
             <tr>
                 <td>{{ candidature.poste }}</td>
+                <td>{{ candidature.experience }}</td>
                 <td>{{ candidature.nom }}</td>
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.datenaissance ? candidature.datenaissance|date('Y-m-d') : '' }}</td>
