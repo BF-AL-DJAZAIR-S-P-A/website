@@ -82,7 +82,7 @@
                 <td>{{ candidature.nom }}</td>
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.datenaissance ? candidature.datenaissance|date('Y-m-d') : '' }}</td>
-                <td>{{ candidature.lettre }}</td>
+             
                 <td>{{ candidature.cv }}</td>
                 <td>
                     <a href="{{ path('app_candidatures_show', {'id': candidature.id}) }}">show</a>
