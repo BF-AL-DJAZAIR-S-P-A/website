@@ -21,3 +21,8 @@ form:
     9ans: "9ans d'expérience"
     10ans: "10ans d'expérience"
     plus10: "Plus de 10ans d'expérience"
+    nom: "Votre nom"
+    prenom: "Votre prénom"
+    email: "nom@exemple.com"
+    telephone: "Numéro de téléphone"
+    lettre: "Votre lettre de motivation"
