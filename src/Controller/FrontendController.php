@@ -23,6 +23,8 @@ use Symfony\Component\Mime\Address;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use App\Entity\Candidatures;
+use App\Form\CandidaturesType;
 
 
  class FrontendController extends AbstractController
