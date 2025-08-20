@@ -66,3 +66,8 @@ form-candidature-telephone: "الهاتف"
 form-candidature-email: "البريد الإلكتروني"
 form-candidature-lettre: "رسالة تحفيزية"
 form-candidature-cv: "سيرتك الذاتية"
+
+form-candidature-placeholder-email: "name@example.com"
+form-candidature-placeholder-telephone: "رقم الهاتف"
+form-candidature-placeholder-nom: "اسمك"
+form-candidature-placeholder-prenom: "اسم العائلة"

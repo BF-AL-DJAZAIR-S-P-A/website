@@ -55,12 +55,12 @@ input[type=file] {
   
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-nom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre nom'}}) }}
+          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-nom'|trans}}) }}
         </div>
 
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-prenom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre prenom'}}) }}
+          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-prenom'|trans}}) }}
         </div>
         <br> <br>
   </div>
