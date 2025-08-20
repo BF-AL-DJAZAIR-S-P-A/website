@@ -42,9 +42,11 @@
 						<div class="language-selected"> {{ app.request.locale|upper }}</div>
 					 {% for locale in locales %}
                             {% if locale != currentLocale %}
+							<div data-lang="{{ locale }}">
                                 <a href="{{ path(homepageRoute, {'_locale': locale}) }}">
-                                  <div data-lang="{{ locale }}">  {{ locale|upper }}</div>
+                                    {{ locale|upper }}
                                 </a>
+								</div>
                             {% endif %}
                         {% endfor %}
 					 
