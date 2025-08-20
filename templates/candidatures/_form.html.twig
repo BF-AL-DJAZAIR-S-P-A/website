@@ -55,12 +55,12 @@ input[type=file] {
   
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-nom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-nom'|trans}}) }}
+          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form.poste.nom'|trans}}) }}
         </div>
 
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-prenom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-prenom'|trans}}) }}
+          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form.poste.prenom'|trans}}) }}
         </div>
         <br> <br>
   </div>
@@ -82,12 +82,12 @@ input[type=file] {
   </div>
     <div class="row">
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-telephone'|trans }}  <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form.poste.telephone'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-telephone'|trans}}) }}
         </div>
 
         <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-email'|trans }}  <b style="color:red;">*</b></span>
+        <span for="candidatures_experience" class="required">{{ 'form.poste.email'|trans }}  <b style="color:red;">*</b></span>
           {{ form_row(form.email,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-placeholder-email'|trans}}) }}
          <br> 
         </div>
@@ -95,7 +95,7 @@ input[type=file] {
 
      <div class="row">
         <div class="form-floating col-md-12">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-lettre'|trans }}  </span>
+        <span for="candidatures_experience" class="required">{{ 'form.poste.lettre'|trans }}  </span>
          {{ form_row(form.lettre, {
             'attr': {
                 'class': 'form-control rounded-3',
