@@ -88,7 +88,9 @@ input[type=file] {
 
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-email'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.email,{'attr': {'class': 'form-control rounded-3','placeholder': 'form.poste.email'|trans}}) }}
+             {{ form_row(form.email, { 'attr': { 'class': 'form-control rounded-3','placeholder': 'form.poste.email'|trans
+          }
+        }) }}
          <br> 
         </div>
   </div>
@@ -96,11 +98,8 @@ input[type=file] {
      <div class="row">
         <div class="form-floating col-md-12">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-lettre'|trans }}  </span>
-         {{ form_row(form.lettre, {
-            'attr': {
-                'class': 'form-control rounded-3',
-                'placeholder': 'form-candidature-lettre'|trans
-            }
+         {{ form_row(form.lettre, { 'attr': { 'class': 'form-control rounded-3','placeholder': 'form-candidature-lettre'|trans
+          }
         }) }}
         </div>
         <br> <br>
