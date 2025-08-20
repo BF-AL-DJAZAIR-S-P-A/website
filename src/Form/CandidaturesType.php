@@ -95,7 +95,9 @@ class CandidaturesType extends AbstractType
                ->add('tel',TextType::class,[
                 'label'=> false,
                 'required'=>true,
-                'placeholder' => 'form.poste.telephone',
+                 'attr' => [
+                'placeholder' => 'form.poste.telephone', // ✅ dans attr
+                ],
             ])
              ->add('ville',ChoiceType::class, [
             'choices' => [
