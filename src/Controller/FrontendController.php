@@ -186,8 +186,12 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
 
 
 
-            return $this->redirectToRoute('app_application', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_candidatures_new', [], Response::HTTP_SEE_OTHER);
         }
 
+        return $this->render('candidatures/new.html.twig', [
+            'candidature' => $candidature,
+            'form' => $form,
+        ]);
     }
 }
