@@ -76,14 +76,14 @@ input[type=file] {
         <div class="form-floating col-md-6">
         <br>
         <span for="candidatures_experience" class="required">{{ 'form-candidature-ville'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3','placeholder': 'name@example.com'}}) }}
+          {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3'}}) }}
          <br> 
         </div>
   </div>
     <div class="row">
         <div class="form-floating col-md-6">
         <span for="candidatures_experience" class="required">{{ 'form-candidature-telephone'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3'}}) }}
+          {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-telephone'|trans}}) }} 
         </div>
 
         <div class="form-floating col-md-6">
