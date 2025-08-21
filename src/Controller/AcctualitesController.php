@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 final class AcctualitesController extends AbstractController
 {
     #[Route(name: 'app_acctualites_index', methods: ['GET'])]
-    public function index(AcctualitesRepository $acctualitesRepository): Response
+    public function index(AcctualitesRepository $acctualitesRepository,Request $request): Response
     {
             $locale = $request->getLocale(); // récupère la locale courante
 
