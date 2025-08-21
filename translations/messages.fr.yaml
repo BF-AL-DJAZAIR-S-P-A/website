@@ -91,3 +91,11 @@ menuAdmin:
   candidats: "Candidats"
   appels: "Appels d'offres"
   actualites: "Actualités"
+
+pagesAdmin:
+  candidats-titre: "Candidats"
+  candidats-soustitre: "Liste des candidats"
+  appels-titre: "Appels d'offres"
+  appels-soustitre: "Liste des appels d'offres"
+  actualites-titre: "Actualités"
+  actualites-soustitre: "Liste d'actualités"

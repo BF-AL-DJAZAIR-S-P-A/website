@@ -75,4 +75,13 @@ form-candidature-placeholder-prenom: "اسم العائلة"
 menuAdmin:
   candidats: "المترشحون"
   appels: "المناقصات"
-  actualites: "الأخبار"  
+  actualites: "الأخبار"
+
+
+pagesAdmin:
+  candidats-titre: "المترشحون"
+  candidats-soustitre: "قائمة المترشحين"
+  appels-titre: "المناقصات"
+  appels-soustitre: "قائمة المناقصات"
+  actualites-titre: "الأخبار"
+  actualites-soustitre: "قائمة الأخبار"      

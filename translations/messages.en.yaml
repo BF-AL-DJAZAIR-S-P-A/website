@@ -81,3 +81,11 @@ menuAdmin:
   candidats: "Candidates"
   appels: "Tenders"
   actualites: "News"  
+
+pagesAdmin:
+  candidats-titre: "Candidates"
+  candidats-soustitre: "List of candidates"
+  appels-titre: "Tenders"
+  appels-soustitre: "List of tenders"
+  actualites-titre: "News"
+  actualites-soustitre: "List of news"  

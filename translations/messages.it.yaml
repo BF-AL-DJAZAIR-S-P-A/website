@@ -73,3 +73,11 @@ menuAdmin:
   candidats: "Candidati"
   appels: "Bandi di gara"
   actualites: "Notizie"
+
+pagesAdmin:
+  candidats-titre: "Candidati"
+  candidats-soustitre: "Elenco dei candidati"
+  appels-titre: "Bandi di gara"
+  appels-soustitre: "Elenco dei bandi di gara"
+  actualites-titre: "Notizie"
+  actualites-soustitre: "Elenco delle notizie"
