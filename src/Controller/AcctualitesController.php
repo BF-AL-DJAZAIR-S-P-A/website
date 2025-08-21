@@ -20,8 +20,12 @@ final class AcctualitesController extends AbstractController
     #[Route(name: 'app_acctualites_index', methods: ['GET'])]
     public function index(AcctualitesRepository $acctualitesRepository): Response
     {
+            $locale = $request->getLocale(); // récupère la locale courante
+
+
+
         return $this->render('acctualites/index.html.twig', [
-            'acctualites' => $acctualitesRepository->findAll(),
+            'acctualites' => $acctualitesRepository->findOnlyTranslated($locale),
         ]);
     }
 
