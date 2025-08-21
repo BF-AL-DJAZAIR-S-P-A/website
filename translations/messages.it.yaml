@@ -68,3 +68,8 @@ form-candidature-placeholder-nom: "Il tuo cognome"
 form-candidature-placeholder-prenom: "Il tuo nome"
 form-candidature-lettre: "Lettera di motivazione"
 form-candidature-cv: "Il tuo CV"
+
+menuAdmin:
+  candidats: "Candidati"
+  appels: "Bandi di gara"
+  actualites: "Notizie"

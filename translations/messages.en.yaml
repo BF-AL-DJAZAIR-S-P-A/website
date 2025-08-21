@@ -75,3 +75,9 @@ candidats:
   prenom: "First Name"
   datenaissance: "Date of Birth"
   action: "Actions"
+
+
+menuAdmin:
+  candidats: "Candidates"
+  appels: "Tenders"
+  actualites: "News"  
