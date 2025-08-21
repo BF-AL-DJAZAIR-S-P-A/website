@@ -17,10 +17,10 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 final class AppelsController extends AbstractController
 {
     #[Route(name: 'app_appels_index', methods: ['GET'])]
-    public function index(AppelsRepository $appelsRepository): Response
+    public function index(AppelsRepository $appelsRepository,Request $request): Response
     {
         return $this->render('appels/index.html.twig', [
-            'appels' => $appelsRepository->findAll(),
+            'appels' => $appelsRepository->findOnlyTranslated($locale),
         ]);
     }
 
