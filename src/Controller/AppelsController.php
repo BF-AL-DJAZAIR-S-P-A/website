@@ -19,6 +19,7 @@ final class AppelsController extends AbstractController
     #[Route(name: 'app_appels_index', methods: ['GET'])]
     public function index(AppelsRepository $appelsRepository,Request $request): Response
     {
+        $locale = $request->getLocale(); // récupère la locale courante
         return $this->render('appels/index.html.twig', [
             'appels' => $appelsRepository->findOnlyTranslated($locale),
         ]);
