@@ -29,7 +29,7 @@ class AppelsRepository extends ServiceEntityRepository
                 FROM App\Entity\Appels a
                 JOIN App\Entity\Translation t
                     WITH t.foreignKey = a.id AND t.locale = :locale AND t.objectClass = :class
-                ORDER BY a.date DESC
+                ORDER BY a.id DESC
             ";
 
             $query = $em->createQuery($dql);
