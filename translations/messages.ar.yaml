@@ -83,5 +83,7 @@ pagesAdmin:
   candidats-soustitre: "قائمة المترشحين"
   appels-titre: "المناقصات"
   appels-soustitre: "قائمة المناقصات"
+  appels-add: "إضافة"
   actualites-titre: "الأخبار"
-  actualites-soustitre: "قائمة الأخبار"      
+  actualites-soustitre: "قائمة الأخبار"  
+  actualites-add: "إضافة"    

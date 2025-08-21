@@ -97,5 +97,7 @@ pagesAdmin:
   candidats-soustitre: "Liste des candidats"
   appels-titre: "Appels d'offres"
   appels-soustitre: "Liste des appels d'offres"
+  appels-add: "Ajouter"
   actualites-titre: "Actualités"
+  actualites-add: "Ajouter"
   actualites-soustitre: "Liste d'actualités"

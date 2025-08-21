@@ -87,5 +87,7 @@ pagesAdmin:
   candidats-soustitre: "List of candidates"
   appels-titre: "Tenders"
   appels-soustitre: "List of tenders"
+  appels-add: "Add"
   actualites-titre: "News"
+  actualites-add: "Add"
   actualites-soustitre: "List of news"  
