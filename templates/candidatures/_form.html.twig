@@ -1,94 +1,84 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 <style>
-.modal{
-    --bs-modal-width: 800px;
-}
-.content-block {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-input[type=file] {
-    position: relative !important;
-    height: auto;
-    width: auto; 
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
-}
-.required{
-        color: #1a2955;
-        font-weight:500;
+.custom-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-
-#modalSignin .modal-content {
-  border-radius: 20px;
-  border: none;
-  background: #ffffff;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Header du modal */
-#modalSignin .modal-header {
-  border-bottom: none;
-  text-align: center;
-}
-
-#modalSignin h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a2955;
-  margin: 0 auto;
-}
-
-/* Champs du formulaire */
-#modalSignin .form-floating {
-  margin-bottom: 1.5rem;
-}
-
-#modalSignin label,
-#modalSignin span {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #1a2955;
-  margin-bottom: 0.3rem;
-  display: inline-block;
-}
-
-#modalSignin .form-control {
+/* Conteneur du modal */
+.custom-modal {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 25px;
   border-radius: 12px;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ccc;
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease;
 }
 
-#modalSignin .form-control:focus {
-  border-color: #1a2955;
-  box-shadow: 0 0 0 0.25rem rgba(26, 41, 85, 0.2);
-}
-
-/* Bouton envoyer */
-#modalSignin button[type="submit"] {
-  background-color: #1a2955;
-  border: none;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 12px;
-  transition: all 0.3s ease-in-out;
-}
-
-#modalSignin button[type="submit"]:hover {
-  background-color: #2c3f80;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(26, 41, 85, 0.25);
-}
-
-/* Champs obligatoires */
-#modalSignin b {
-  color: red;
+/* En-tête */
+.custom-modal-header h1 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
   font-weight: bold;
+  color: #1a2955;
+}
+
+/* Corps */
+.custom-modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+/* Champs */
+.form-row {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Bouton */
+.custom-btn {
+  width: 100%;
+  background: #1a2955;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.custom-btn:hover {
+  background: #243a70;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>
    {% for label, messages in app.flashes %}
@@ -98,115 +88,68 @@ input[type=file] {
             </div>
         {% endfor %}
     {% endfor %}
-<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
-    
-  
-  <div class="modal-dialog">
-    <div class="modal-content rounded-4 shadow">
-      <div class="modal-header p-5 pb-4 border-bottom-0">
-        <h1 class="fw-bold mb-0 fs-2" style="color: #1a2955;">{{ 'form-candidature-titre'|trans }} </h1>
-   
+<div class="custom-modal-overlay" id="modalSignin">
+  <div class="custom-modal">
+    <div class="custom-modal-header">
+      <h1>{{ 'form-candidature-titre'|trans }}</h1>
+    </div>
+
+    <div class="custom-modal-body">
+      {{ form_errors(form) }}
+      {{ form_start(form) }}
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-postes'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.poste,{'attr': {'class': 'custom-input'}}) }}
       </div>
 
- 
-
-      <div class="modal-body p-5 pt-0">
-         {{ form_errors(form) }}
-         {{ form_start(form) }}
-  <div class="row">
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-postes'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.poste,{'attr': {'class': 'form-control rounded-3'}}) }}
-        </div>
-        
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-experience'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.experience,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre Expérience'}}) }}
-         <br> 
-        </div>
-       
-  </div>
-
-
-  <div class="row">
-  
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-nom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-nom'|trans}}) }}
-        </div>
-
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-prenom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-prenom'|trans}}) }}
-        </div>
-        <br> <br>
-  </div>
-  
-
-   <div class="row">
-        <div class="form-floating col-md-6">
-        <br>
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-date'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.datenaissance,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre date de naissance'}}) }}
-        </div>
-
-        <div class="form-floating col-md-6">
-        <br>
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-ville'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3'}}) }}
-         <br> 
-        </div>
-  </div>
-    <div class="row">
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-telephone'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-telephone'|trans}}) }} 
-        </div>
-
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-email'|trans }}  <b style="color:red;">*</b></span>
-             {{ form_row(form.email, { 'attr': { 'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-email'|trans
-          }
-        }) }}
-         <br> 
-        </div>
-  </div>
-
-     <div class="row">
-        <div class="form-floating col-md-12">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-lettre'|trans }}  </span>
-         {{ form_row(form.lettre, { 'attr': { 'class': 'form-control rounded-3','placeholder': 'form-candidature-lettre'|trans
-          }
-        }) }}
-        </div>
-        <br> <br>
-
-  
-  </div>
-
-       <div class="row">
-        <div class="form-floating col-md-12">
-         <br>
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-cv'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.cv,{'attr': {'class': 'form-control'}}) }}
-          <br>
-        </div>
-
-  
-  </div>
-
-
-          <div class="form-floating mb-3">
-           
-            
-            
-          </div>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Envoyer</button>
-         
-          
-         
-         {{ form_end(form) }}
+      <div class="form-row">
+        <label>{{ 'form-candidature-experience'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.experience,{'attr': {'class': 'custom-input','placeholder':'Votre expérience'}}) }}
       </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-nom'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.nom,{'attr': {'class': 'custom-input','placeholder':'Nom'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-prenom'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.prenom,{'attr': {'class': 'custom-input','placeholder':'Prénom'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-date'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.datenaissance,{'attr': {'class': 'custom-input'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-ville'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.ville,{'attr': {'class': 'custom-input'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-telephone'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.tel,{'attr': {'class': 'custom-input','placeholder':'Téléphone'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-email'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.email,{'attr': {'class': 'custom-input','placeholder':'Email'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-lettre'|trans }}</label>
+        {{ form_row(form.lettre,{'attr': {'class': 'custom-input','placeholder':'Lettre de motivation'}}) }}
+      </div>
+
+      <div class="form-row">
+        <label>{{ 'form-candidature-cv'|trans }} <b style="color:red">*</b></label>
+        {{ form_row(form.cv,{'attr': {'class': 'custom-input'}}) }}
+      </div>
+
+      <button class="custom-btn" type="submit">Envoyer</button>
+      {{ form_end(form) }}
     </div>
   </div>
 </div>
