@@ -36,13 +36,25 @@
 
 		{{ form_errors(form.tel) }}
 	</div>
+    <div class="col-md-3">
+     {{ form_label(form.experience, "Experience") }}
+	   {{ form_row(form.experience,{'attr': {'class': 'form-control'}}) }}
+
+		{{ form_errors(form.experience) }}
+	</div>
+  <div class="col-md-3">
+     {{ form_label(form.poste, "Poste") }}
+	   {{ form_row(form.poste,{'attr': {'class': 'form-control'}}) }}
+
+		{{ form_errors(form.poste) }}
+	</div>
  </div>
  <br>
   <div class="form-row">
-    	<div class="col-md-3">
-         {{ form_label(form.experience, "Experience") }}
-		{{ form_row(form.experience,{'attr': {'class': 'form-control'}}) }}
-		{{ form_errors(form.experience) }}
+    	<div class="col-md-6">
+         {{ form_label(form.lettre, "Lettre de motivation") }}
+		{{ form_row(form.lettre,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(form.lettre) }}
 	    </div>
     </div>     
     <br>    <br>
