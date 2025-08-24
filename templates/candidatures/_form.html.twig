@@ -59,8 +59,8 @@
         	<div class="col-md-6">
            <br>
           	{% if candidature.cv %}
-          <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> 
-		{% endif %}
+          <a  href="{{ asset('uploads/' ~ candidature.cv) }}" target="_blank"> <span class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</span></a> 
+		      {% endif %}
     <div style="display:none;">
          {{ form_label(form.cv, "CV") }}
           {{ form_row(form.cv,{'attr': {'class': 'form-control '}}) }}
