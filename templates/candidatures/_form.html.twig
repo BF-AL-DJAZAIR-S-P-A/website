@@ -57,6 +57,7 @@
 		{{ form_errors(form.lettre) }}
 	    </div>
         	<div class="col-md-6">
+           <br>
           	{% if candidature.cv %}
           <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> 
 		{% endif %}
