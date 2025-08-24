@@ -1,119 +1,36 @@
+{{ form_start(form) }}
+ <div class="form-row">
+	<div class="col-md-3">
+	{{ form_label(form.nom, "Nom") }}
+		{{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(form.nom) }}
+	</div>
 
-<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
-    
-  
-  <div class="modal-dialog">
-    <div class="modal-content rounded-4 shadow">
-      <div class="modal-header p-5 pb-4 border-bottom-0">
-        <h1 class="fw-bold mb-0 fs-2" style="color: #1a2955;">{{ 'form-candidature-titre'|trans }} </h1>
-   
-      </div>
-
- 
-
-      <div class="modal-body p-5 pt-0">
-         {{ form_errors(form) }}
-         {{ form_start(form) }}
-  <div class="row">
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-postes'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.poste,{'attr': {'class': 'form-control rounded-3'}}) }}
-        </div>
-        
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-experience'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.experience,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre Expérience'}}) }}
-         <br> 
-        </div>
-       
-  </div>
-
-
-  <div class="row">
-  
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-nom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.nom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-nom'|trans}}) }}
-        </div>
-
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-prenom'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.prenom,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-prenom'|trans}}) }}
-        </div>
-        <br> <br>
-  </div>
-  
-
-   <div class="row">
-        <div class="form-floating col-md-6">
-        <br>
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-date'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.datenaissance,{'attr': {'class': 'form-control rounded-3','placeholder': 'Votre date de naissance'}}) }}
-        </div>
-
-        <div class="form-floating col-md-6">
-        <br>
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-ville'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.ville,{'attr': {'class': 'form-control rounded-3'}}) }}
-         <br> 
-        </div>
-  </div>
-    <div class="row">
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-telephone'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.tel,{'attr': {'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-telephone'|trans}}) }} 
-        </div>
-
-        <div class="form-floating col-md-6">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-email'|trans }}  <b style="color:red;">*</b></span>
-             {{ form_row(form.email, { 'attr': { 'class': 'form-control rounded-3','placeholder': 'form-candidature-placeholder-email'|trans
-          }
-        }) }}
-         <br> 
-        </div>
-  </div>
-
-     <div class="row">
-        <div class="form-floating col-md-12">
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-lettre'|trans }}  </span>
-         {{ form_row(form.lettre, { 'attr': { 'class': 'form-control rounded-3','placeholder': 'form-candidature-lettre'|trans
-          }
-        }) }}
-        </div>
-        <br> <br>
-
-  
-  </div>
-
-       <div class="row">
-        <div class="form-floating col-md-12">
-         <br>
-        <span for="candidatures_experience" class="required">{{ 'form-candidature-cv'|trans }}  <b style="color:red;">*</b></span>
-          {{ form_row(form.cv,{'attr': {'class': 'form-control'}}) }}
-          <br>
-        </div>
-
-  
-  </div>
-
-
-          <div class="form-floating mb-3">
-           
-            
-            
-          </div>
-          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Envoyer</button>
-         
-          
-         
-         {{ form_end(form) }}
-      </div>
-    </div>
-  </div>
+	<div class="col-md-3">
+		   {{ form_label(form.prenom, "Prénom") }}
+		{{ form_row(form.prenom,{'attr': {'class': 'form-control custom-datepicker'}}) }}
+		{{ form_errors(form.prenom) }}
+	</div>
 </div>
+<br>
+ <div class="form-row">
+	<div class="col-10">
+     {{ form_label(form.datenaissance, "Date de naissance") }}
+	    {{ form_row(form.datenaissance) }} {# CKEditor avec ID #}
 
-
-
-
-
-
+		{{ form_errors(form.datenaissance) }}
+	</div>
+ </div>
+ <br>
+  <div class="form-row">
+    	<div class="col-md-3">
+         {{ form_label(form.ville, "Ville") }}
+		{{ form_row(form.ville,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(form.ville) }}
+	    </div>
+    </div>     
+    <br>    <br>
+<button type="submit" class="mt-1 btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
+ou
+<a href="{{ path('app_appels_index') }}">Annuler</a>
+{{ form_end(form) }}
