@@ -21,7 +21,7 @@
         <div class="js-categories" data-result-quantity='18'></div>
         <section class="banner banner-search banner-filigrane content-color-transparent">
             <div class="wrapper">
-                <h1 class="banner-title">Actualités</h1>
+                <h1 class="banner-title">{{ 'actualites-titre'|trans|raw }}</h1>
               
             </div>
         </section>
@@ -64,7 +64,7 @@
             <ul class="result-tags">
             </ul>
             <p class="content-list-search-quantity" data-total-hits="18">
-                 Actualités
+                 {{ 'actualites-titre'|trans|raw }}
             </p>
         </header>
     
@@ -74,7 +74,7 @@
  
     <article class="card card-bordered card-large card-large-image" data-image-side="right" data-list-offset="1">
 
-		<a href="{{ path('app_acctualites_show', {'id': a.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema"></a>
+		<a href="{{ path('app_acctualites_show', {'id': a.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title=""></a>
 	
 	    <div class="card-wrapper">
 
@@ -95,7 +95,7 @@
 			<ul class="card-tags">
 				<li>
 					<span class="tag tag-primary">
-						Actualités
+						{{ 'actualites-tag'|trans|raw }}
 					</span>
 				</li>
 								<li>
@@ -116,7 +116,7 @@
 		
 				<div class="card-link">
 			<a href="{{ path('app_acctualites_show', {'id': a.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema">
-				Plus d'information
+				{{ 'actualites-lire'|trans|raw }}
 				<svg class="icon icon-boutons-link-normal" xml:lang="fr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use href="#icon-boutons-link-normal"></use>
 				</svg>
