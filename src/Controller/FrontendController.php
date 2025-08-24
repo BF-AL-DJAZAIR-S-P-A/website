@@ -157,7 +157,11 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
 
               $email = (new TemplatedEmail())
                     ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
-                    ->to('elm3hdi@gmail.com')
+                     ->to(
+                            'mehdi.boumediene@bfaldjazair.com',
+                            'elm3hdi@gmail.com'
+                            
+                        )
                     ->subject('New application received for the position of ' . $form->get('poste')->getData())
                     ->htmlTemplate('emails/candidature.html.twig')
                     ->context([
