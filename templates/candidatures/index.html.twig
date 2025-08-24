@@ -75,6 +75,8 @@
 				<th>{{ 'candidats.telephone'|trans }}</th>
 				
                 <th>Cv</th>
+				<th>Action</th>
+				
                
             </tr>
         </thead>
@@ -91,7 +93,13 @@
              
                 <td>
                 <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> </td>
-              
+				<td class="sorting_1 dtr-control">
+
+										<a href="{{ path('app_candidatures_edit', {'id': candidature.id}) }}">
+											<button class="mb-2 mr-2 btn-icon btn-pill btn btn-link">
+												<i class="pe-7s-tools btn-icon-wrapper"></i>Edit</button>
+										</a>
+									</td>
             </tr>
         {% else %}
             <tr>
