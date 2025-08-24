@@ -1,13 +1,147 @@
-{% extends 'base.html.twig' %}
+{% extends 'dashboard.html.twig' %}
 
-{% block title %}Edit Candidatures{% endblock %}
+
+{% block title %}Edit Candidature{% endblock %}
 
 {% block body %}
-    <h1>Edit Candidatures</h1>
+<style>
+		form {
+			display: contents;
+		}
+		.select2{
+			width: 100% !important;
+	
+
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+
+    border-radius: 0.25rem;
+		}
+		.page,.current,.previous,.first,.next,.last{
+    border: solid 1px;
+    padding: 5px;
+    margin: 2px;
+}
+	</style>
+
+  		<link rel="stylesheet" href="{{asset('ck/style.css')}}">
+		<link rel="stylesheet" href="{{asset('ck/ckeditor5/ckeditor5.css')}}">
+	{{ block("MenuTop", "Menus/MenuTop.html.twig") }}
+    	<div class="app-main">
+		{{ block("MenuLeft", "Menus/MenuLeft.html.twig") }}
+<div class="app-main__outer">
+			<div class="app-main__inner">
+				<div class="app-page-title">
+					<div class="page-title-wrapper">
+						<div class="page-title-heading">
+							<div class="page-title-icon">
+								<i class="pe-7s-menu icon-gradient bg-ripe-malin"></i>
+							</div>
+							<div>Edition Candidature
+								
+							</div>
+						</div>
+						<div class="page-title-actions">
+
+							<div class="d-inline-block dropdown">
+							
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tabs-animation">
+					<div class="main-card mb-3 card">
+						<div class="card-body">
+					
+
+							<div id="example_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
+								<div class="row">
+									<div class="col-sm-12">
 
     {{ include('candidatures/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('app_candidatures_index') }}">back to list</a>
+	    {{ include('candidatures/_delete_form.html.twig') }}
+									</div>
+								</div>
 
-    {{ include('candidatures/_delete_form.html.twig') }}
+
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+		{{ block("Footer", "Menus/Footer.html.twig") }}
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+  <!-- CKEditor compilé -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/ckeditor5.umd.js" crossorigin></script>
+		<script src="https://cdn.ckeditor.com/ckeditor5/45.2.0/translations/fr.umd.js" crossorigin></script>
+
+  <script src="{{asset('ck/main.js')}}"></script>
+
+	<script>
+ 
+  const editorField = document.querySelector('#appels_texte');
+
+// Assurez-vous que le contenu est en HTML
+const initialValue = editorField.value; // Récupère la valeur initiale
+
+ClassicEditor.create(editorField, editorConfig)
+    .then(newEditor => {
+        newEditor.setData(initialValue); 
+
+        // Écouter les changements dans l'éditeur
+        newEditor.model.document.on('change:data', () => {
+            const editorData = newEditor.getData();
+            editorField.value = editorData; // Met à jour le champ textarea
+        });
+    })
+    .catch(err => {
+        console.error(err.stack);
+    });
+  </script>
+   
+
+	<script>
+
+		$(document).ready(function () {
+
+$("#filtre_bloc_classe").select2({
+    placeholder: "Filtrer par classe",
+    allowClear: true
+});
+});
+	</script>
+
+
 {% endblock %}
+
+
+
+
+
+
+
