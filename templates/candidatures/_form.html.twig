@@ -23,14 +23,15 @@ input[type=file] {
 }
 
 </style>
-<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
-       {% for label, messages in app.flashes %}
+   {% for label, messages in app.flashes %}
         {% for message in messages %}
-            <div class="alert alert-{{ label }}" style="width:100%;">
+            <div class="alert alert-{{ label }}" style="width:100%; text-align:center;">
                 {{ message }}
             </div>
         {% endfor %}
     {% endfor %}
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
+    
   
   <div class="modal-dialog">
     <div class="modal-content rounded-4 shadow">
