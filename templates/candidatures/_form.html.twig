@@ -25,7 +25,7 @@ input[type=file] {
 </style>
    {% for label, messages in app.flashes %}
         {% for message in messages %}
-            <div class="alert alert-{{ label }}" style="width:100%; text-align:center;">
+            <div class="alert alert-{{ label }}" style="width:100%; text-align:center; margin-bottom: 0;">
                 {{ message }}
             </div>
         {% endfor %}
