@@ -8,17 +8,17 @@
 	</div>
 
 	<div class="col-md-3">
-		   {{ form_label(form.prenom, "Prénom") }}
+	
 		{{ form_row(form.prenom,{'attr': {'class': 'form-control custom-datepicker'}}) }}
 		{{ form_errors(form.prenom) }}
 	</div>
   	<div class="col-md-3">
-		   {{ form_label(form.datenaissance, "Date de naissance") }}
+		  
 		{{ form_row(form.datenaissance,{'attr': {'class': 'form-control custom-datepicker'}}) }}
 		{{ form_errors(form.datenaissance) }}
 	</div>
     	<div class="col-md-3">
-		   {{ form_label(form.ville, "Ville") }}
+		   
 		{{ form_row(form.ville,{'attr': {'class': 'form-control custom-datepicker'}}) }}
 		{{ form_errors(form.ville) }}
 	</div>
@@ -26,25 +26,25 @@
 <br>
  <div class="form-row">
 	<div class="col-md-3">
-     {{ form_label(form.email, "Email") }}
+   
 	   {{ form_row(form.email,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.email) }}
 	</div>
   <div class="col-md-3">
-     {{ form_label(form.tel, "Téléphone") }}
+  
 	   {{ form_row(form.tel,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.tel) }}
 	</div>
     <div class="col-md-3">
-     {{ form_label(form.experience, "Experience") }}
+   
 	   {{ form_row(form.experience,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.experience) }}
 	</div>
   <div class="col-md-3">
-     {{ form_label(form.poste, "Poste") }}
+
 	   {{ form_row(form.poste,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.poste) }}
@@ -53,7 +53,7 @@
  <br>
   <div class="form-row">
     	<div class="col-md-10">
-         {{ form_label(form.lettre, "Lettre de motivation") }}
+     
 		{{ form_row(form.lettre,{'attr': {'class': 'form-control'}}) }}
 		{{ form_errors(form.lettre) }}
 	    </div>
@@ -63,7 +63,7 @@
           <a  href="{{ asset('uploads/' ~ candidature.cv) }}" target="_blank"> <span class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</span></a> 
 		      {% endif %}
     <div style="display:none;">
-         {{ form_label(form.cv, "CV") }}
+     
           {{ form_row(form.cv,{'attr': {'class': 'form-control '}}) }}
           {{ form_errors(form.cv) }}
           </div>
