@@ -85,13 +85,7 @@ ff-controller .btn-file, input[type=date], input[type=email], input[type=number]
 
     
         <section id="search-result-list" class="content-block search-result-list list-column list-column-2">
-        {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
-                {{ message }}
-            </div>
-        {% endfor %}
-    {% endfor %}
+   
 
  {{ include('candidatures/_form.html.twig') }}
 
