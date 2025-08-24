@@ -38,7 +38,7 @@
 					<li class="app-sidebar__heading"></li>
 				
 
-						<li {% if route_name in  ['app_appels_index','app_appels_new','app_appels_edit','app_candidatures_index','app_acctualites_index','app_acctualites_new','app_acctualites_edit'] %} class="mm-active" {% endif %}>
+						<li {% if route_name in  ['app_appels_index','app_appels_new','app_appels_edit','app_candidatures_index','app_candidatures_edit','app_acctualites_index','app_acctualites_new','app_acctualites_edit'] %} class="mm-active" {% endif %}>
 								<a href="#">
 									<i class="metismenu-icon pe-7s-config"></i>
 									Administration
@@ -46,7 +46,7 @@
 								</a>
 								<ul>
 
-									<li><a href="{{path('app_candidatures_index')}}" {% if route_name in  ['app_candidatures_index'] %} class="mm-active" {% endif %}><i class="metismenu-icon pe-7s-display2"></i> {{ 'menuAdmin.candidats'|trans }} <i class="metismenu-state-icon "></i></a></li>
+									<li><a href="{{path('app_candidatures_index')}}" {% if route_name in  ['app_candidatures_index','app_candidatures_edit'] %} class="mm-active" {% endif %}><i class="metismenu-icon pe-7s-display2"></i> {{ 'menuAdmin.candidats'|trans }} <i class="metismenu-state-icon "></i></a></li>
 
 									
 									<li><a href="{{path('app_appels_index')}}" {% if route_name in  ['app_appels_index','app_appels_new','app_appels_edit'] %} class="mm-active" {% endif %}><i class="metismenu-icon pe-7s-display2"></i> {{ 'menuAdmin.appels'|trans }}<i class="metismenu-state-icon "></i></a></li>
