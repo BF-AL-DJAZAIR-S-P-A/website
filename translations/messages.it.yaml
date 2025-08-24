@@ -45,9 +45,13 @@ cat4-bouton: "Sfoglia"
 
 actualites-titre: "Notizie ed Eventi"
 actualites-bouton: "Vedi tutte le notizie"
+actualites-lire: "Leggi di più"
+actualites-tag: "Notizie"
 
 appels-titre: "Bandi di gara"
 appels-bouton: "Vedi tutti i nostri bandi di gara"
+appels-lire: "Leggi di più"
+appels-tag: "Bandi di gara"
 
 partenaires-titre: "I Nostri <strong>Partner</strong>"
 

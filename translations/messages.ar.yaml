@@ -47,9 +47,13 @@ cat4-bouton: "تصفح"
 
 actualites-titre: "الأخبار والفعاليات"
 actualites-bouton: "عرض كل الأخبار" 
+actualites-lire: "اقرأ المزيد"
+actualites-tag: "الأخبار"
 
 appels-titre: "طلبات العروض"
 appels-bouton: "عرض جميع طلبات العروض الخاصة بنا"
+appels-lire: "اقرأ المزيد"
+appels-tag: "طلبات العروض"
 
 
 partenaires-titre: "شركاؤنا" 

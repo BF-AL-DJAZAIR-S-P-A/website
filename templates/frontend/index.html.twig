@@ -227,7 +227,7 @@
 
                                 <ul class="news-tags-list">
                                     <li>
-                                        <span class="tag tag-primary news-tags-item">Acctualité</span>
+                                        <span class="tag tag-primary news-tags-item">{{ 'actualites-tag'|trans|raw }}</span>
                                     </li>
                                 </ul>
                             </header>
@@ -240,7 +240,7 @@
                                 <div class="news-text">{{acctualite.texte|striptags|slice(0, 100) ~ '...'}}</div>
                                 {% endif %}
                                 <a href="" class="button button-link news-link">
-                                    Lire plus<svg class="icon icon-boutons-link-normal">
+                                    {{ 'actualites-lire'|trans|raw }} <svg class="icon icon-boutons-link-normal">
                                         <use href="#icon-boutons-link-normal"></use>
                                     </svg>
                                 </a>
@@ -283,7 +283,7 @@
 
                                 <ul class="news-tags-list">
                                     <li>
-                                        <span class="tag tag-primary news-tags-item">Appel d'offre</span>
+                                        <span class="tag tag-primary news-tags-item">{{ 'appels-tag'|trans|raw }} </span>
                                     </li>
                                 </ul>
                             </header>
@@ -298,7 +298,7 @@
 
                           
                                 <a href="" class="button button-link news-link">
-                                    Lire plus<svg class="icon icon-boutons-link-normal">
+                                    {{ 'appels-lire'|trans|raw }} <svg class="icon icon-boutons-link-normal">
                                         <use href="#icon-boutons-link-normal"></use>
                                     </svg>
                                 </a>

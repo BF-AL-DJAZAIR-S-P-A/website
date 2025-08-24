@@ -43,9 +43,13 @@ cat4-bouton: "Parcourir"
 
 actualites-titre: "Actualités & évènements"
 actualites-bouton: "Voir toutes les actualités"
+actualites-lire: "Lire plus"
+actualites-tag: "Actualités"
 
 appels-titre: "Appels d'offres"
 appels-bouton: "Voir tous nos appels d'offres"
+appels-lire: "Lire plus"
+appels-tag: "Appels d'offres"
 
 
 partenaires-titre: "Nos <strong>Partenaires</strong> " 
