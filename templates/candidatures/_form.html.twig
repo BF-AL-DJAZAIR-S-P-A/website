@@ -1,84 +1,62 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 <style>
-.custom-modal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Conteneur du modal */
-.custom-modal {
-  background: #fff;
-  width: 90%;
+.custom-form-container {
   max-width: 600px;
+  margin: 40px auto;
   padding: 25px;
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  animation: fadeIn 0.4s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* En-tête */
-.custom-modal-header h1 {
-  margin: 0 0 20px 0;
-  font-size: 24px;
-  font-weight: bold;
+.custom-form-header h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
   color: #1a2955;
 }
 
-/* Corps */
-.custom-modal-body {
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-/* Champs */
 .form-row {
   margin-bottom: 15px;
-  display: flex;
-  flex-direction: column;
 }
 
 .form-row label {
-  font-size: 14px;
+  display: block;
   margin-bottom: 6px;
-  font-weight: 600;
+  font-weight: bold;
   color: #333;
 }
 
 .custom-input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 14px;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
-/* Bouton */
+.custom-input:focus {
+  border-color: #1a2955;
+  box-shadow: 0 0 4px rgba(26,41,85,0.3);
+  outline: none;
+}
+
 .custom-btn {
+  display: block;
   width: 100%;
+  padding: 12px;
   background: #1a2955;
   color: #fff;
-  padding: 12px;
   border: none;
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.3s;
 }
 
 .custom-btn:hover {
-  background: #243a70;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  background: #0d1a3d;
 }
 </style>
    {% for label, messages in app.flashes %}
@@ -88,69 +66,67 @@
             </div>
         {% endfor %}
     {% endfor %}
-<div class="custom-modal-overlay" id="modalSignin">
-  <div class="custom-modal">
-    <div class="custom-modal-header">
-      <h1>{{ 'form-candidature-titre'|trans }}</h1>
+<div class="custom-form-container">
+  <div class="custom-form-header">
+    <h1>{{ 'form-candidature-titre'|trans }}</h1>
+  </div>
+
+  <div class="custom-form-body">
+    {{ form_errors(form) }}
+    {{ form_start(form) }}
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-postes'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.poste,{'attr': {'class': 'custom-input'}}) }}
     </div>
 
-    <div class="custom-modal-body">
-      {{ form_errors(form) }}
-      {{ form_start(form) }}
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-postes'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.poste,{'attr': {'class': 'custom-input'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-experience'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.experience,{'attr': {'class': 'custom-input','placeholder':'Votre expérience'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-nom'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.nom,{'attr': {'class': 'custom-input','placeholder':'Nom'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-prenom'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.prenom,{'attr': {'class': 'custom-input','placeholder':'Prénom'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-date'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.datenaissance,{'attr': {'class': 'custom-input'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-ville'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.ville,{'attr': {'class': 'custom-input'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-telephone'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.tel,{'attr': {'class': 'custom-input','placeholder':'Téléphone'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-email'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.email,{'attr': {'class': 'custom-input','placeholder':'Email'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-lettre'|trans }}</label>
-        {{ form_row(form.lettre,{'attr': {'class': 'custom-input','placeholder':'Lettre de motivation'}}) }}
-      </div>
-
-      <div class="form-row">
-        <label>{{ 'form-candidature-cv'|trans }} <b style="color:red">*</b></label>
-        {{ form_row(form.cv,{'attr': {'class': 'custom-input'}}) }}
-      </div>
-
-      <button class="custom-btn" type="submit">Envoyer</button>
-      {{ form_end(form) }}
+    <div class="form-row">
+      <label>{{ 'form-candidature-experience'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.experience,{'attr': {'class': 'custom-input','placeholder':'Votre expérience'}}) }}
     </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-nom'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.nom,{'attr': {'class': 'custom-input','placeholder':'Nom'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-prenom'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.prenom,{'attr': {'class': 'custom-input','placeholder':'Prénom'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-date'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.datenaissance,{'attr': {'class': 'custom-input'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-ville'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.ville,{'attr': {'class': 'custom-input'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-telephone'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.tel,{'attr': {'class': 'custom-input','placeholder':'Téléphone'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-email'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.email,{'attr': {'class': 'custom-input','placeholder':'Email'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-lettre'|trans }}</label>
+      {{ form_row(form.lettre,{'attr': {'class': 'custom-input','placeholder':'Lettre de motivation'}}) }}
+    </div>
+
+    <div class="form-row">
+      <label>{{ 'form-candidature-cv'|trans }} <b style="color:red">*</b></label>
+      {{ form_row(form.cv,{'attr': {'class': 'custom-input'}}) }}
+    </div>
+
+    <button class="custom-btn" type="submit">Envoyer</button>
+    {{ form_end(form) }}
   </div>
 </div>
 
