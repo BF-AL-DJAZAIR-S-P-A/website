@@ -87,7 +87,7 @@
                 <td>{{ candidature.prenom }}</td>
                 <td>{{ candidature.datenaissance ? candidature.datenaissance|date('Y-m-d') : '' }}</td>
 				<td>{{ candidature.ville }}</td>
-				<td>{{ candidature.telephone }}</td>
+				<td>{{ candidature.tel }}</td>
              
                 <td>
                 <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> </td>
