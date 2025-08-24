@@ -186,6 +186,8 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
             $entityManager->persist($candidature);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Your application has been successfully submitted.');
+
             
 
 
