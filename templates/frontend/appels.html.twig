@@ -16,19 +16,19 @@
 }
 </style>
 <main class="content-edito " id="main-content">
-    <article data-type="arkema">
+    <article data-type="BF">
 
         <div class="js-categories" data-result-quantity='18'></div>
         <section class="banner banner-search banner-filigrane content-color-transparent">
             <div class="wrapper">
-                <h1 class="banner-title">Appels d'offres</h1>
+                <h1 class="banner-title">{{ 'appels-titre'|trans|raw }}</h1>
               
             </div>
         </section>
         <div class=" content-block content-list-search js-filter-section " data-filter-template="/modules/proxima-main/javascript/templates/filter.twig.html">
             <button id="sidebar-filter-button" class="sidebar-filter-button select-fake js-switch js-switch-important" data-target="page-list-filter" aria-controls="page-list-filter">
               Filtrer par</button>
-            <div class="js-result-list" data-result-template="/modules/proxima-main/javascript/templates/result-list-news.twig.html" data-result-item-template="news-teaser-arkema.twig.html" data-template="newslist" aria-live="polite">
+            <div class="js-result-list" data-result-template="/modules/proxima-main/javascript/templates/result-list-news.twig.html" data-result-item-template="" data-template="newslist" aria-live="polite">
                 <section class="content-block content-search-result content-list-result-header content-search-result-empty">
                     <div class="content-wrapper">
                         <ul class="result-tags">
@@ -64,7 +64,7 @@
             <ul class="result-tags">
             </ul>
             <p class="content-list-search-quantity" data-total-hits="18">
-             Appels d'offres
+             {{ 'appels-titre'|trans|raw }}
             </p>
         </header>
     
@@ -74,7 +74,7 @@
  
     <article class="card card-bordered card-large card-large-image" data-image-side="right" data-list-offset="1">
 
-		<a href="{{ path('app_appels_show', {'id': appel.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema"></a>
+		<a href="{{ path('app_appels_show', {'id': appel.id}) }}" title="" class="card-link-overlay" tabindex="-1" data-totalhits="933" data-documenttype="news" data-template="news" data-title=""></a>
 	
 	    <div class="card-wrapper">
 
@@ -95,14 +95,10 @@
 			<ul class="card-tags">
 				<li>
 					<span class="tag tag-primary">
-						Appel d'offre
+						{{ 'appels-tag'|trans|raw }}
 					</span>
 				</li>
-								<li>
-					<span class="tag tag-secondary">
-						Forage
-					</span>
-				</li>
+							
 							</ul>
 		</header>
 
@@ -117,8 +113,8 @@
 		</div>
 		
 				<div class="card-link">
-			<a href="{{ path('app_appels_show', {'id': appel.id}) }}" title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="Mise à disposition du Document d’enregistrement universel 2024 d’Arkema">
-				Plus d'information
+			<a href="{{ path('app_appels_show', {'id': appel.id}) }}" title="" class="button button-link" data-totalhits="933" data-documenttype="news" data-template="news" data-title="">
+				{{ 'appels-lire'|trans|raw }}
 				<svg class="icon icon-boutons-link-normal" xml:lang="fr" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 					<use href="#icon-boutons-link-normal"></use>
 				</svg>
