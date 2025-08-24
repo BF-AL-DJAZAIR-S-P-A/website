@@ -56,6 +56,14 @@
 		{{ form_row(form.lettre,{'attr': {'class': 'form-control'}}) }}
 		{{ form_errors(form.lettre) }}
 	    </div>
+        	<div class="col-md-6">
+          	{% if candidature.cv %}
+          <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> 
+		{% endif %}
+         {{ form_label(form.cv, "CV") }}
+          {{ form_row(form.cv,{'attr': {'class': 'form-control'}}) }}
+          {{ form_errors(form.cv) }}
+	    </div>
     </div>     
     <br>    <br>
 <button type="submit" class="mt-1 btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
