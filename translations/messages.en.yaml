@@ -76,6 +76,7 @@ candidats:
   datenaissance: "Date of Birth"
   ville: "City"
   action: "Actions"
+  telephone: "Phone number"
 
 
 menuAdmin:

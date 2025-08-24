@@ -10,20 +10,21 @@
 {% set company_phone = '+213 (0) 23 05 18 36' %}
 
 {% block content %}
-    <h2 style="margin-top:0;">Nouvelle candidature reçue pour le poste de "{{poste}}"</h2>
+    <h2 style="margin-top:0;">New application received for the position of "{{poste}}"</h2>
 
 
-<p><strong>Poste :</strong> {{ poste }}</p>
+<p><strong>Position :</strong> {{ poste }}</p>
 <p><strong>Expérience :</strong> {{ experience }}</p>
-<p><strong>Nom :</strong> {{ nom }}</p>
-<p><strong>Prenom :</strong> {{ prenom }}</p>
-<p><strong>date de naissance :</strong> {{ datenaissance|date('d/m/Y') }}</p>
+<p><strong>Name :</strong> {{ nom }}</p>
+<p><strong>First name :</strong> {{ prenom }}</p>
+<p><strong>Date of birth :</strong> {{ datenaissance|date('d/m/Y') }}</p>
+<p><strong>City :</strong> {{ ville }}</p>
 <p><strong>Email :</strong> {{ adresse_email }}</p>
-<p><strong>Téléphone :</strong> {{ tel }}</p>
+<p><strong>Phone number :</strong> {{ tel }}</p>
 
-<p><strong>Lettre de motivation :</strong> {{ lettre|nl2br|raw  }}</p>
+<p><strong>Cover Letter :</strong> {{ lettre|nl2br|raw  }}</p>
 
-<p>Le CV est en pièce jointe.</p>
+<p>The CV is attached.</p>
 {% endblock %}
 
 

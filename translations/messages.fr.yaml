@@ -86,6 +86,7 @@ candidats:
   prenom: "Prénom"
   datenaissance: "Date de naissance"
   ville: "Ville"
+  telephone: "Téléphone"
   action: "Actions"
 
 menuAdmin:

@@ -80,6 +80,7 @@ candidats:
   prenom: "الاسم"
   datenaissance: "تاريخ الميلاد"
   ville: "المدينة"
+  telephone: "رقم الهاتف"
   action: "إجراءات"
 
 menuAdmin:
