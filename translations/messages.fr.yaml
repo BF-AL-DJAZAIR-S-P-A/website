@@ -85,6 +85,7 @@ candidats:
   nom: "Nom"
   prenom: "Prénom"
   datenaissance: "Date de naissance"
+  ville: "Ville"
   action: "Actions"
 
 menuAdmin:

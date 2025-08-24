@@ -69,6 +69,16 @@ form-candidature-placeholder-prenom: "Il tuo nome"
 form-candidature-lettre: "Lettera di motivazione"
 form-candidature-cv: "Il tuo CV"
 
+
+candidats:
+  poste: "Posizione"
+  experience: "Esperienza"
+  nom: "Cognome"
+  prenom: "Nome"
+  datenaissance: "Data di nascita"
+  ville: "Città"
+  action: "Azioni"
+
 menuAdmin:
   candidats: "Candidati"
   appels: "Bandi di gara"

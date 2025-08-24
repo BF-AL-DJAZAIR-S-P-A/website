@@ -72,6 +72,16 @@ form-candidature-placeholder-telephone: "رقم الهاتف"
 form-candidature-placeholder-nom: "اسمك"
 form-candidature-placeholder-prenom: "اسم العائلة"
 
+
+candidats:
+  poste: "المنصب"
+  experience: "الخبرة"
+  nom: "اللقب"
+  prenom: "الاسم"
+  datenaissance: "تاريخ الميلاد"
+  ville: "المدينة"
+  action: "إجراءات"
+
 menuAdmin:
   candidats: "المترشحون"
   appels: "المناقصات"
