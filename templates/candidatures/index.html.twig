@@ -73,8 +73,8 @@
                 <th>{{ 'candidats.datenaissance'|trans }}</th>
 				<th>{{ 'candidats.ville'|trans }}</th>
 				<th>{{ 'candidats.telephone'|trans }}</th>
-				
                 <th>Cv</th>
+				<th>Note</th>
 				<th>Action</th>
 				
                
@@ -93,6 +93,15 @@
              
                 <td>
                 <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> </td>
+				<td>
+				{% for i in 1..5 %}
+					{% if i <= candidature.note.valeur %}
+						<i class="fas fa-star text-warning"></i> {# étoile pleine #}
+					{% else %}
+						<i class="far fa-star text-muted"></i> {# étoile vide #}
+					{% endif %}
+				{% endfor %}
+				</td>
 				<td class="sorting_1 dtr-control">
 
 										<a href="{{ path('app_candidatures_edit', {'id': candidature.id}) }}">
