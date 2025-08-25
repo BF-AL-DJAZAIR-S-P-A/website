@@ -41,20 +41,21 @@ final class CandidaturesController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Candidatures $candidature, Note $note, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(CandidaturesType::class, $candidature);
-        $form->handleRequest($request);
-        
+   #[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
+public function edit(Request $request, Candidatures $candidature, EntityManagerInterface $entityManager): Response
+{
+    // Formulaire Candidature
+    $form = $this->createForm(CandidaturesType::class, $candidature);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->flush();
 
-            return $this->redirectToRoute('app_candidatures_index', [], Response::HTTP_SEE_OTHER);
-        }
+        $this->addFlash('success', 'Candidature mise à jour');
+        return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
+    }
 
-     // Formulaire Note
+    // Formulaire Note
     $note = $candidature->getNote() ?? new Note();
     if (!$candidature->getNote()) {
         $candidature->setNote($note);
@@ -64,19 +65,21 @@ final class CandidaturesController extends AbstractController
     $formNote->handleRequest($request);
 
     if ($formNote->isSubmitted() && $formNote->isValid()) {
-        $em->persist($note);
-        $em->flush();
+        $entityManager->persist($note);
+        $entityManager->flush();
+
         $this->addFlash('success', 'Note mise à jour');
-        return $this->redirectToRoute('candidature_edit', ['id' => $candidature->getId()]);
+        return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
 
-        return $this->render('candidatures/edit.html.twig', [
-            'candidature' => $candidature,
-            'form' => $form,
-            'formNote' => $formNote,
-        ]);
-    }
+    
 
+    return $this->render('candidatures/edit.html.twig', [
+        'candidature' => $candidature,
+        'form' => $form->createView(),
+        'formNote' => $formNote->createView(),
+    ]);
+}
     #[Route('/{id}', name: 'app_candidatures_delete', methods: ['POST'])]
     public function delete(Request $request, Candidatures $candidature, EntityManagerInterface $entityManager): Response
     {
