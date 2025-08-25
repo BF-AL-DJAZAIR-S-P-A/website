@@ -94,13 +94,17 @@
                 <td>
                 <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> </td>
 				<td>
-				{% for i in 1..5 %}
-					{% if i <= candidature.note.valeur %}
-						<i class="fas fa-star text-warning"></i> {# étoile pleine #}
-					{% else %}
-						<i class="far fa-star text-muted"></i> {# étoile vide #}
-					{% endif %}
-				{% endfor %}
+				{% if candidature.note is not null %}
+					{% for i in 1..5 %}
+						{% if i <= candidature.note.valeur %}
+							<i class="fas fa-star text-warning"></i> {# étoile pleine #}
+						{% else %}
+							<i class="far fa-star text-muted"></i> {# étoile vide #}
+						{% endif %}
+					{% endfor %}
+				{% else %}
+					<span class="text-muted">Pas encore noté</span>
+				{% endif %}
 				</td>
 				<td class="sorting_1 dtr-control">
 
