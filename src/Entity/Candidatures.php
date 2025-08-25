@@ -47,6 +47,9 @@ class Candidatures
     #[ORM\OneToOne(mappedBy: 'candidat', cascade: ['persist', 'remove'])]
     private ?Note $note = null;
 
+    #[ORM\OneToOne(mappedBy: 'candidature', cascade: ['persist', 'remove'])]
+    private ?Statut $statut = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -185,6 +188,23 @@ class Candidatures
         }
 
         $this->note = $note;
+
+        return $this;
+    }
+
+    public function getStatut(): ?Statut
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(Statut $statut): static
+    {
+        // set the owning side of the relation if necessary
+        if ($statut->getCandidature() !== $this) {
+            $statut->setCandidature($this);
+        }
+
+        $this->statut = $statut;
 
         return $this;
     }
