@@ -1,34 +1,40 @@
 <style>
-.star-ratingg {
-  direction: rtl; /* pour que les étoiles se remplissent de gauche à droite */
-  display: inline-flex;
+.star-rating {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent !important;
+    border: none;
+    font-size: 0; /* cache le texte (⭐⭐⭐) */
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px; /* décalé hors écran */
 }
 
-.star-ratingg input {
-  display: none;
+/* Utiliser ton composant d’étoiles custom */
+.star-rating-widget {
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
+.star-rating-widget .star {
+    font-size: 30px;
+    color: gray;
+}
+.star-rating-widget .star.selected,
+.star-rating-widget .star:hover,
+.star-rating-widget .star:hover ~ .star {
+    color: gold;
 }
 
-.star-ratingg label {
-  font-size: 2rem;
-  color: #ccc;
-  cursor: pointer;
-}
-
-.star-ratingg input:checked ~ label {
-  color: gold;
-}
-
-.star-ratingg label:hover,
-.star-ratingg label:hover ~ label {
-  color: gold;
-}
 </style>
 {{ form_start(formNote) }}
 
-<div class="star-ratingg">
-    {% for i in 1..5 %}
-        <input type="radio" id="star{{ i }}" name="{{ formNote.valeur.vars.full_name }}" value="{{ i }}"
-            {% if formNote.valeur.vars.value == i %}checked{% endif %}>
+<div class="star-rating">
+    {% for i in 5..1 %}
+        <input type="radio" id="star{{ i }}" name="note[valeur]" value="{{ i }}" 
+               {% if formNote.valeur.vars.value == i %}checked{% endif %}>
         <label for="star{{ i }}">★</label>
     {% endfor %}
 </div>
