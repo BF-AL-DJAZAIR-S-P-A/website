@@ -3,8 +3,8 @@
 {{ form_start(formMail) }}
  <div class="form-row">
 	<div class="col-md-6">
-        {% set contenu_widget = form_widget(formMail.contenu, {'value': mail.contenu|raw}) %}
-        {{ contenu_widget|raw }}
+
+		{{ form_row(formMail.email,{'attr': {'class': 'form-control'}}) }}
 		{{ form_errors(formMail.email) }}
     
 	</div>
@@ -30,9 +30,10 @@
 </div>
  <div class="form-row">
 	<div class="col-md-6">
-
-		{{ form_row(formMail.contenu,{'attr': {'class': 'form-control'}}) }}
-		{{ form_errors(formMail.contenu) }}
+        {% set contenu_widget = form_widget(formMail.contenu, {'value': mail.contenu|raw}) %}
+        {{ contenu_widget|raw }}
+		{{ form_errors(formMail.email) }}
+    
     
 	</div>
 
