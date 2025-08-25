@@ -93,11 +93,53 @@ public function edit(Request $request, Candidatures $candidature, EntityManagerI
         return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
 
+    // MAIL
+$mail = new Mail();
+$mail->setCandidat($candidature);
+$mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat si disponible
+$mail->setObjet('Votre candidature chez BF ALDJAZAIR');
+
+$formMail = $this->createForm(MailType::class, $mail);
+$formMail->handleRequest($request);
+
+if ($formMail->isSubmitted() && $formMail->isValid()) {
+    // rendre le contenu avec Twig
+    $contenu = $this->renderView('emails/candidat.html.twig', [
+        'candidat' => $candidature,
+        'mail' => $mail,
+    ]);
+
+    $message = (new \Swift_Message($mail->getObjet()))
+        ->setFrom('no-reply@bfaldjazair.com')
+        ->setTo($mail->getEmail());
+
+    if ($mail->getCc()) {
+        $message->setCc(explode(';', $mail->getCc()));
+    }
+
+    $message->setBody($contenu, 'text/html'); // utiliser le template rendu
+
+    try {
+        $mailer->send($message);
+        $mail->setStatutEnvoi('envoyé');
+    } catch (\Exception $e) {
+        $mail->setStatutEnvoi('erreur');
+    }
+
+    $mail->setDateEnvoi(new \DateTime());
+    $entityManager->persist($mail);
+    $entityManager->flush();
+
+    $this->addFlash('success', 'Mail envoyé');
+    return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
+}
+
     return $this->render('candidatures/edit.html.twig', [
         'candidature' => $candidature,
         'form' => $form->createView(),
         'formNote' => $formNote->createView(),
         'formStatut' => $formStatut->createView(),
+        'formMail' => $formMail->createView(),
     ]);
 }
     #[Route('/{id}', name: 'app_candidatures_delete', methods: ['POST'])]

@@ -1,0 +1,43 @@
+
+
+{{ form_start(formMail) }}
+ <div class="form-row">
+	<div class="col-md-6">
+
+		{{ form_row(formMail.email,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(formMail.email) }}
+    
+	</div>
+
+</div>
+ <div class="form-row">
+	<div class="col-md-6">
+
+		{{ form_row(formMail.cc,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(formMail.cc) }}
+    
+	</div>
+
+</div>
+ <div class="form-row">
+	<div class="col-md-6">
+
+		{{ form_row(formMail.objet,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(formMail.objet) }}
+    
+	</div>
+
+</div>
+ <div class="form-row">
+	<div class="col-md-6">
+
+		{{ form_row(formMail.contenu,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(formMail.contenu) }}
+    
+	</div>
+
+</div>
+<br>
+
+<button type="submit" class="mt-1 btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(formMail) }}

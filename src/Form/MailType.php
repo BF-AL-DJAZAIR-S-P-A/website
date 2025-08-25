@@ -18,14 +18,7 @@ class MailType extends AbstractType
             ->add('cc')
             ->add('objet')
             ->add('contenu')
-            ->add('dateEnvoi', null, [
-                'widget' => 'single_text',
-            ])
-            ->add('statutEnvoi')
-            ->add('candidat', EntityType::class, [
-                'class' => Candidatures::class,
-                'choice_label' => 'id',
-            ])
+    
         ;
     }
 

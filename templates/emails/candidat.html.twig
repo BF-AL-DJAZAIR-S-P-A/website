@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mail.objet }}</title>
+</head>
+<body>
+    <p>Bonjour {{ candidat.nom }} {{ candidat.prenom }},</p>
+
+    <p>{{ mail.contenu|raw }}</p>
+
+    <p>Cordialement,<br>BF ALDJAZAIR</p>
+</body>
+</html>
