@@ -1,42 +1,41 @@
 <style>
-.star-rating {
-    display: inline-flex;
-    flex-direction: row-reverse; /* inverse l’ordre visuel */
+.custom-star-rating {
+  display: inline-flex;
+  flex-direction: row-reverse; /* ordre visuel 5 → 1 */
+  gap: .25rem;
 }
-
-.star-rating input[type="radio"] {
-    display: none;
+.custom-star-rating input[type="radio"] { display: none; }
+.custom-star-rating label {
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+  transition: color .15s ease-in-out;
 }
-
-.star-rating label {
-    font-size: 2rem;
-    color: #ddd;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-/* Colorer toutes les étoiles à gauche de l’étoile cochée */
-.star-rating input[type="radio"]:checked ~ label {
-    color: gold;
-}
-
-/* Effet au survol */
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-    color: gold;
-}
+/* colorer l’étoile cochée + toutes celles à gauche (visuellement) */
+.custom-star-rating input[type="radio"]:checked ~ label { color: gold; }
+/* effet hover */
+.custom-star-rating label:hover,
+.custom-star-rating label:hover ~ label { color: gold; }
 </style>
 
 {{ form_start(formNote) }}
+  {# important si tu utilises render_rest: false #}
+  {{ form_row(formNote._token) }}
 
-<div class="star-rating">
+  {% set current = formNote.valeur.vars.value ?? 0 %}
+
+  <div class="custom-star-rating">
     {% for i in range(1, 5)|reverse %}
-        <input type="radio" id="star{{ i }}" name="note[valeur]" value="{{ i }}"
-               {% if formNote.valeur.vars.value == i %}checked{% endif %}>
-        <label for="star{{ i }}">★</label>
+      <input
+        type="radio"
+        id="star{{ i }}"
+        name="{{ formNote.valeur.vars.full_name }}"
+        value="{{ i }}"
+        {% if current == i %}checked{% endif %}
+      >
+      <label for="star{{ i }}">★</label>
     {% endfor %}
-</div>
+  </div>
 
-<button class="btn">{{ button_label|default('Save') }}</button>
-
+  <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(formNote, {'render_rest': false}) }}
