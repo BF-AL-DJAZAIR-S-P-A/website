@@ -41,7 +41,7 @@ final class CandidaturesController extends AbstractController
         ]);
     }
 
-   #[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
+#[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
 public function edit(Request $request, Candidatures $candidature, EntityManagerInterface $entityManager): Response
 {
     // Formulaire Candidature
@@ -55,25 +55,25 @@ public function edit(Request $request, Candidatures $candidature, EntityManagerI
         return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
 
-    // Formulaire Note
-    $note = $candidature->getNote() ?? new Note();
-    if (!$candidature->getNote()) {
-        $candidature->setNote($note);
+    // Récupérer la note existante ou en créer une nouvelle
+    $note = $candidature->getNote();
+    if (!$note) {
+        $note = new Note();
         $note->setCandidat($candidature);
+        $candidature->setNote($note);
+        $entityManager->persist($note); // persiste seulement si elle est nouvelle
     }
 
+    // Formulaire Note
     $formNote = $this->createForm(NoteType::class, $note);
     $formNote->handleRequest($request);
 
     if ($formNote->isSubmitted() && $formNote->isValid()) {
-        $entityManager->persist($note);
         $entityManager->flush();
 
         $this->addFlash('success', 'Note mise à jour');
         return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
-
-    
 
     return $this->render('candidatures/edit.html.twig', [
         'candidature' => $candidature,
