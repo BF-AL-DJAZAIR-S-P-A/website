@@ -30,9 +30,9 @@
 </div>
  <div class="form-row">
 	<div class="col-md-6">
-
-		{{ form_widget(formMail.contenu, {'value': mail.contenu|raw}) }}
+        {{ form_row(formMail.contenu,{'attr': {'class': 'form-control','value': mail.contenu|raw}}) }}
 		{{ form_errors(formMail.contenu) }}
+		
     
 	</div>
 
