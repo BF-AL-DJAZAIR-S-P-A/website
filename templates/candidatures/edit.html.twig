@@ -127,7 +127,7 @@
                                     <div class="main-card mb-3 card">
                                         <div class="card-body">
                                             <h5 class="card-title">Mail</h5>
-                                       {% include 'candidatures/_formMail.html.twig' with {'formMail': formMail, 'mail': mail} %}
+                                       {{ include('candidatures/_formMail.html.twig', {'button_label': 'Update'}) }}
                                         </div>
                                     </div>
                                 </div>
