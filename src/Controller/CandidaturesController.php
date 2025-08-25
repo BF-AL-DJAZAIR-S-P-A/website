@@ -144,6 +144,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         'formNote' => $formNote->createView(),
         'formStatut' => $formStatut->createView(),
         'formMail' => $formMail->createView(),
+        'mail' => $mail,
     ]);
 }
     #[Route('/{id}', name: 'app_candidatures_delete', methods: ['POST'])]
