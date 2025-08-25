@@ -1,31 +1,31 @@
 <style>
-.star-rating {
+.star-ratingg {
   direction: rtl; /* pour que les étoiles se remplissent de gauche à droite */
   display: inline-flex;
 }
 
-.star-rating input {
+.star-ratingg input {
   display: none;
 }
 
-.star-rating label {
+.star-ratingg label {
   font-size: 2rem;
   color: #ccc;
   cursor: pointer;
 }
 
-.star-rating input:checked ~ label {
+.star-ratingg input:checked ~ label {
   color: gold;
 }
 
-.star-rating label:hover,
-.star-rating label:hover ~ label {
+.star-ratingg label:hover,
+.star-ratingg label:hover ~ label {
   color: gold;
 }
 </style>
 {{ form_start(formNote) }}
 
-<div class="star-rating">
+<div class="star-ratingg">
     {% for i in 1..5 %}
         <input type="radio" id="star{{ i }}" name="{{ formNote.valeur.vars.full_name }}" value="{{ i }}"
             {% if formNote.valeur.vars.value == i %}checked{% endif %}>
