@@ -1,22 +1,21 @@
 <style>
 .star-rating {
-  direction: rtl;
-  display: inline-flex;
-  font-size: 2em;
-  cursor: pointer;
+    direction: rtl; /* pour que les étoiles s'affichent de droite à gauche */
+    display: inline-flex;
 }
-.star-rating input {
-  display: none;
+
+.star-rating input[type="radio"] {
+    display: none;
 }
+
 .star-rating label {
-  color: #ddd;
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
 }
-.star-rating input:checked ~ label {
-  color: gold;
-}
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  color: gold;
+
+.star-rating input[type="radio"]:checked ~ label {
+    color: gold;
 }
 </style>
 {{ form_start(formNote) }}
