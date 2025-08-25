@@ -27,8 +27,8 @@
 
 <div class="star-rating">
     {% for i in 1..5 %}
-        <input type="radio" id="star{{ i }}" name="{{ form.valeur.vars.full_name }}" value="{{ i }}"
-            {% if form.valeur.vars.value == i %}checked{% endif %}>
+        <input type="radio" id="star{{ i }}" name="{{ formNote.valeur.vars.full_name }}" value="{{ i }}"
+            {% if formNote.valeur.vars.value == i %}checked{% endif %}>
         <label for="star{{ i }}">★</label>
     {% endfor %}
 </div>
