@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Candidatures;
+use App\Entity\Note;
 use App\Form\CandidaturesType;
+use App\Form\NoteType;
 use App\Repository\CandidaturesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,12 +42,20 @@ final class CandidaturesController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Candidatures $candidature, EntityManagerInterface $entityManager): Response
+    public function edit(Request $request, Candidatures $candidature, Note $note, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CandidaturesType::class, $candidature);
         $form->handleRequest($request);
+        $formNote = $this->createForm(NoteType::class, $note);
+        $formNote->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_candidatures_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+           if ($formNote->isSubmitted() && $formNote->isValid()) {
             $entityManager->flush();
 
             return $this->redirectToRoute('app_candidatures_index', [], Response::HTTP_SEE_OTHER);
@@ -54,6 +64,7 @@ final class CandidaturesController extends AbstractController
         return $this->render('candidatures/edit.html.twig', [
             'candidature' => $candidature,
             'form' => $form,
+            'formNote' => $formNote,
         ]);
     }
 

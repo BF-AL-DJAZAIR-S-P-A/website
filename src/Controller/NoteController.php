@@ -26,8 +26,8 @@ final class NoteController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $note = new Note();
-        $formNote = $this->createForm(NoteType::class, $note);
-        $formNote->handleRequest($request);
+        $form = $this->createForm(NoteType::class, $note);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($note);
@@ -38,7 +38,7 @@ final class NoteController extends AbstractController
 
         return $this->render('note/new.html.twig', [
             'note' => $note,
-            'formNote' => $formNote,
+            'form' => $form,
         ]);
     }
 
@@ -53,10 +53,10 @@ final class NoteController extends AbstractController
     #[Route('/{id}/edit', name: 'app_note_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Note $note, EntityManagerInterface $entityManager): Response
     {
-        $formNote = $this->createForm(NoteType::class, $note);
-        $formNote->handleRequest($request);
+        $form = $this->createForm(NoteType::class, $note);
+        $form->handleRequest($request);
 
-        if ($formNote->isSubmitted() && $formNote->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
             return $this->redirectToRoute('app_note_index', [], Response::HTTP_SEE_OTHER);
@@ -64,7 +64,7 @@ final class NoteController extends AbstractController
 
         return $this->render('note/edit.html.twig', [
             'note' => $note,
-            'formNote' => $formNote,
+            'form' => $form,
         ]);
     }
 
