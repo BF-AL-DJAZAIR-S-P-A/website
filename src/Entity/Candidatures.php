@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CandidaturesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -49,6 +51,17 @@ class Candidatures
 
     #[ORM\OneToOne(mappedBy: 'candidature', cascade: ['persist', 'remove'])]
     private ?Statut $statut = null;
+
+    /**
+     * @var Collection<int, Mail>
+     */
+    #[ORM\OneToMany(targetEntity: Mail::class, mappedBy: 'candidat')]
+    private Collection $mails;
+
+    public function __construct()
+    {
+        $this->mails = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -205,6 +218,36 @@ class Candidatures
         }
 
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Mail>
+     */
+    public function getMails(): Collection
+    {
+        return $this->mails;
+    }
+
+    public function addMail(Mail $mail): static
+    {
+        if (!$this->mails->contains($mail)) {
+            $this->mails->add($mail);
+            $mail->setCandidat($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMail(Mail $mail): static
+    {
+        if ($this->mails->removeElement($mail)) {
+            // set the owning side to null (unless already changed)
+            if ($mail->getCandidat() === $this) {
+                $mail->setCandidat(null);
+            }
+        }
 
         return $this;
     }
