@@ -1,7 +1,7 @@
 <style>
 .star-rating {
-    direction: rtl; /* pour que les étoiles s'affichent de droite à gauche */
     display: inline-flex;
+    flex-direction: row-reverse; /* inverse l’ordre visuel */
 }
 
 .star-rating input[type="radio"] {
@@ -12,18 +12,26 @@
     font-size: 2rem;
     color: #ddd;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
+/* Colorer toutes les étoiles à gauche de l’étoile cochée */
 .star-rating input[type="radio"]:checked ~ label {
     color: gold;
 }
 
+/* Effet au survol */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: gold;
+}
 </style>
+
 {{ form_start(formNote) }}
 
 <div class="star-rating">
-    {% for i in 5..1 %}
-        <input type="radio" id="star{{ i }}" name="note[valeur]" value="{{ i }}" 
+    {% for i in range(1, 5)|reverse %}
+        <input type="radio" id="star{{ i }}" name="note[valeur]" value="{{ i }}"
                {% if formNote.valeur.vars.value == i %}checked{% endif %}>
         <label for="star{{ i }}">★</label>
     {% endfor %}
