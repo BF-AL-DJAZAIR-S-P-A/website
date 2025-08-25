@@ -102,7 +102,7 @@ $mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat 
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
 $mail->setContenu(
-    "Bonjour ".$candidature->getPrenom().",\n\nVotre candidature a été refusée.\nNous vous remercions pour votre intérêt."
+    "Bonjour ".$candidature->getPrenom().",\nVotre candidature a été refusée.\nNous vous remercions pour votre intérêt."
 );
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
