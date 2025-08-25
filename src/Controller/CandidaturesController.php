@@ -59,6 +59,7 @@ public function edit(Request $request, Candidatures $candidature, EntityManagerI
     $note = $candidature->getNote() ?? new Note();
     if (!$candidature->getNote()) {
         $candidature->setNote($note);
+        $note->setCandidature($candidature);
     }
 
     $formNote = $this->createForm(NoteType::class, $note);
