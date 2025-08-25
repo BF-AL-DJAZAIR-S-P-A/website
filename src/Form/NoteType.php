@@ -15,18 +15,9 @@ class NoteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-          ->add('valeur', ChoiceType::class, [
-    'label' => 'Note',
-    'choices'  => [
-        '★☆☆☆☆' => 1,
-        '★★☆☆☆' => 2,
-        '★★★☆☆' => 3,
-        '★★★★☆' => 4,
-        '★★★★★' => 5,
-    ],
-    'expanded' => true, // radio buttons
-    'multiple' => false,
-])
+            ->add('valeur', null, [
+                'label' => 'Note',
+            ])
             
         ;
     }
