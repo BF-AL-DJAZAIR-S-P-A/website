@@ -1,8 +1,34 @@
+<style>
+.star-rating {
+  direction: rtl;
+  display: inline-flex;
+  font-size: 2em;
+  cursor: pointer;
+}
+.star-rating input {
+  display: none;
+}
+.star-rating label {
+  color: #ddd;
+}
+.star-rating input:checked ~ label {
+  color: gold;
+}
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+</style>
 {{ form_start(formNote) }}
-    {{ form_row(formNote.valeur) }}
-    {# Si tu veux afficher aussi candidatures, tu le mets ici : #}
-    {# {{ form_row(form.candidatures) }} #}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(formNote) }}
 
+<div class="star-rating">
+    {% for i in 5..1 %}
+        <input type="radio" id="star{{ i }}" name="note[valeur]" value="{{ i }}" 
+               {% if formNote.valeur.vars.value == i %}checked{% endif %}>
+        <label for="star{{ i }}">★</label>
+    {% endfor %}
+</div>
 
+<button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_end(formNote, {'render_rest': false}) }}
