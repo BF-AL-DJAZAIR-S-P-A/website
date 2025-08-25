@@ -76,6 +76,7 @@
 				<th>{{ 'candidats.telephone'|trans }}</th>
                 <th>Cv</th>
 				<th>Note</th>
+				<th>Statut</th>
 				<th>Action</th>
 				
                
@@ -106,6 +107,22 @@
 				{% else %}
 					<span class="text-muted">Pas encore noté</span>
 				{% endif %}
+				</td>
+
+				<td>
+				{% if candidature.statut is not null %}
+                {% if candidature.statut.libelle == 'non_traité' %}
+                    <span class="badge bg-secondary">Non traité</span>
+                {% elseif candidature.statut.libelle == 'admis' %}
+                    <span class="badge bg-success">Admis</span>
+                {% elseif candidature.statut.libelle == 'refusé' %}
+                    <span class="badge bg-danger">Refusé</span>
+                {% else %}
+                    <span class="badge bg-dark">{{ candidature.statut.libelle }}</span>
+                {% endif %}
+            {% else %}
+                <span class="text-muted">Pas encore défini</span>
+            {% endif %}
 				</td>
 				<td class="sorting_1 dtr-control">
 
