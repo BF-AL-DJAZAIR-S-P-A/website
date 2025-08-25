@@ -44,6 +44,9 @@ class Candidatures
     #[ORM\Column(length: 255)]
     private ?string $ville = null;
 
+    #[ORM\OneToOne(mappedBy: 'candidat', cascade: ['persist', 'remove'])]
+    private ?Note $note = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -165,6 +168,23 @@ class Candidatures
     public function setVille(string $ville): static
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    public function getNote(): ?Note
+    {
+        return $this->note;
+    }
+
+    public function setNote(Note $note): static
+    {
+        // set the owning side of the relation if necessary
+        if ($note->getCandidat() !== $this) {
+            $note->setCandidat($this);
+        }
+
+        $this->note = $note;
 
         return $this;
     }
