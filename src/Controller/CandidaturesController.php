@@ -102,7 +102,7 @@ $mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat 
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
 $mail->setContenu(
-    "Bonjour ".$candidature->getPrenom().",\nVotre candidature a été refusée.\nNous vous remercions pour votre intérêt."
+    "Bonjour ".$candidature->getPrenom().",\n Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.\n Après un examen attentif de votre dossier, nous regrettons de vous informer que votre candidature n’a pas été retenue pour le poste de ".$candidature->getPoste().".\n Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil. \n Nous vous souhaitons plein succès dans vos projets professionnels."
 );
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
@@ -115,7 +115,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     ]);
 
     $message = (new \Swift_Message($mail->getObjet()))
-        ->setFrom('no-reply@bfaldjazair.com')
+        ->setFrom('info@bfaldjazair.com')
         ->setTo($mail->getEmail());
 
     if ($mail->getCc()) {
