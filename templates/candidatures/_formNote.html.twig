@@ -1,21 +1,30 @@
 <style>
 .star-rating {
-    direction: rtl; /* pour que les étoiles s'affichent de droite à gauche */
-    display: inline-flex;
-    background-image: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent !important;
+    border: none;
+    font-size: 0; /* cache le texte (⭐⭐⭐) */
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -9999px; /* décalé hors écran */
 }
 
-.star-rating input[type="radio"] {
-    display: none;
-}
-
-.star-rating label {
-    font-size: 2rem;
-    color: #ddd;
+/* Utiliser ton composant d’étoiles custom */
+.star-rating-widget {
+    display: flex;
+    gap: 5px;
     cursor: pointer;
 }
-
-.star-rating input[type="radio"]:checked ~ label {
+.star-rating-widget .star {
+    font-size: 30px;
+    color: gray;
+}
+.star-rating-widget .star.selected,
+.star-rating-widget .star:hover,
+.star-rating-widget .star:hover ~ .star {
     color: gold;
 }
 
