@@ -46,14 +46,19 @@ final class CandidaturesController extends AbstractController
     {
         $form = $this->createForm(CandidaturesType::class, $candidature);
         $form->handleRequest($request);
-        $formNote = $this->createForm(NoteType::class, $note);
-        $formNote->handleRequest($request);
+       $note = $candidature->getNote() ?? new Note();
+    $note->setCandidatures($candidature);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+    $formNote = $this->createForm(NoteType::class, $note);
+    $formNote->handleRequest($request);
 
-            return $this->redirectToRoute('app_candidatures_index', [], Response::HTTP_SEE_OTHER);
-        }
+    if ($formNote->isSubmitted() && $formNote->isValid()) {
+        $em->persist($note);
+        $em->flush();
+
+        $this->addFlash('success', 'Note enregistrée');
+        return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
+    }
 
            if ($formNote->isSubmitted() && $formNote->isValid()) {
             $entityManager->flush();
