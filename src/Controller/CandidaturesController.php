@@ -101,7 +101,7 @@ $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat si disponible
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
-$mail->setContenu(htmlspecialchars('<p>Bonjour '.$candidature->getPrenom().'</p>'));
+$mail->setContenu('<p>Bonjour '.$candidature->getPrenom() .'</p>');
 
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
