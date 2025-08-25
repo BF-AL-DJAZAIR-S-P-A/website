@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Candidatures;
 use App\Entity\Note;
+use App\Entity\Statut;
 use App\Form\CandidaturesType;
 use App\Form\NoteType;
+use App\Form\StatutType;
 use App\Repository\CandidaturesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -75,10 +77,27 @@ public function edit(Request $request, Candidatures $candidature, EntityManagerI
         return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
 
+    // STATUT
+    $statut = $candidature->getStatut();
+    if (!$statut) {
+        $statut = new Statut();
+        $statut->setCandidature($candidature);
+        $candidature->setStatut($statut);
+        $entityManager->persist($statut);
+    }
+    $formStatut = $this->createForm(StatutType::class, $statut);
+    $formStatut->handleRequest($request);
+    if ($formStatut->isSubmitted() && $formStatut->isValid()) {
+        $entityManager->flush();
+        $this->addFlash('success', 'Statut mis à jour');
+        return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
+    }
+
     return $this->render('candidatures/edit.html.twig', [
         'candidature' => $candidature,
         'form' => $form->createView(),
         'formNote' => $formNote->createView(),
+        'formStatut' => $formStatut->createView(),
     ]);
 }
     #[Route('/{id}', name: 'app_candidatures_delete', methods: ['POST'])]

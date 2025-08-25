@@ -14,11 +14,16 @@ class StatutType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('libelle')
-            ->add('candidature', EntityType::class, [
-                'class' => Candidatures::class,
-                'choice_label' => 'id',
-            ])
+           ->add('libelle', ChoiceType::class, [
+        'choices' => [
+            'Non traité' => 'non_traité',
+            'Admis' => 'admis',
+            'Refusé' => 'refusé',
+        ],
+        'expanded' => false, // si tu veux un <select>
+        'multiple' => false,
+    ])
+       
         ;
     }
 
