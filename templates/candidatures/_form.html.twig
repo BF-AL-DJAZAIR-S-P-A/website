@@ -10,7 +10,7 @@ display:none;
 
 		{{ form_row(form.nom,{'attr': {'class': 'form-control'}}) }}
 		{{ form_errors(form.nom) }}
-    {{candidature.nom}}
+    <b>{{ 'candidats.nom'|trans }} :</b> {{candidature.nom}}
 	</div>
 
 	<div class="col-md-3">
