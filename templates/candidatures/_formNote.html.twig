@@ -1,6 +1,6 @@
 <style>
 .star-rating {
-    direction: rtl; /* pour que les étoiles s'affichent de droite à gauche */
+    direction: rtl; /* étoiles de droite à gauche */
     display: inline-flex;
 }
 
@@ -18,10 +18,11 @@
     color: gold;
 }
 </style>
+
 {{ form_start(formNote) }}
 
 <div class="star-rating">
-    {% for i in 5..1 %}
+    {% for i in range(1, 5)|reverse %}
         <input type="radio" id="star{{ i }}" name="note[valeur]" value="{{ i }}" 
                {% if formNote.valeur.vars.value == i %}checked{% endif %}>
         <label for="star{{ i }}">★</label>
