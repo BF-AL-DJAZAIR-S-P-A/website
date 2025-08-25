@@ -1,5 +1,5 @@
 <style>
-#candidatures_nom,#candidatures_prenom,#candidatures_datenaissance{
+#candidatures_nom,#candidatures_prenom,#candidatures_datenaissance,#candidatures_ville,#candidatures_email,#candidatures_tel,#candidatures_poste,#candidatures_experience,#candidatures_lettre{
 display:none;
 }
 </style>
@@ -17,16 +17,19 @@ display:none;
 	
 		{{ form_row(form.prenom,{'attr': {'class': 'form-control custom-datepicker'}}) }}
 		{{ form_errors(form.prenom) }}
+    {{candidature.prenom}}
 	</div>
   	<div class="col-md-3">
 		  
 		{{ form_row(form.datenaissance,{'attr': {'class': 'form-control custom-datepicker'}}) }}
 		{{ form_errors(form.datenaissance) }}
+     {{candidature.datenaissance|date('Y-m-d')}}
 	</div>
     	<div class="col-md-3">
 		   
 		{{ form_row(form.ville,{'attr': {'class': 'form-control custom-datepicker'}}) }}
 		{{ form_errors(form.ville) }}
+    {{candidature.ville}}
 	</div>
 </div>
 <br>
@@ -36,24 +39,28 @@ display:none;
 	   {{ form_row(form.email,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.email) }}
+    {{candidature.email}}
 	</div>
   <div class="col-md-3">
   
 	   {{ form_row(form.tel,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.tel) }}
+    {{candidature.tel}}
 	</div>
     <div class="col-md-3">
    
 	   {{ form_row(form.experience,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.experience) }}
+    {{candidature.experience}}
 	</div>
   <div class="col-md-3">
 
 	   {{ form_row(form.poste,{'attr': {'class': 'form-control'}}) }}
 
 		{{ form_errors(form.poste) }}
+    {{candidature.poste}}
 	</div>
  </div>
  <br>
