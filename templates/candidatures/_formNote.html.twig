@@ -2,6 +2,7 @@
 .star-rating {
     direction: rtl; /* pour que les étoiles s'affichent de droite à gauche */
     display: inline-flex;
+    background-image: none !important;
 }
 
 .star-rating input[type="radio"] {
@@ -17,9 +18,7 @@
 .star-rating input[type="radio"]:checked ~ label {
     color: gold;
 }
-.star-rating {
-    background-image: none !important;
-}
+
 </style>
 {{ form_start(formNote) }}
 
