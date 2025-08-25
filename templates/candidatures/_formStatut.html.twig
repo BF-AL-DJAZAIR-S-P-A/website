@@ -1,0 +1,16 @@
+
+
+{{ form_start(formStatut) }}
+ <div class="form-row">
+	<div class="col-md-3">
+
+		{{ form_row(formStatut.libelle,{'attr': {'class': 'form-control'}}) }}
+		{{ form_errors(formStatut.libelle) }}
+    
+	</div>
+
+</div>
+<br>
+
+<button type="submit" class="mt-1 btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(formStatut) }}
