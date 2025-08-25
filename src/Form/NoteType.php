@@ -15,7 +15,10 @@ class NoteType extends AbstractType
     {
         $builder
             ->add('valeur')
-          
+            ->add('candidat', EntityType::class, [
+                'class' => Candidatures::class,
+                'choice_label' => 'id',
+            ])
         ;
     }
 
