@@ -46,7 +46,17 @@ final class CandidaturesController extends AbstractController
     {
         $form = $this->createForm(CandidaturesType::class, $candidature);
         $form->handleRequest($request);
-       $note = $candidature->getNote() ?? new Note();
+        
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_candidatures_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+         // -------- FORMULAIRE NOTE ----------
+    // soit tu crées une note si elle n’existe pas
+    $note = $candidature->getNote() ?? new Note();
     $note->setCandidatures($candidature);
 
     $formNote = $this->createForm(NoteType::class, $note);
@@ -59,12 +69,6 @@ final class CandidaturesController extends AbstractController
         $this->addFlash('success', 'Note enregistrée');
         return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
-
-           if ($formNote->isSubmitted() && $formNote->isValid()) {
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_candidatures_index', [], Response::HTTP_SEE_OTHER);
-        }
 
         return $this->render('candidatures/edit.html.twig', [
             'candidature' => $candidature,
