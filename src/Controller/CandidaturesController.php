@@ -97,13 +97,6 @@ public function edit(Request $request, Candidatures $candidature,MailerInterface
 
     // MAIL
 $mail = new Mail();
-$mail->setCandidat($candidature);
-$mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat si disponible
-$mail->setObjet('Votre candidature chez BF ALDJAZAIR');
-
-$mail->setContenu(
-    $formMail->get('contenu')->getData()
-);
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
@@ -131,7 +124,11 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     } catch (\Exception $e) {
         $mail->setStatutEnvoi('erreur');
     }
-
+    
+    $mail->setCandidat($candidature);
+    $mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat si disponible
+    $mail->setObjet($formMail->get('objet')->getData());
+    $mail->setContenu( $formMail->get('contenu')->getData());
     $mail->setDateEnvoi(new \DateTime());
     $entityManager->persist($mail);
     $entityManager->flush();
