@@ -115,7 +115,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
         ->to($formMail->get('email')->getData())
         ->subject($formMail->get('objet')->getData() . " - " . $candidature->getPoste())
-        ->htmlTemplate('emails/candidature.html.twig')
+        ->htmlTemplate('emails/candidat.html.twig')
         ->context([
        
             'contenu' => $formMail->get('contenu')->getData(),
