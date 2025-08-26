@@ -130,7 +130,8 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         $mailer->send($message);
         $mail->setStatutEnvoi('envoyé');
     } catch (\Exception $e) {
-        $mail->setStatutEnvoi('erreur');
+        
+        $mail->setStatutEnvoi('erreur: '.$e->getMessage());
     }
     
     $mail->setCandidat($candidature);
