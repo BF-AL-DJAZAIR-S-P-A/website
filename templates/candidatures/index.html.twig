@@ -69,8 +69,8 @@
             <tr>
                 <th>{{ 'candidats.poste'|trans }}</th>
                 <th>{{ 'candidats.experience'|trans }}</th>
-                <th>{{ 'candidats.nom'|trans }}</th>
-                <th>{{ 'candidats.prenom'|trans }}</th>
+                <th>{{ 'candidats.nom'|trans }} & {{ 'candidats.prenom'|trans }}</th>
+              
                 <th>{{ 'candidats.datenaissance'|trans }}</th>
 				<th>{{ 'candidats.ville'|trans }}</th>
 				<th>{{ 'candidats.telephone'|trans }}</th>
@@ -88,10 +88,7 @@
             <tr>
                 <td>{{ candidature.poste }}</td>
                 <td>{{ candidature.experience }}</td>
-                <td>{{ candidature.nom }}</td>
-                <td>{{ candidature.prenom }}</td>
-                <td>{{ candidature.datenaissance ? candidature.datenaissance|date('Y-m-d') : '' }}</td>
-				<td>{{ candidature.ville }}</td>
+                <td>{{ candidature.nom }} {{ candidature.prenom }}</td>
 				<td>{{ candidature.tel }}</td>
              
                 
