@@ -74,6 +74,7 @@
                 <th>{{ 'candidats.datenaissance'|trans }}</th>
 				<th>{{ 'candidats.ville'|trans }}</th>
 				<th>{{ 'candidats.telephone'|trans }}</th>
+                
 				<th>Note</th>
 				<th>Statut</th>
 				<th>Mail</th>
@@ -94,6 +95,7 @@
 				<td>{{ candidature.tel }}</td>
              
                 
+				<td>
 				{% if candidature.note is not null %}
 					{% for i in 1..5 %}
 						{% if i <= candidature.note.valeur %}
