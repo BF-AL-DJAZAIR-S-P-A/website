@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>{{ mail.objet }}</title>
-</head>
-<body>
-    <p>Bonjour {{ candidat.nom }} {{ candidat.prenom }},</p>
 
-    <p>{{ mail.contenu|raw }}</p>
+{# templates/emails/candidature.html.twig #}
 
-    <p>Cordialement,<br>BF ALDJAZAIR</p>
-</body>
-</html>
+{% extends 'emails/base_email.html.twig' %}
+
+{% set subject = 'Nouvelle candidature' %}
+{% set company_name = 'BF ALDJAZAIR SPA' %}
+{% set logo_url = asset('img/logo4.svg') %}
+{% set company_address = 'Lotissement El Fath villa No 29, section 44, Groupe de propriété No 17 E Biar, Alger' %}
+{% set company_email = 'info@bfaldjazair.com' %}
+{% set company_phone = '+213 (0) 23 05 18 36' %}
+
+{% block content %}
+    <h2 style="margin-top:0;">Votre candidature chez BF ALDJAZAIR</h2>
+
+    {{ mail.contenu|raw }}
+
+{% endblock %}
+
+
+
