@@ -70,10 +70,7 @@
                 <th>{{ 'candidats.poste'|trans }}</th>
                 <th>{{ 'candidats.experience'|trans }}</th>
                 <th>{{ 'candidats.nom'|trans }} & {{ 'candidats.prenom'|trans }}</th>
-              
-                <th>{{ 'candidats.datenaissance'|trans }}</th>
-				<th>{{ 'candidats.ville'|trans }}</th>
-				<th>{{ 'candidats.telephone'|trans }}</th>
+				
                 
 				<th>Note</th>
 				<th>Statut</th>
@@ -89,9 +86,6 @@
                 <td>{{ candidature.poste }}</td>
                 <td>{{ candidature.experience }}</td>
                 <td>{{ candidature.nom }} {{ candidature.prenom }}</td>
-				<td>{{ candidature.tel }}</td>
-             
-                
 				<td>
 				{% if candidature.note is not null %}
 					{% for i in 1..5 %}
