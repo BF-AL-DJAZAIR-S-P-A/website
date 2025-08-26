@@ -16,11 +16,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+
+
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-
-use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\Address;
+
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -97,49 +98,40 @@ public function edit(Request $request, Candidatures $candidature,MailerInterface
     }
 
     // MAIL
+// MAIL
 $mail = new Mail();
 $mail->setCandidat($candidature);
-$mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat si disponible
+$mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 $mail->setContenu(
-    "Bonjour ".$candidature->getPrenom().",\n\n Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.\n\n Après un examen attentif de votre dossier, nous regrettons de vous informer que votre candidature n’a pas été retenue pour le poste de ".$candidature->getPoste().".\n\n Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil. \n\n Nous vous souhaitons plein succès dans vos projets professionnels."
+    "Bonjour ".$candidature->getPrenom().",\n\n Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.\n\n Après un examen attentif de votre dossier, nous regrettons de vous informer que votre candidature n’a pas été retenue pour le poste de ".$candidature->getPoste().".\n\n Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil.\n\n Nous vous souhaitons plein succès dans vos projets professionnels."
 );
+
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
-
 if ($formMail->isSubmitted() && $formMail->isValid()) {
+    $message = (new TemplatedEmail())
+        ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
+        ->to($formMail->get('email')->getData())
+        ->subject($formMail->get('objet')->getData() . " - " . $candidature->getPoste())
+        ->htmlTemplate('emails/candidature.html.twig')
+        ->context([
+       
+            'contenu' => $formMail->get('contenu')->getData(),
+        ]);
 
-          $message = (new TemplatedEmail())
-                    ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
-                     ->to(
-                            $candidature->getEmail()
-                            
-                        )
-                    ->subject($formMail->get('objet')->getData() ." ". $candidature->getPoste())
-                    ->htmlTemplate('emails/candidature.html.twig')
-                    ->context([
-                        'prenom' => $candidature->getPrenom(),
-                        'nom' => $candidature->getNom(),
-                        'email' => $formMail->get('email')->getData(),
-                        'poste' => $candidature->getPoste(),
-                        'contenu' => $formMail->get('contenu')->getData(),
-
-                    ]);
-                   
     try {
         $mailer->send($message);
         $mail->setStatutEnvoi('envoyé');
     } catch (\Exception $e) {
-        
-        $mail->setStatutEnvoi('erreur: '.$e->getMessage());
+        $mail->setStatutEnvoi('erreur: ' . $e->getMessage());
     }
-    
-    $mail->setCandidat($candidature);
-    $mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat si disponible
+
     $mail->setObjet($formMail->get('objet')->getData());
-    $mail->setContenu( $formMail->get('contenu')->getData());
+    $mail->setContenu($formMail->get('contenu')->getData());
     $mail->setDateEnvoi(new \DateTime());
+
     $entityManager->persist($mail);
     $entityManager->flush();
 
