@@ -46,7 +46,7 @@ final class CandidaturesController extends AbstractController
     }
 
 #[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
-public function edit(Request $request, Candidatures $candidature, EntityManagerInterface $entityManager): Response
+public function edit(Request $request, Candidatures $candidature,MailerInterface $mailer, EntityManagerInterface $entityManager): Response
 {
     // Formulaire Candidature
     $form = $this->createForm(CandidaturesType::class, $candidature);
@@ -102,28 +102,29 @@ $mail->setEmail($candidature->getEmail() ?? ''); // pré-remplir email candidat 
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
 $mail->setContenu(
-    "Bonjour ".$candidature->getPrenom().",\n\n Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.\n\n Après un examen attentif de votre dossier, nous regrettons de vous informer que votre candidature n’a pas été retenue pour le poste de ".$candidature->getPoste().".\n\n Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil. \n\n Nous vous souhaitons plein succès dans vos projets professionnels."
+    $formMail->get('contenu')->getData()
 );
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
 if ($formMail->isSubmitted() && $formMail->isValid()) {
-    // rendre le contenu avec Twig
-    $contenu = $this->renderView('emails/candidat.html.twig', [
-        'candidat' => $candidature,
-        'mail' => $mail,
-    ]);
 
-    $message = (new \Swift_Message($mail->getObjet()))
-        ->setFrom('info@bfaldjazair.com')
-        ->setTo($mail->getEmail());
+          $message = (new TemplatedEmail())
+                    ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
+                     ->to(
+                            $candidature->getEmail()
+                            
+                        )
+                    ->subject($formMail->get('objet')->getData() ." ". $candidature->getPoste())
+                    ->htmlTemplate('emails/candidature.html.twig')
+                    ->context([
+                        'nom' => $formMail->get('nom')->getData(),
+                        'email' => $formMail->get('email')->getData(),
+                        'poste' => $candidature->getPoste(),
+                        'contenu' => $formMail->get('contenu')->getData(),
 
-    if ($mail->getCc()) {
-        $message->setCc(explode(';', $mail->getCc()));
-    }
-
-    $message->setBody($contenu, 'text/html'); // utiliser le template rendu
-
+                    ]);
+                   
     try {
         $mailer->send($message);
         $mail->setStatutEnvoi('envoyé');
