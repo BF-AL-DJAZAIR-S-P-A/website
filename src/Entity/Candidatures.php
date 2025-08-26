@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CandidaturesRepository::class)]
 class Candidatures
@@ -30,7 +31,9 @@ class Candidatures
 
     #[ORM\Column(length: 255)]
     private ?string $cv = null;
-
+    
+    #[Assert\NotBlank(message: "L'adresse email est obligatoire")]
+    #[Assert\Email(message: "L'adresse email '{{ value }}' n'est pas valide.")]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
