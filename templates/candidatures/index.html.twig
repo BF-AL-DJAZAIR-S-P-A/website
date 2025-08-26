@@ -74,7 +74,6 @@
                 <th>{{ 'candidats.datenaissance'|trans }}</th>
 				<th>{{ 'candidats.ville'|trans }}</th>
 				<th>{{ 'candidats.telephone'|trans }}</th>
-                <th>Cv</th>
 				<th>Note</th>
 				<th>Statut</th>
 				<th>Mail</th>
@@ -94,9 +93,7 @@
 				<td>{{ candidature.ville }}</td>
 				<td>{{ candidature.tel }}</td>
              
-                <td>
-                <a target="_blank" href="{{ asset('uploads/' ~ candidature.cv) }}"> <button class="mb-2 me-2 btn-icon btn btn-alternate"><i class="pe-7s-cloud-download"> </i> Download CV</button></a> </td>
-				<td>
+                
 				{% if candidature.note is not null %}
 					{% for i in 1..5 %}
 						{% if i <= candidature.note.valeur %}
@@ -138,9 +135,7 @@
 						{% endfor %}
 
 						<span class="badge bg-success">{{ envoyes }} mail envoyé(s)</span>
-						{% if erreurs > 0 %}
-							<span class="badge bg-danger">{{ erreurs }} erreur(s)</span>
-						{% endif %}
+						
 					{% else %}
 						<span class="badge bg-secondary">Aucun mail envoyé</span>
 					
