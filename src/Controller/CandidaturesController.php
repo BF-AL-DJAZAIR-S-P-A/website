@@ -118,7 +118,8 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
                     ->subject($formMail->get('objet')->getData() ." ". $candidature->getPoste())
                     ->htmlTemplate('emails/candidature.html.twig')
                     ->context([
-                        'nom' => $formMail->get('nom')->getData(),
+                        'prenom' => $candidature->getPrenom(),
+                        'nom' => $candidature->getNom(),
                         'email' => $formMail->get('email')->getData(),
                         'poste' => $candidature->getPoste(),
                         'contenu' => $formMail->get('contenu')->getData(),
