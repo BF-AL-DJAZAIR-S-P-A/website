@@ -103,9 +103,32 @@ $mail = new Mail();
 $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
-$mail->setContenu(
-    "Bonjour ".$candidature->getPrenom().",\n\n Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.\n\n Après un examen attentif de votre dossier, nous regrettons de vous informer que votre candidature n’a pas été retenue pour le poste de ".$candidature->getPoste().".\n\n Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil.\n\n Nous vous souhaitons plein succès dans vos projets professionnels."
-);
+// Vérifier le statut du candidat
+$statut = $candidature->getStatut();
+if ($statut && $statut->getLibelle() === 'refusé') {
+    $mail->setContenu(
+        "Bonjour ".$candidature->getPrenom().",\n\n".
+        "Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.\n\n".
+        "Après un examen attentif de votre dossier, nous regrettons de vous informer que votre candidature n’a pas été retenue pour le poste de ".
+        $candidature->getPoste().".\n\n".
+        "Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil.\n\n".
+        "Nous vous souhaitons plein succès dans vos projets professionnels."
+    );
+} elseif ($statut && $statut->getLibelle() === 'admis') {
+    $mail->setContenu(
+        "Bonjour ".$candidature->getPrenom().",\n\n".
+        "Félicitations 🎉 ! Après étude de votre candidature, nous sommes heureux de vous informer que vous avez été admis(e) pour le poste de ".
+        $candidature->getPoste()." chez BF ALDJAZAIR.\n\n".
+        "Notre équipe RH vous contactera prochainement afin de finaliser les démarches.\n\n".
+        "Bienvenue dans l’aventure BF ALDJAZAIR !"
+    );
+} else {
+    // Statut non défini ou "non traité"
+    $mail->setContenu(
+        "Bonjour ".$candidature->getPrenom().",\n\n".
+        "Votre candidature est en cours de traitement. Nous reviendrons vers vous dès qu'une décision sera prise."
+    );
+}
 
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
