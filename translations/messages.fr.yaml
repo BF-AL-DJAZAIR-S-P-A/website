@@ -109,7 +109,7 @@ pagesAdmin:
   actualites-soustitre: "Liste d'actualités"
 
 
-  email:
+email:
   refuse: |
     Bonjour %prenom% %nom%,
 
