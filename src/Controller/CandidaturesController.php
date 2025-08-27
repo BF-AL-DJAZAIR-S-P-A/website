@@ -144,14 +144,14 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
             'contenu' => $contenuHtml,
         ]);
 
-    // 🔹 Gestion du CC : découper correctement plusieurs adresses
+    // 🔹 Gestion du CC : supporte plusieurs adresses séparées par , ou ;
     $ccString = $formMail->get('cc')->getData();
     if ($ccString) {
-        $ccArray = preg_split('/[,;]+/', $ccString); // accepte , ou ;
+        $ccArray = preg_split('/[,;]+/', $ccString); // coupe par virgule ou point-virgule
         foreach ($ccArray as $cc) {
             $cc = trim($cc);
             if (!empty($cc)) {
-                $message->addCc($cc); // <-- ajoute bien chaque adresse
+                $message->addCc($cc); // ✅ ajoute chaque adresse correctement
             }
         }
     }
@@ -166,7 +166,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     // 🔹 Sauvegarde des infos
     $mail->setObjet($formMail->get('objet')->getData());
     $mail->setContenu($formMail->get('contenu')->getData());
-    $mail->setCc($formMail->get('cc')->getData()); // sauvegarde tel quel "a@a.com, b@b.com"
+    $mail->setCc($formMail->get('cc')->getData()); // garde la chaîne "a@a.com, b@b.com"
     $mail->setDateEnvoi(new \DateTime());
 
     $entityManager->persist($mail);
@@ -175,6 +175,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     $this->addFlash('success', 'Mail envoyé');
     return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
 }
+
 
     return $this->render('candidatures/edit.html.twig', [
         'candidature' => $candidature,
