@@ -108,3 +108,30 @@ pagesAdmin:
   actualites-titre: "News"
   actualites-add: "Add"
   actualites-soustitre: "List of news"  
+
+
+email:
+  refuse: |
+    Hello %prenom% %nom%,
+
+    Thank you for your interest in BF ALDJAZAIR and for the time you dedicated to your application.
+
+    After a thorough review of your file, we regret to inform you that your application was not successful for the position of %poste%.
+
+    We encourage you to apply again for future opportunities that match your profile.
+
+    We wish you every success in your professional endeavors.
+
+  admis: |
+    Hello %prenom% %nom%,
+
+    Congratulations 🎉! After reviewing your application, we are pleased to inform you that you have been accepted for the position of %poste% at BF ALDJAZAIR.
+
+    Our HR team will contact you shortly to finalize the process.
+
+    Welcome to the BF ALDJAZAIR journey!
+
+  attente: |
+    Hello %prenom% %nom%,
+
+    Your application is currently being processed. We will get back to you as soon as a decision has been made.
