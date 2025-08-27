@@ -1,4 +1,5 @@
-{% if candidature.note is not null %}
+{% if candidature.note is not null and candidature.note.valeur is not null %}
+    {# afficher le formulaire statut #}
     {{ form_start(formStatut) }}
     <div class="form-row">
         <div class="col-md-3">
