@@ -148,38 +148,17 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         $ccString = trim((string) $mail->getCc());
     }
 
-    $ccAdded = [];
     if ($ccString !== '') {
-        // split en acceptant: "a@a.com, b@b.com" ou "a@a.com; b@b.com" et tolérer espaces
+        // split en acceptant: "a@a.com, b@b.com" ou "a@a.com; b@b.com"
         $parts = preg_split('/\s*[,;]\s*/', $ccString, -1, PREG_SPLIT_NO_EMPTY);
         foreach ($parts as $addr) {
             $addr = trim($addr);
-            if ($addr === '') {
-                continue;
-            }
-            if (filter_var($addr, FILTER_VALIDATE_EMAIL)) {
-                // ajoute UNE adresse à la fois (très important)
-                $message->addCc($addr);
-                $ccAdded[] = $addr;
+            if ($addr !== '' && filter_var($addr, FILTER_VALIDATE_EMAIL)) {
+                $message->addCc($addr); // ajoute directement l’adresse
             } else {
                 $this->addFlash('warning', sprintf("Adresse CC invalide ignorée : %s", $addr));
             }
         }
-    }
-
-    // --- DEBUG: vérifier les CC effectivement présents dans l'objet message (en dev)
-    if (!empty($ccAdded)) {
-        // getCc() retourne un tableau d'Address ou de strings selon version
-        $ccObjects = method_exists($message, 'getCc') ? $message->getCc() : null;
-        $ccDebug = [];
-        if (is_array($ccObjects)) {
-            foreach ($ccObjects as $c) {
-                $ccDebug[] = (string) $c;
-            }
-        } else {
-            $ccDebug = $ccAdded;
-        }
-        dump($ccDebug); // -> vois ici les adresses ajoutées avant envoi (en dev)
     }
 
     try {
@@ -201,6 +180,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     $this->addFlash('success', 'Mail envoyé');
     return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
 }
+
 
     return $this->render('candidatures/edit.html.twig', [
         'candidature' => $candidature,
