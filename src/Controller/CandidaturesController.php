@@ -103,6 +103,9 @@ $mail = new Mail();
 $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
+// Préremplir le CC si besoin
+$mail->setCc('rh@bfaldjazair.com, manager@bfaldjazair.com');
+
 // Vérifier le statut du candidat
 $statut = $candidature->getStatut();
 
@@ -111,7 +114,7 @@ if ($statut && $statut->getLibelle() === 'refusé') {
         '%prenom%' => $candidature->getPrenom(),
         '%nom%' => $candidature->getNom(),
         '%poste%' => $candidature->getPoste(),
-    ], 'messages')); // <--- utiliser 'messages' si ton fichier s'appelle messages.fr.yaml
+    ], 'messages'));
 } elseif ($statut && $statut->getLibelle() === 'admis') {
     $mail->setContenu($translator->trans('email.admis', [
         '%prenom%' => $candidature->getPrenom(),
@@ -124,20 +127,33 @@ if ($statut && $statut->getLibelle() === 'refusé') {
         '%nom%' => $candidature->getNom(),
     ], 'messages'));
 }
+
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
 if ($formMail->isSubmitted() && $formMail->isValid()) {
     $contenuHtml = nl2br($mail->getContenu());
+
     $message = (new TemplatedEmail())
         ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
         ->to($formMail->get('email')->getData())
         ->subject($formMail->get('objet')->getData() . " - " . $candidature->getPoste())
         ->htmlTemplate('emails/candidat.html.twig')
         ->context([
-       
             'contenu' => $contenuHtml,
         ]);
+
+    // 🔹 Gestion du CC (plusieurs adresses séparées par , ou ;)
+    $ccString = $formMail->get('cc')->getData();
+    if ($ccString) {
+        $ccArray = preg_split('/[,;]+/', $ccString);
+        foreach ($ccArray as $cc) {
+            $cc = trim($cc);
+            if (!empty($cc)) {
+                $message->addCc($cc);
+            }
+        }
+    }
 
     try {
         $mailer->send($message);
@@ -146,8 +162,10 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         $mail->setStatutEnvoi('erreur: ' . $e->getMessage());
     }
 
+    // 🔹 Sauvegarde des infos
     $mail->setObjet($formMail->get('objet')->getData());
     $mail->setContenu($formMail->get('contenu')->getData());
+    $mail->setCc($formMail->get('cc')->getData()); // Enregistrer le CC en base
     $mail->setDateEnvoi(new \DateTime());
 
     $entityManager->persist($mail);
