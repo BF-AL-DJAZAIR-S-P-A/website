@@ -1,4 +1,7 @@
-{% if candidature.statut is not null and candidature.statut.libelle != 'non_traité' %}
+{% if candidature.statut is not null 
+   and candidature.statut.libelle is defined 
+   and candidature.statut.libelle != 'non_traité' %}
+
     {{ form_start(formMail) }}
     <div class="form-row">
         <div class="col-md-6">
@@ -33,6 +36,7 @@
         {{ button_label|default('Sauvegarder') }}
     </button>
     {{ form_end(formMail) }}
+
 {% else %}
     <div class="alert alert-warning mt-2">
         ⚠️ Vous devez d’abord définir un statut (admis ou refusé) avant d’envoyer un email.
