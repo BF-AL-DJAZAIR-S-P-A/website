@@ -103,7 +103,8 @@ $mail = new Mail();
 $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
-// Préremplir le CC si besoin
+
+// 🔹 Préremplir le champ CC avec plusieurs adresses (séparées par , ou ;)
 $mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
 
 // Vérifier le statut du candidat
@@ -143,14 +144,14 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
             'contenu' => $contenuHtml,
         ]);
 
-    // 🔹 Gestion du CC (plusieurs adresses séparées par , ou ;)
+    // 🔹 Gestion du CC : découper correctement plusieurs adresses
     $ccString = $formMail->get('cc')->getData();
     if ($ccString) {
-        $ccArray = preg_split('/[,;]+/', $ccString);
+        $ccArray = preg_split('/[,;]+/', $ccString); // accepte , ou ;
         foreach ($ccArray as $cc) {
             $cc = trim($cc);
             if (!empty($cc)) {
-                $message->addCc($cc);
+                $message->addCc($cc); // <-- ajoute bien chaque adresse
             }
         }
     }
@@ -165,7 +166,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     // 🔹 Sauvegarde des infos
     $mail->setObjet($formMail->get('objet')->getData());
     $mail->setContenu($formMail->get('contenu')->getData());
-    $mail->setCc($formMail->get('cc')->getData()); // Enregistrer le CC en base
+    $mail->setCc($formMail->get('cc')->getData()); // sauvegarde tel quel "a@a.com, b@b.com"
     $mail->setDateEnvoi(new \DateTime());
 
     $entityManager->persist($mail);
