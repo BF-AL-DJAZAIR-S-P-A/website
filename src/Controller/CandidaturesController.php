@@ -97,7 +97,7 @@ public function edit(Request $request, Candidatures $candidature,MailerInterface
         return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
     }
 
-    // MAIL
+   
 // MAIL
 $mail = new Mail();
 $mail->setCandidat($candidature);
@@ -124,7 +124,7 @@ if ($statut && $statut->getLibelle() === 'refusé') {
         '%nom%' => $candidature->getNom(),
     ], 'emails');
 }
-
+$mail->setContenu($contenu);
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
