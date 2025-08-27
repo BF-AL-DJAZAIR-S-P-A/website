@@ -128,6 +128,7 @@ $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
 if ($formMail->isSubmitted() && $formMail->isValid()) {
+    $contenuHtml = nl2br($mail->getContenu());
     $message = (new TemplatedEmail())
         ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
         ->to($formMail->get('email')->getData())
@@ -135,7 +136,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         ->htmlTemplate('emails/candidat.html.twig')
         ->context([
        
-            'contenu' => $formMail->get('contenu')->getData(),
+            'contenu' => $contenuHtml,
         ]);
 
     try {
