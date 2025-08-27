@@ -106,6 +106,8 @@ $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
 // 🔹 Préremplir le champ CC avec plusieurs adresses
 $mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
+$ccArray = array_map('trim', explode(',', $cc));
+dd($ccArray);
 
 // Vérifier le statut du candidat
 $statut = $candidature->getStatut();
