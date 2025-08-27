@@ -128,11 +128,11 @@
 								{% set erreurs = erreurs + 1 %}
 							{% endif %}
 						{% endfor %}
-
-						<span class="badge bg-success">{{ envoyes }} mail envoyé(s)</span>
+						
+						<span class="badge bg-success">{{ envoyes }} {{ 'candidats.mailenvoye'|trans }}</span>
 						
 					{% else %}
-						<span class="badge bg-secondary">Aucun mail envoyé</span>
+						<span class="badge bg-secondary">{{ 'candidats.aucunmail'|trans }}</span>
 					
 					{% endif %}
 				</td>
@@ -140,7 +140,7 @@
 
 										<a href="{{ path('app_candidatures_edit', {'id': candidature.id}) }}">
 											<button class="mb-2 mr-2 btn-icon btn-pill btn btn-link">
-												<i class="pe-7s-tools btn-icon-wrapper"></i>Edit</button>
+												<i class="pe-7s-tools btn-icon-wrapper"></i>{{ 'candidats.fiche'|trans }}</button>
 										</a>
 									</td>
             </tr>
