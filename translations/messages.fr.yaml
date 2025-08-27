@@ -111,7 +111,7 @@ pagesAdmin:
 
 email:
   refuse: |
-    "Bonjour %prenom% %nom%,
+    Bonjour %prenom% %nom%,
 
     Nous vous remercions pour l’intérêt que vous portez à BF ALDJAZAIR et pour le temps consacré à votre candidature.
 
@@ -119,20 +119,21 @@ email:
 
     Nous vous encourageons à postuler à nouveau pour de futures opportunités correspondant à votre profil.
 
-    Nous vous souhaitons plein succès dans vos projets professionnels."
+    Nous vous souhaitons plein succès dans vos projets professionnels.
 
   admis: |
-    "Bonjour %prenom% %nom%,
+    Bonjour %prenom% %nom%,
 
     Félicitations 🎉 ! Après étude de votre candidature, nous sommes heureux de vous informer que vous avez été admis(e) pour le poste de %poste% chez BF ALDJAZAIR.
 
     Notre équipe RH vous contactera prochainement afin de finaliser les démarches.
 
-    Bienvenue dans l’aventure BF ALDJAZAIR !"
+    Bienvenue dans l’aventure BF ALDJAZAIR !
 
   attente: |
-    "Bonjour %prenom% %nom%,
+    Bonjour %prenom% %nom%,
 
-    Votre candidature est en cours de traitement. Nous reviendrons vers vous dès qu'une décision sera prise."
+    Votre candidature est en cours de traitement. Nous reviendrons vers vous dès qu'une décision sera prise.
+
 
     
