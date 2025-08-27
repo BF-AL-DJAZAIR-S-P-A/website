@@ -107,24 +107,23 @@ $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 $statut = $candidature->getStatut();
 
 if ($statut && $statut->getLibelle() === 'refusé') {
-    $contenu = $translator->trans('email.refuse', [
+    $mail->setContenu($translator->trans('email.refuse', [
         '%prenom%' => $candidature->getPrenom(),
         '%nom%' => $candidature->getNom(),
-        '%poste%'  => $candidature->getPoste(),
-    ], 'emails');
+        '%poste%' => $candidature->getPoste(),
+    ], 'messages')); // <--- utiliser 'messages' si ton fichier s'appelle messages.fr.yaml
 } elseif ($statut && $statut->getLibelle() === 'admis') {
-    $contenu = $translator->trans('email.admis', [
+    $mail->setContenu($translator->trans('email.admis', [
         '%prenom%' => $candidature->getPrenom(),
         '%nom%' => $candidature->getNom(),
-        '%poste%'  => $candidature->getPoste(),
-    ], 'emails');
+        '%poste%' => $candidature->getPoste(),
+    ], 'messages'));
 } else {
-    $contenu = $translator->trans('email.attente', [
+    $mail->setContenu($translator->trans('email.attente', [
         '%prenom%' => $candidature->getPrenom(),
         '%nom%' => $candidature->getNom(),
-    ], 'emails');
+    ], 'messages'));
 }
-$mail->setContenu($contenu);
 $formMail = $this->createForm(MailType::class, $mail);
 $formMail->handleRequest($request);
 
