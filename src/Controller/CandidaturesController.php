@@ -151,7 +151,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         foreach ($ccArray as $cc) {
             $cc = trim($cc);
             if ($cc !== '' && filter_var($cc, FILTER_VALIDATE_EMAIL)) {
-                $message->addCc(new Address($cc));
+                $message->addCc($cc); // ✅ plus simple que new Address()
             }
         }
     }
