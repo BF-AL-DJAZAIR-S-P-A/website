@@ -104,7 +104,7 @@ $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 // Préremplir le CC si besoin
-$mail->setCc('rh@bfaldjazair.com, manager@bfaldjazair.com');
+$mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
 
 // Vérifier le statut du candidat
 $statut = $candidature->getStatut();
