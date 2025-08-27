@@ -92,6 +92,15 @@ candidats:
   ville: "Ville"
   telephone: "Téléphone"
   action: "Actions"
+  note: "Note"
+  statut: "Statut"
+  retenue: "Retenue"
+  nonretenue : "Non retenue"
+  nondefini: "Pas encore défini"
+  mailenvoye: "mail envoyé"
+  aucunmail: "Aucun mail envoyé"
+  fiche: "Fiche candidat"
+  action: "Action"
 
 menuAdmin:
   candidats: "Candidats"

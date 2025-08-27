@@ -81,6 +81,16 @@ candidats:
   ville: "City"
   action: "Actions"
   telephone: "Phone number"
+  note: "Rating"
+  statut: "Status"
+  retenue: "Accepted"
+  nonretenue : "Rejected"
+  nondefini: "Not yet defined"
+  mailenvoye: "mail sent"
+  aucunmail: "No mail sent"
+  fiche: "Candidate profile"
+  action: "Action"
+
 
 
 menuAdmin:

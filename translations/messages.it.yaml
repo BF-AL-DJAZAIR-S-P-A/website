@@ -83,6 +83,18 @@ candidats:
   ville: "Città"
   telephone: "Telefono"
   action: "Azioni"
+  note: "Valutazione"
+  statut: "Stato"
+  retenue: "Accettata"
+  nonretenue : "Rifiutata"
+  nondefini: "Non ancora definito"
+  mailenvoye: "mail inviato"
+  aucunmail: "Nessun mail inviato"
+  fiche: "Scheda candidato"
+  action: "Azione"
+
+  
+
 
 menuAdmin:
   candidats: "Candidati"
