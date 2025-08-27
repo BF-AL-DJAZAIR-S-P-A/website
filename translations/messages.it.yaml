@@ -98,3 +98,29 @@ pagesAdmin:
   actualites-titre: "Notizie"
   actualites-add: "Aggiungi"
   actualites-soustitre: "Elenco delle notizie"
+
+email:
+  refuse: |
+    Ciao %prenom% %nom%,
+
+    Ti ringraziamo per l’interesse dimostrato verso BF ALDJAZAIR e per il tempo dedicato alla tua candidatura.
+
+    Dopo un’attenta valutazione, purtroppo la tua candidatura non è stata selezionata per il ruolo di %poste%.
+
+    Ti incoraggiamo a candidarti nuovamente per future opportunità.
+
+    Ti auguriamo molto successo nei tuoi progetti professionali.
+
+  admis: |
+    Ciao %prenom% %nom%,
+
+    Congratulazioni 🎉! Dopo l’analisi della tua candidatura, siamo felici di comunicarti che sei stato selezionato per il ruolo di %poste% presso BF ALDJAZAIR.
+
+    Il nostro team HR ti contatterà a breve per completare le procedure.
+
+    Benvenuto nell’avventura BF ALDJAZAIR!
+
+  attente: |
+    Ciao %prenom% %nom%,
+
+    La tua candidatura è in fase di valutazione. Ti informeremo appena sarà presa una decisione.
