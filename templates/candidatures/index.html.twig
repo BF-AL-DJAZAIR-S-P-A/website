@@ -77,7 +77,7 @@
 				<th>{{ 'candidats.note'|trans }}</th>
 				<th>{{ 'candidats.statut'|trans }}</th>
 				<th>Mail</th>
-				<th>Action</th>
+				<th>{{ 'candidats.action'|trans }}</th>
 				
                
             </tr>
@@ -98,23 +98,23 @@
 						{% endif %}
 					{% endfor %}
 				{% else %}
-					<span class="text-muted">Pas encore noté</span>
+					<span class="text-muted">{{ 'candidats.pasnote'|trans }}</span>
 				{% endif %}
 				</td>
 
 				<td>
 				{% if candidature.statut is not null %}
                 {% if candidature.statut.libelle == 'non_traité' %}
-                    <span class="badge bg-secondary">Non traité</span>
+                    <span class="badge bg-secondary">{{ 'candidats.nondefini'|trans }}</span>
                 {% elseif candidature.statut.libelle == 'admis' %}
-                    <span class="badge bg-success">Admis</span>
+                    <span class="badge bg-success">{{ 'candidats.retenue'|trans }}</span>
                 {% elseif candidature.statut.libelle == 'refusé' %}
-                    <span class="badge bg-danger">Refusé</span>
+                    <span class="badge bg-danger">{{ 'candidats.nonretenue'|trans }}</span>
                 {% else %}
                     <span class="badge bg-dark">{{ candidature.statut.libelle }}</span>
                 {% endif %}
             {% else %}
-                <span class="text-muted">Pas encore défini</span>
+                <span class="text-muted">{{ 'candidats.nondefini'|trans }}</span>
             {% endif %}
 				</td>
 				<td>

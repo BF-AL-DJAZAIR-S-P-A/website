@@ -93,6 +93,7 @@ candidats:
   telephone: "Téléphone"
   action: "Actions"
   note: "Note"
+  pasnote: "Pas encore noté"
   statut: "Statut"
   retenue: "Retenue"
   nonretenue : "Non retenue"

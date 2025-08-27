@@ -82,6 +82,7 @@ candidats:
   action: "Actions"
   telephone: "Phone number"
   note: "Rating"
+  pasnote: "Not yet rated"
   statut: "Status"
   retenue: "Accepted"
   nonretenue : "Rejected"

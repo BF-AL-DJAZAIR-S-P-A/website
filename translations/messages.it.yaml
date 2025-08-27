@@ -84,6 +84,7 @@ candidats:
   telephone: "Telefono"
   action: "Azioni"
   note: "Valutazione"
+  pasnote: "Non ancora valutato"
   statut: "Stato"
   retenue: "Accettata"
   nonretenue : "Rifiutata"
