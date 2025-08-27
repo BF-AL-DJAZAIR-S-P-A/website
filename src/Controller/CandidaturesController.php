@@ -98,18 +98,17 @@ public function edit(Request $request, Candidatures $candidature,MailerInterface
     }
 
    
-// MAIL
+// --- MAIL ---
 $mail = new Mail();
 $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
-// 🔹 Préremplir le champ CC avec plusieurs adresses
-$mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com ');
+// Préremplir (optionnel)
+$mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
 
-// Vérifier le statut du candidat
+// Contenu selon statut (inchangé)
 $statut = $candidature->getStatut();
-
 if ($statut && $statut->getLibelle() === 'refusé') {
     $mail->setContenu($translator->trans('email.refuse', [
         '%prenom%' => $candidature->getPrenom(),
@@ -138,22 +137,49 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     $message = (new TemplatedEmail())
         ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
         ->to($formMail->get('email')->getData())
-        ->subject($formMail->get('objet')->getData() . " - " . $candidature->getPoste())
+        ->subject($formMail->get('objet')->getData() . ' - ' . $candidature->getPoste())
         ->htmlTemplate('emails/candidat.html.twig')
-        ->context([
-            'contenu' => $contenuHtml,
-        ]);
+        ->context(['contenu' => $contenuHtml]);
 
-    // 🔹 Gestion du CC : découpe , ou ; et ajoute chaque adresse validée
-    $ccString = $formMail->get('cc')->getData();
-    if ($ccString) {
-        $ccArray = preg_split('/[,;]+/', $ccString);
-        foreach ($ccArray as $cc) {
-            $cc = trim($cc);
-            if ($cc !== '' && filter_var($cc, FILTER_VALIDATE_EMAIL)) {
-                $message->addCc($cc); // ✅ ajoute une par une
+    // === CC: normalisation, validation et ajout UNE PAR UNE ===
+    $ccString = trim((string) $formMail->get('cc')->getData());
+    if ($ccString === '') {
+        // fallback sur $mail->getCc() si nécessaire
+        $ccString = trim((string) $mail->getCc());
+    }
+
+    $ccAdded = [];
+    if ($ccString !== '') {
+        // split en acceptant: "a@a.com, b@b.com" ou "a@a.com; b@b.com" et tolérer espaces
+        $parts = preg_split('/\s*[,;]\s*/', $ccString, -1, PREG_SPLIT_NO_EMPTY);
+        foreach ($parts as $addr) {
+            $addr = trim($addr);
+            if ($addr === '') {
+                continue;
+            }
+            if (filter_var($addr, FILTER_VALIDATE_EMAIL)) {
+                // ajoute UNE adresse à la fois (très important)
+                $message->addCc($addr);
+                $ccAdded[] = $addr;
+            } else {
+                $this->addFlash('warning', sprintf("Adresse CC invalide ignorée : %s", $addr));
             }
         }
+    }
+
+    // --- DEBUG: vérifier les CC effectivement présents dans l'objet message (en dev)
+    if (!empty($ccAdded)) {
+        // getCc() retourne un tableau d'Address ou de strings selon version
+        $ccObjects = method_exists($message, 'getCc') ? $message->getCc() : null;
+        $ccDebug = [];
+        if (is_array($ccObjects)) {
+            foreach ($ccObjects as $c) {
+                $ccDebug[] = (string) $c;
+            }
+        } else {
+            $ccDebug = $ccAdded;
+        }
+        dump($ccDebug); // -> vois ici les adresses ajoutées avant envoi (en dev)
     }
 
     try {
@@ -163,10 +189,10 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
         $mail->setStatutEnvoi('erreur: ' . $e->getMessage());
     }
 
-    // 🔹 Sauvegarde des infos
+    // Sauvegarde
     $mail->setObjet($formMail->get('objet')->getData());
     $mail->setContenu($formMail->get('contenu')->getData());
-    $mail->setCc($formMail->get('cc')->getData()); // garde la chaîne "a@a.com, b@b.com"
+    $mail->setCc($formMail->get('cc')->getData());
     $mail->setDateEnvoi(new \DateTime());
 
     $entityManager->persist($mail);
