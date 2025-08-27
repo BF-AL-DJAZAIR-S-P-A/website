@@ -48,7 +48,7 @@ final class CandidaturesController extends AbstractController
     }
 
 #[Route('/{id}/edit', name: 'app_candidatures_edit', methods: ['GET', 'POST'])]
-public function edit(Request $request, Candidatures $candidature,MailerInterface $mailer, EntityManagerInterface $entityManager): Response
+public function edit(Request $request, Candidatures $candidature,MailerInterface $mailer,TranslatorInterface $translator, EntityManagerInterface $entityManager): Response
 {
     // Formulaire Candidature
     $form = $this->createForm(CandidaturesType::class, $candidature);
