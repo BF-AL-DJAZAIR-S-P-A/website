@@ -91,7 +91,6 @@ candidats:
   datenaissance: "Date de naissance"
   ville: "Ville"
   telephone: "Téléphone"
-  action: "Actions"
   note: "Note"
   pasnote: "Pas encore noté"
   statut: "Statut"

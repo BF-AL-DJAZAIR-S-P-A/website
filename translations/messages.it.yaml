@@ -82,7 +82,6 @@ candidats:
   datenaissance: "Data di nascita"
   ville: "Città"
   telephone: "Telefono"
-  action: "Azioni"
   note: "Valutazione"
   pasnote: "Non ancora valutato"
   statut: "Stato"
