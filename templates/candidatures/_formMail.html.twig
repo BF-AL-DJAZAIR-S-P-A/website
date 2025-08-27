@@ -1,43 +1,40 @@
+{% if candidature.statut is not null and candidature.statut.libelle != 'non_traité' %}
+    {{ form_start(formMail) }}
+    <div class="form-row">
+        <div class="col-md-6">
+            {{ form_row(formMail.email, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formMail.email) }}
+        </div>
+    </div>
 
+    <div class="form-row">
+        <div class="col-md-6">
+            {{ form_row(formMail.cc, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formMail.cc) }}
+        </div>
+    </div>
 
-{{ form_start(formMail) }}
- <div class="form-row">
-	<div class="col-md-6">
+    <div class="form-row">
+        <div class="col-md-6">
+            {{ form_row(formMail.objet, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(formMail.objet) }}
+        </div>
+    </div>
 
-		{{ form_row(formMail.email,{'attr': {'class': 'form-control'}}) }}
-		{{ form_errors(formMail.email) }}
-    
-	</div>
+    <div class="form-row">
+        <div class="col-md-10">
+            {{ form_row(formMail.contenu, {'attr': {'class': 'form-control', 'rows': 11}}) }}
+            {{ form_errors(formMail.contenu) }}
+        </div>
+    </div>
 
-</div>
- <div class="form-row">
-	<div class="col-md-6">
-
-		{{ form_row(formMail.cc,{'attr': {'class': 'form-control'}}) }}
-		{{ form_errors(formMail.cc) }}
-    
-	</div>
-
-</div>
- <div class="form-row">
-	<div class="col-md-6">
-
-		{{ form_row(formMail.objet,{'attr': {'class': 'form-control'}}) }}
-		{{ form_errors(formMail.objet) }}
-    
-	</div>
-
-</div>
- <div class="form-row">
-	<div class="col-md-10">
-        {{ form_row(formMail.contenu, {'attr': {'class': 'form-control','rows': 11 }}) }}
-		{{ form_errors(formMail.contenu) }}
-		
-    
-	</div>
-
-</div>
-<br>
-
-<button type="submit" class="mt-1 btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
-{{ form_end(formMail) }}
+    <br>
+    <button type="submit" class="mt-1 btn btn-success">
+        {{ button_label|default('Sauvegarder') }}
+    </button>
+    {{ form_end(formMail) }}
+{% else %}
+    <div class="alert alert-warning mt-2">
+        ⚠️ Vous devez d’abord définir un statut (admis ou refusé) avant d’envoyer un email.
+    </div>
+{% endif %}
