@@ -113,19 +113,19 @@ $statut = $candidature->getStatut();
 if ($statut && $statut->getLibelle() === 'refusé') {
     $mail->setContenu($translator->trans('email.refuse', [
         '%prenom%' => $candidature->getPrenom(),
-        '%nom%' => $candidature->getNom(),
-        '%poste%' => $candidature->getPoste(),
+        '%nom%'    => $candidature->getNom(),
+        '%poste%'  => $candidature->getPoste(),
     ], 'messages'));
 } elseif ($statut && $statut->getLibelle() === 'admis') {
     $mail->setContenu($translator->trans('email.admis', [
         '%prenom%' => $candidature->getPrenom(),
-        '%nom%' => $candidature->getNom(),
-        '%poste%' => $candidature->getPoste(),
+        '%nom%'    => $candidature->getNom(),
+        '%poste%'  => $candidature->getPoste(),
     ], 'messages'));
 } else {
     $mail->setContenu($translator->trans('email.attente', [
         '%prenom%' => $candidature->getPrenom(),
-        '%nom%' => $candidature->getNom(),
+        '%nom%'    => $candidature->getNom(),
     ], 'messages'));
 }
 
@@ -147,11 +147,11 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     // 🔹 Gestion du CC : supporte plusieurs adresses séparées par , ou ;
     $ccString = $formMail->get('cc')->getData();
     if ($ccString) {
-        $ccArray = preg_split('/[,;]+/', $ccString); // coupe par virgule ou point-virgule
+        $ccArray = preg_split('/[,;]+/', $ccString); // accepte , ou ;
         foreach ($ccArray as $cc) {
             $cc = trim($cc);
             if (!empty($cc)) {
-                $message->addCc($cc); // ✅ ajoute chaque adresse correctement
+                $message->addCc($cc); // ✅ ajoute chaque adresse séparément
             }
         }
     }
