@@ -104,7 +104,7 @@ $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet('Votre candidature chez BF ALDJAZAIR');
 
-// 🔹 Préremplir le champ CC avec plusieurs adresses (séparées par , ou ;)
+// 🔹 Préremplir le champ CC avec plusieurs adresses
 $mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
 
 // Vérifier le statut du candidat
@@ -144,14 +144,14 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
             'contenu' => $contenuHtml,
         ]);
 
-    // 🔹 Gestion du CC : supporte plusieurs adresses séparées par , ou ;
+    // 🔹 Gestion du CC : découpe , ou ; et ajoute chaque adresse validée
     $ccString = $formMail->get('cc')->getData();
     if ($ccString) {
-        $ccArray = preg_split('/[,;]+/', $ccString); // accepte , ou ;
+        $ccArray = preg_split('/[,;]+/', $ccString);
         foreach ($ccArray as $cc) {
             $cc = trim($cc);
-            if (!empty($cc)) {
-                $message->addCc($cc); // ✅ ajoute chaque adresse séparément
+            if ($cc !== '' && filter_var($cc, FILTER_VALIDATE_EMAIL)) {
+                $message->addCc(new Address($cc));
             }
         }
     }
@@ -175,7 +175,6 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     $this->addFlash('success', 'Mail envoyé');
     return $this->redirectToRoute('app_candidatures_edit', ['id' => $candidature->getId()]);
 }
-
 
     return $this->render('candidatures/edit.html.twig', [
         'candidature' => $candidature,
