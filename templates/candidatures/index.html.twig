@@ -69,11 +69,9 @@
 
         <thead>
             <tr>
+				<th>{{ 'candidats.nom'|trans }} & {{ 'candidats.prenom'|trans }}</th>
                 <th>{{ 'candidats.poste'|trans }}</th>
                 <th>{{ 'candidats.experience'|trans }}</th>
-                <th>{{ 'candidats.nom'|trans }} & {{ 'candidats.prenom'|trans }}</th>
-				
-                
 				<th>{{ 'candidats.note'|trans }}</th>
 				<th>{{ 'candidats.statut'|trans }}</th>
 				<th>Mail</th>
@@ -85,9 +83,9 @@
         <tbody>
         {% for candidature in candidatures %}
             <tr>
+				<td>{{ candidature.nom }} {{ candidature.prenom }}</td>
                 <td>{{ candidature.poste }}</td>
                 <td>{{ candidature.experience }}</td>
-                <td>{{ candidature.nom }} {{ candidature.prenom }}</td>
 				<td>
 				{% if candidature.note is not null %}
 					{% for i in 1..5 %}
