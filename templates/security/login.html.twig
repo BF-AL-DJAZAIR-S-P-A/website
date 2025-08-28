@@ -3,6 +3,58 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+
+
+
+<main class="container py-5">
+<div class="row justify-content-center">
+<div class="col-12 col-sm-10 col-md-8 col-lg-5">
+<div class="card p-4 p-md-5">
+<div class="text-center mb-4">
+<i class="bi bi-shield-lock" style="font-size: 2.25rem"></i>
+<h1 class="h3 mt-2 brand">Sign in</h1>
+<p class="text-secondary m-0">Please enter your credentials</p>
+</div>
+
+
+<form action="#" method="post" novalidate>
+<!-- Email -->
+<div class="mb-3">
+<label for="email" class="form-label">Email address</label>
+<div class="input-group">
+<span class="input-group-text" id="emailPrepend">
+<i class="bi bi-envelope"></i>
+</span>
+<input
+type="email"
+class="form-control"
+id="email"
+name="email"
+placeholder="name@example.com"
+aria-describedby="emailPrepend"
+required
+autocomplete="email"
+/>
+</div>
+<div class="form-text">We'll never share your email.</div>
+</div>
+
+
+<!-- Password -->
+<div class="mb-3">
+<label for="password" class="form-label">Password</label>
+<div class="input-group" id="passwordGroup">
+<span class="input-group-text">
+<i class="bi bi-lock"></i>
+</span>
+<input
+type="password"
+class="form-control"
+id="password"
+name="password"
+</main>
+
+
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -12,7 +64,9 @@
         <div class="mb-3">
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
-    {% endif %}
+        
+
+
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail">Email</label>
