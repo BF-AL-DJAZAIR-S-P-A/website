@@ -105,6 +105,22 @@ form .mb-3 a:hover { text-decoration: underline; }
 body{
         background: #e9ecef;
 }
+@media only screen and (min-width: 1440px) {
+    #header-global {
+        padding: 0 calc(50% - 648px);
+        height: 120px;
+    }
+}
+@media only screen and (min-width: 1025px) {
+    #header-global .header-primary-navigation {
+        order: 5;
+        flex: 1 0 41%;
+        padding: 0 10px;
+        background-color: #fff;
+        z-index: 3;
+        height: 80px;
+    }
+}
 </style>
 
 <form method="post">
