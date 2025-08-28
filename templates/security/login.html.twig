@@ -4,7 +4,6 @@
 
 {% block body %}
 <style>
-/* Container autour du <form> (si tu as déjà un wrapper, adapte le sélecteur) */
 form {
   max-width: 420px;
   width: 90%;
@@ -17,30 +16,22 @@ form {
   color: #222;
   box-sizing: border-box;
 }
-
-/* Titre */
 form h1.h3 {
   font-size: 20px;
   margin-bottom: 18px;
   font-weight: 600;
   color: #111827;
 }
-
-/* Labels */
 form label {
   display: block;
   font-size: 13px;
   margin: 10px 0 6px;
   color: #374151;
 }
-
-/* Inputs (utilise ta classe .form-control pour compatibilité) */
-.form-control,
-#inputEmail,
-#inputPassword {
+.form-control {
   display: block;
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 40px 10px 12px; /* padding right augmenté pour l’icône */
   font-size: 15px;
   line-height: 1.2;
   color: #111;
@@ -50,20 +41,13 @@ form label {
   transition: border-color .15s ease, box-shadow .15s ease;
   box-sizing: border-box;
 }
-
-/* Focus input */
-.form-control:focus,
-#inputEmail:focus,
-#inputPassword:focus {
+.form-control:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 4px rgba(59,130,246,0.08);
   background: #fff;
 }
-
-/* Bouton */
-.btn,
-button.btn {
+.btn {
   display: inline-block;
   width: 100%;
   padding: 11px 14px;
@@ -78,12 +62,8 @@ button.btn {
   box-shadow: 0 6px 18px rgba(37,99,235,0.18);
   transition: transform .08s ease, box-shadow .12s ease, opacity .12s ease;
 }
-
-/* Bouton hover / active */
 .btn:hover { transform: translateY(-1px); }
 .btn:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(16,24,40,0.08); }
-
-/* Alerte d'erreur (utilise la classe générée dans ton template) */
 .alert.alert-danger {
   background: #fff1f0;
   border: 1px solid #fecaca;
@@ -93,13 +73,9 @@ button.btn {
   margin-bottom: 12px;
   font-size: 13px;
 }
-
-/* Message when already logged in section */
 form .mb-3 { margin-bottom: 1rem; }
 form .mb-3 a { color: #2563eb; text-decoration: none; }
 form .mb-3 a:hover { text-decoration: underline; }
-
-/* Petit texte d'aide (si tu veux) */
 .form-text {
   display: block;
   margin-top: 6px;
@@ -107,12 +83,29 @@ form .mb-3 a:hover { text-decoration: underline; }
   color: #6b7280;
 }
 
-/* Responsive tweaks */
+/* --- Password wrapper --- */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #6b7280;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+.toggle-password:hover { color: #111827; }
+
 @media (max-width: 480px) {
   form { padding: 20px; margin: 4vh 12px; border-radius: 10px; }
   .btn { padding: 10px; font-size: 15px; }
 }
 </style>
+
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -125,37 +118,29 @@ form .mb-3 a:hover { text-decoration: underline; }
     {% endif %}
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+
     <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <div class="password-wrapper">
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <span class="toggle-password" id="togglePassword">👁️</span>
+    </div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
 </form>
 
 <script>
-  // Toggle password visibility (optionnel)
-  (function(){
-    const pwd = document.getElementById('inputPassword');
-    if (!pwd) return;
-    // create a small toggle button
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.innerText = 'Show';
-    btn.style.marginTop = '8px';
-    btn.style.fontSize = '13px';
-    btn.className = 'btn-toggle-pwd';
-    btn.onclick = function(){
-      if (pwd.type === 'password') { pwd.type = 'text'; btn.innerText = 'Hide'; }
-      else { pwd.type = 'password'; btn.innerText = 'Show'; }
-    };
-    pwd.parentNode.insertBefore(btn, pwd.nextSibling);
-  })();
+  const pwdInput = document.getElementById("inputPassword");
+  const toggleBtn = document.getElementById("togglePassword");
+
+  toggleBtn.addEventListener("click", () => {
+    const isPassword = pwdInput.type === "password";
+    pwdInput.type = isPassword ? "text" : "password";
+    toggleBtn.textContent = isPassword ? "🙈" : "👁️";
+  });
 </script>
 {% endblock %}
