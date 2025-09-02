@@ -109,6 +109,18 @@ pagesAdmin:
   actualites-add: "Add"
   actualites-soustitre: "List of news"  
 
+footer:
+  suivez-nous: "Follow us"
+  decouvrez-nos-implantations: "Discover our locations"
+  site: "Website"
+  informations-legales: "Legal information"
+  données-personnelles: "Personal data"
+  utilisation-des-cookies: "Use of cookies"
+  cookie-management: "Cookie management"
+  conditions-generales: "General terms and conditions of sale"
+  fds: "Product safety (SDS)"
+  services: "Services"
+  portail-client: "Client portal"
 
 email:
   refuse: |

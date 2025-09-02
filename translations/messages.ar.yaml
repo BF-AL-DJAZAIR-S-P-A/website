@@ -92,7 +92,19 @@ menuAdmin:
   appels: "المناقصات"
   actualites: "الأخبار"
 
-
+footer:
+  suivez-nous: "تابعنا"
+  decouvrez-nos-implantations: "اكتشف مواقعنا"
+  site: "الموقع"
+  informations-legales: "المعلومات القانونية"
+  données-personnelles: "البيانات الشخصية"
+  utilisation-des-cookies: "استخدام الكوكيز"
+  cookie-management: "إدارة الكوكيز"
+  conditions-generales: "الشروط العامة للبيع"
+  fds: "سلامة المنتجات (FDS)"
+  services: "الخدمات"
+  portail-client: "بوابة العملاء"
+  
 pagesAdmin:
   candidats-titre: "المترشحون"
   candidats-soustitre: "قائمة المترشحين"

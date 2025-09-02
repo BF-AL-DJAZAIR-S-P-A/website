@@ -111,6 +111,19 @@ pagesAdmin:
   actualites-add: "Aggiungi"
   actualites-soustitre: "Elenco delle notizie"
 
+footer:
+  suivez-nous: "Seguici"
+  decouvrez-nos-implantations: "Scopri le nostre sedi"
+  site: "Sito"
+  informations-legales: "Informazioni legali"
+  données-personnelles: "Dati personali"
+  utilisation-des-cookies: "Utilizzo dei cookie"
+  cookie-management: "Gestione dei cookie"
+  conditions-generales: "Condizioni generali di vendita"
+  fds: "Sicurezza dei prodotti (SDS)"
+  services: "Servizi"
+  portail-client: "Portale clienti"
+
 email:
   refuse: |
     Ciao %prenom% %nom%,

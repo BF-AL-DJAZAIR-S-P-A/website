@@ -117,6 +117,21 @@ pagesAdmin:
   actualites-add: "Ajouter"
   actualites-soustitre: "Liste d'actualités"
 
+footer:
+  suivez-nous: "Suivez-nous"
+  decouvrez-nos-implantations: "Découvrez nos implantations"
+  site: "Site"
+  informations-legales: "Informations légales"
+  données-personnelles: "Données Personnelles"
+  utilisation-des-cookies: "Utilisation des cookies"
+  cookie-management: "Cookie management"
+  conditions-generales: " Conditions générales de vente"
+  fds: "Sécurité des produits(FDS)"
+  services: "Services"
+  portail-client: "Portail client"
+  
+
+
 
 email:
   refuse: |
