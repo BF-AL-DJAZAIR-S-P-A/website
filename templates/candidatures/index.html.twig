@@ -71,7 +71,6 @@
             <tr>
 				<th>{{ 'candidats.nom'|trans }} & {{ 'candidats.prenom'|trans }}</th>
                 <th>{{ 'candidats.poste'|trans }}</th>
-                <th>{{ 'candidats.experience'|trans }}</th>
 				<th>{{ 'candidats.datepostule'|trans }}</th>
 				<th>{{ 'candidats.note'|trans }}</th>
 				<th>{{ 'candidats.statut'|trans }}</th>
@@ -86,7 +85,6 @@
             <tr>
 				<td>{{ candidature.nom }} {{ candidature.prenom }}</td>
                 <td>{{ candidature.poste }}</td>
-                <td>{{ candidature.experience }}</td>
 				<td>{{ candidature.createdAt|date('Y-m-d') }} {{ 'candidats.a'|trans }} {{ candidature.createdAt|date('H:m') }} </td>
 				<td>
 				{% if candidature.note is not null %}
