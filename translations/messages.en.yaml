@@ -79,6 +79,7 @@ candidats:
   prenom: "First Name"
   datenaissance: "Date of Birth"
   ville: "City"
+  datepostule: "Submission date"
   action: "Action"
   telephone: "Phone number"
   note: "Rating"

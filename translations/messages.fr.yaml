@@ -90,6 +90,7 @@ candidats:
   prenom: "Prénom"
   datenaissance: "Date de naissance"
   ville: "Ville"
+  datepostule: "Date de dépôt"
   telephone: "Téléphone"
   note: "Note"
   pasnote: "Pas encore noté"

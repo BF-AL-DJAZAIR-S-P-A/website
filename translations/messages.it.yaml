@@ -81,6 +81,7 @@ candidats:
   prenom: "Nome"
   datenaissance: "Data di nascita"
   ville: "Città"
+  datepostule: "Data di deposito"
   telephone: "Telefono"
   note: "Valutazione"
   pasnote: "Non ancora valutato"
