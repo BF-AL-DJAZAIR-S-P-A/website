@@ -80,6 +80,7 @@ candidats:
   datenaissance: "Date of Birth"
   ville: "City"
   datepostule: "Submission date"
+  a: "at"
   action: "Action"
   telephone: "Phone number"
   note: "Rating"
