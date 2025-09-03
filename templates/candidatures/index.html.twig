@@ -87,7 +87,7 @@
 				<td>{{ candidature.nom }} {{ candidature.prenom }}</td>
                 <td>{{ candidature.poste }}</td>
                 <td>{{ candidature.experience }}</td>
-				<td>{{ candidature.createdAt|date('Y-m-d H:M') }}</td>
+				<td>{{ candidature.createdAt|date('Y-m-d H:m') }}</td>
 				<td>
 				{% if candidature.note is not null %}
 					{% for i in 1..5 %}
