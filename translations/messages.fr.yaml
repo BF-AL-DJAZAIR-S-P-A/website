@@ -103,6 +103,8 @@ candidats:
   aucunmail: "Aucun mail envoyé"
   fiche: "Fiche candidat"
   action: "Action"
+  warning-mail: "Vous devez d’abord définir un statut (admis ou refusé) avant d’envoyer un email."
+  warning-statut: "Vous devez d’abord noter le candidat avant de définir son statut."
 
 menuAdmin:
   candidats: "Candidats"

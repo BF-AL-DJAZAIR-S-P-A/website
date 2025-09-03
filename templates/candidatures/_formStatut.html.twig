@@ -14,6 +14,6 @@
     {{ form_end(formStatut) }}
 {% else %}
     <div class="alert alert-warning mt-2">
-        ⚠️ Vous devez d’abord noter le candidat avant de définir son statut.
+        ⚠️ {{ 'candidats.warning-statut'|trans }}
     </div>
 {% endif %}

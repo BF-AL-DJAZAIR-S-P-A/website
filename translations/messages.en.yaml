@@ -92,7 +92,8 @@ candidats:
   mailenvoye: "mail sent"
   aucunmail: "No mail sent"
   fiche: "Candidate profile"
- 
+  warning-mail: "You must first set a status (admitted or rejected) before sending an email."
+  warning-statut: "You must first grade/evaluate the candidate before defining their status."
 
 
 

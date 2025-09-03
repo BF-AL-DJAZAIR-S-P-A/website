@@ -39,6 +39,6 @@
 
 {% else %}
     <div class="alert alert-warning mt-2">
-        ⚠️ Vous devez d’abord définir un statut (admis ou refusé) avant d’envoyer un email.
+        ⚠️ {{ 'candidats.warning-mail'|trans }}
     </div>
 {% endif %}

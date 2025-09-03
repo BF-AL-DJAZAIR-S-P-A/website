@@ -94,7 +94,8 @@ candidats:
   aucunmail: "Nessun mail inviato"
   fiche: "Scheda candidato"
   action: "Azione"
-
+  warning-mail: "Devi prima definire uno stato (ammesso o rifiutato) prima di inviare un'email."
+  warning-statut: "Devi prima valutare il candidato prima di definirne lo stato."
   
 
 
