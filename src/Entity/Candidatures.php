@@ -61,6 +61,9 @@ class Candidatures
     #[ORM\OneToMany(targetEntity: Mail::class, mappedBy: 'candidat')]
     private Collection $mails;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
     public function __construct()
     {
         $this->mails = new ArrayCollection();
@@ -251,6 +254,18 @@ class Candidatures
                 $mail->setCandidat(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }
