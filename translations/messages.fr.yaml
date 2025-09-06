@@ -138,6 +138,7 @@ footer:
 
 
 email:
+  objet: "Votre candidature chez BF AL DJAZAIR"
   refuse: |
     Bonjour %prenom% %nom%,
 

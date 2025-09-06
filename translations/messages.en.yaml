@@ -126,6 +126,7 @@ footer:
   portail-client: "Client portal"
 
 email:
+  objet: "Your application at BF AL DJAZAIR"
   refuse: |
     Hello %prenom% %nom%,
 

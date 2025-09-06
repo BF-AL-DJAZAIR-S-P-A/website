@@ -128,6 +128,7 @@ footer:
   portail-client: "Portale clienti"
 
 email:
+  objet: "La tua candidatura presso BF AL DJAZAIR"
   refuse: |
     Ciao %prenom% %nom%,
 
