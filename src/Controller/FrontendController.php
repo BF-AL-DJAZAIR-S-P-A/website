@@ -162,7 +162,7 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
                 // On remplace l’objet UploadedFile par le nom du fichier dans l’entité
                 $candidature->setCv($newFilename);
 
-                $candidature->setCreatedAt(new \DateTime());
+                $candidature->setCreatedAt(new \DateTimeImmutable());
             }
 
               $email = (new TemplatedEmail())
