@@ -61,8 +61,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
     public function appels(AppelsRepository $AppelsRepository,AcctualitesRepository $AcctualitesRepository,Request $request): Response
     {
 
-         $locale = $request->getLocale(); // récupère la locale courante
-
+         $locale = $request->getLocale(); 
 
 
         $appels = $AppelsRepository->findOnlyTranslated($locale);
@@ -122,6 +121,17 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
     ]);
 }
 
+        #[Route('/{_locale}/contact', name: 'app_application', methods: ['GET', 'POST'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
+    public function newContact(Request $request, EntityManagerInterface $entityManager,MailerInterface $mailer, SluggerInterface $slugger): Response
+    {
+         $locale = $request->getLocale(); // récupère la locale courante
+
+   
+        return $this->render('candidatures/new.html.twig', [
+            'candidature' => $candidature,
+            'form' => $form,
+        ]);
+    }
      #[Route('/{_locale}/application', name: 'app_application', methods: ['GET', 'POST'], requirements: ['_locale' => 'fr|it|en|ar'], defaults: ['_locale' => 'fr'])]
     public function new(Request $request, EntityManagerInterface $entityManager,MailerInterface $mailer, SluggerInterface $slugger): Response
     {
@@ -152,7 +162,7 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
                 // On remplace l’objet UploadedFile par le nom du fichier dans l’entité
                 $candidature->setCv($newFilename);
 
-                
+                $candidature->setCreatedAt(new \DateTime());
             }
 
               $email = (new TemplatedEmail())
@@ -197,7 +207,10 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
 
         return $this->render('candidatures/new.html.twig', [
             'candidature' => $candidature,
+            
             'form' => $form,
         ]);
     }
+
+
 }
