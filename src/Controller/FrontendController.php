@@ -166,10 +166,9 @@ public function acctualitesShow(int $id, Request $request, AcctualitesRepository
             }
 
               $email = (new TemplatedEmail())
-                    ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
+                    ->from(new Address('hr@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
                      ->to(
-                            'mehdi.boumediene@bfaldjazair.com',
-                            'elm3hdi@gmail.com'
+                            'hr@bfaldjazair.com',
                             
                         )
                     ->subject('New application received for the position of ' . $form->get('poste')->getData())
