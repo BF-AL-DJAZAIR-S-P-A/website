@@ -35,7 +35,7 @@
       >
       <label for="star{{ i }}">★</label>
     {% endfor %}
-  </div>
+  </div><br><br>
 
-  <button class="btn">{{ button_label|default('Update') }}</button>
+  <button class="mb-2 me-2 btn btn-success">{{ button_label|default('Update') }}</button>
 {{ form_end(formNote, {'render_rest': false}) }}
