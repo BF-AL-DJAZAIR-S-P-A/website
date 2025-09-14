@@ -59,17 +59,17 @@
                   <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                         <li class="nav-item">
                             <a role="tab" class="nav-link active" id="tab-0" data-bs-toggle="tab" href="#tab-content-0">
-                                <span>Informations</span>
+                                <span>{{ 'candidats.informations'|trans }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a role="tab" class="nav-link" id="tab-1" data-bs-toggle="tab" href="#tab-content-1">
-                                <span>Note</span>
+                                <span>{{ 'candidats.note'|trans }}</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a role="tab" class="nav-link" id="tab-2" data-bs-toggle="tab" href="#tab-content-2">
-                                <span>Statut</span>
+                                <span>{{ 'candidats.statut'|trans }}</span>
                             </a>
                         </li>
                              <li class="nav-item">
@@ -85,10 +85,10 @@
                                 <div class="col-md-12">
                                     <div class="main-card mb-3 card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Informations</h5>
+                                            <h5 class="card-title">{{ 'candidats.informations'|trans }}</h5>
                                                      {{ include('candidatures/_form.html.twig', {'button_label': 'Update'}) }}
 
-                                                {{ include('candidatures/_delete_form.html.twig') }}
+                                               
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +100,7 @@
                                 <div class="col-md-12">
                                     <div class="main-card mb-3 card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Gradient Icons</h5>
+                                            <h5 class="card-title">{{ 'candidats.note'|trans }}</h5>
                                       {{ include('candidatures/_formNote.html.twig', {'button_label': 'Update'}) }}
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                 <div class="col-md-12">
                                     <div class="main-card mb-3 card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Gradient Icons</h5>
+                                            <h5 class="card-title">{{ 'candidats.statut'|trans }}</h5>
                                        {{ include('candidatures/_formStatut.html.twig', {'button_label': 'Update'}) }}
                                         </div>
                                     </div>

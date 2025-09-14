@@ -104,6 +104,7 @@ $mail->setCandidat($candidature);
 $mail->setEmail($candidature->getEmail() ?? '');
 $mail->setObjet($translator->trans('email.objet'));
 
+
 // Préremplir (optionnel)
 $mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
 
