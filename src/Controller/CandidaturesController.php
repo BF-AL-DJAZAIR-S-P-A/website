@@ -106,7 +106,7 @@ $mail->setObjet($translator->trans('email.objet'));
 
 
 // Préremplir (optionnel)
-$mail->setCc('hr@bfaldjazair.com, elm3hdi@gmail.com');
+$mail->setCc('hr@bfaldjazair.com, mehdi.boumediene@bfaldjazair.com');
 
 // Contenu selon statut (inchangé)
 $statut = $candidature->getStatut();
