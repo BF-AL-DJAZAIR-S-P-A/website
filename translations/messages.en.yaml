@@ -86,6 +86,7 @@ candidats:
   informations: "Informations"
   mettreajour: "Update"
   envoyer: "Send"
+  candidat: "Applicant"
   note: "Rating"
   pasnote: "Not yet rated"
   statut: "Status"
