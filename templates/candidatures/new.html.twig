@@ -28,6 +28,14 @@ ff-controller .btn-file, input[type=date], input[type=email], input[type=number]
         top: 370px;
     }
 }
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .modal-content {
+        width: 100%;
+        padding: 0;
+        margin-top: 550px;
+    }
+}
 </style>
 
 <main class="content-edito " id="main-content">
@@ -40,39 +48,8 @@ ff-controller .btn-file, input[type=date], input[type=email], input[type=number]
               
             </div>
         </section>
-        <div class=" content-block content-list-search js-filter-section " data-filter-template="/modules/proxima-main/javascript/templates/filter.twig.html">
-            <button id="sidebar-filter-button" class="sidebar-filter-button select-fake js-switch js-switch-important" data-target="page-list-filter" aria-controls="page-list-filter">
-              Filtrer par</button>
-            <div class="js-result-list" data-result-template="/modules/proxima-main/javascript/templates/result-list-news.twig.html" data-result-item-template="news-teaser-arkema.twig.html" data-template="newslist" aria-live="polite">
-                <section class="content-block content-search-result content-list-result-header content-search-result-empty">
-                    <div class="content-wrapper">
-                        <ul class="result-tags">
-                        </ul>
-                        <div class="content-search-result-title">
-                            <h2>Aucun résultat, essayez avec d'autres mot-clés</h2>
-                        </div>
+       
 
-                        <div class="content-search-result-list">
-                            <h3>Suggestions :</h3>
-                            <ul>
-                                <li><span>Assurez-vous que le mot-clé est correctement tapé</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-                <section class="content-block content-search-result content-list-result-header content-search-result-errors">
-                    <div class="content-wrapper">
-                        <div class="content-search-result-title">
-                            <h2>La recherche est actuellement indisponible. Merci de réessayer plus tard.</h2>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="clear-float"></div>
-        </div>
-
-    
         <section id="search-result-list" class="content-block search-result-list list-column list-column-2">
    
 
