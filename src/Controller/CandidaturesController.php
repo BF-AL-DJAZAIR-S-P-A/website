@@ -106,7 +106,7 @@ $mail->setObjet($translator->trans('email.objet'));
 
 
 // Préremplir (optionnel)
-$mail->setCc('mehdi.boumediene@bfaldjazair.com, elm3hdi@gmail.com');
+$mail->setCc('hr@bfaldjazair.com, elm3hdi@gmail.com');
 
 // Contenu selon statut (inchangé)
 $statut = $candidature->getStatut();
@@ -136,7 +136,7 @@ if ($formMail->isSubmitted() && $formMail->isValid()) {
     $contenuHtml = nl2br($mail->getContenu());
 
     $message = (new TemplatedEmail())
-        ->from(new Address('info@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
+        ->from(new Address('hr@bfaldjazair.com', 'BF AL DJAZAIR - Hiring'))
         ->to($formMail->get('email')->getData())
         ->subject($formMail->get('objet')->getData() . ' - ' . $candidature->getPoste())
         ->htmlTemplate('emails/candidat.html.twig')
